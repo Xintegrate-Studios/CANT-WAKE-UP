@@ -22,7 +22,6 @@ shape = SubResource("ConvexPolygonShape3D_ocuv0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-fov = 30.0
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
 

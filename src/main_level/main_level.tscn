@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=23 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="PackedScene" uid="uid://dkxc3trx4lke5" path="res://ast/models/bed.blend" id="1_85r4g"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
+[ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://d2wmpphgit0gr" path="res://ast/models/lamp.blend" id="7_5agnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -34,14 +36,15 @@ albedo_texture = ExtResource("1_scctx")
 uv1_scale = Vector3(0.145, 0.145, 0.145)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_scctx"]
-size = Vector2(10, 10)
+size = Vector2(25.545, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_n4qwq"]
 data = PackedVector3Array(4.4925, 0, 3.225, -4.4925, 0, 3.225, 4.4925, 0, -3.225, -4.4925, 0, 3.225, -4.4925, 0, -3.225, 4.4925, 0, -3.225)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goh21"]
 albedo_texture = ExtResource("2_tw2e2")
-uv1_scale = Vector3(0.955, 0.955, 0.955)
+uv1_scale = Vector3(-0.09, -0.09, -0.09)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scctx"]
 albedo_color = Color(0.43, 0.43, 0.43, 1)
@@ -55,6 +58,19 @@ size = Vector3(7.745, 0.205, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_goh21"]
 size = Vector3(7.745, 0.9, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4qwq"]
+size = Vector3(1, 4.87903, 6.85999)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbfot"]
+size = Vector3(1, 4.87903, 15.6199)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5agnw"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_5agnw"]
 
 [node name="World" type="Node3D"]
 
@@ -70,7 +86,7 @@ directional_shadow_max_distance = 14.2
 
 [node name="Player" parent="." instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
-FOV = 60
+FOV = 70
 BOB_FREQ = 5.0
 BOB_AMP = 0.02
 WALK_SPEED = 3.0
@@ -87,12 +103,18 @@ mesh = SubResource("PlaneMesh_scctx")
 shape = SubResource("ConcavePolygonShape3D_n4qwq")
 
 [node name="Roof" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 3.98561, -1.80632)
+transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 3.09066, 3.63497, -1.80632)
 material_override = SubResource("StandardMaterial3D_goh21")
 mesh = SubResource("PlaneMesh_scctx")
 
 [node name="Bed" parent="." instance=ExtResource("1_85r4g")]
 transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.281445, 0.267306)
+
+[node name="Wardrobe" parent="." instance=ExtResource("6_mbfot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33039, 0.0399998, -3.88321)
+
+[node name="Table" parent="." instance=ExtResource("6_5agnw")]
+transform = Transform3D(-4.37114e-08, 0, 0.465485, 0, 1, 0, -1, 0, -2.0347e-08, -0.723024, 0, -1.38403)
 
 [node name="Wall" type="Node3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.7304, 0, 0)
@@ -186,5 +208,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10188, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
 skeleton = NodePath("../..")
 
-[node name="wardrobe" parent="." instance=ExtResource("6_mbfot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33039, 0.0399998, -3.88321)
+[node name="WallCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63848, 1.93951, -1.29022)
+shape = SubResource("BoxShape3D_n4qwq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, 1.83217)
+shape = SubResource("BoxShape3D_mbfot")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, -5.1166)
+shape = SubResource("BoxShape3D_mbfot")
+
+[node name="lamp" parent="." instance=ExtResource("7_5agnw")]
+transform = Transform3D(0.68477, 0, 0, 0, 0.68477, 0, 0, 0, 0.68477, -0.710284, 1.05705, -1.01131)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711221, 1.23937, -1.00193)
+light_color = Color(0.930968, 0.962566, 0.881646, 1)
+light_volumetric_fog_energy = 0.0
+omni_range = 0.80963
+omni_attenuation = 2.165
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0505888, 0, 0, 0, 0.0842178, 0, 0, 0, 0.0537011, -0.709317, 1.31132, -1.01346)
+material_override = SubResource("StandardMaterial3D_5agnw")
+mesh = SubResource("SphereMesh_5agnw")
