@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=4 uid="uid://ccfnupg8iiqby"]
+
+[ext_resource type="Texture2D" uid="uid://jik1mvk3iua" path="res://ast/models/textures/Image_0.jpg" id="1_u4yca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b35r1"]
+resource_name = "Material.001"
+shading_mode = 0
+albedo_color = Color(0.53, 0.53, 0.53, 1)
+albedo_texture = ExtResource("1_u4yca")
+uv1_scale = Vector3(0.997063, 1, 1)
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xn5gx"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uew7h"]
+resource_name = "wardrobe_cupboard_Material_001_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/v8AAKmqVFX+/1RVqaoAAFRVAAAAAFRVVFVUVQAAAABUVVVVAACpqlRVqqoAAFVVqqoAAFVVVFWpqlRVVVUAAFVVVVWpqqqqqqpVVVVVqaoAAKmqVFX+/1RVqaoAAP7/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_b35r1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAqioAAP////+qKgAAAAD//6oqAAD//wAAqioAAP//AAAAAP///////wAAAAD/////AAD/////AAAAAP////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAP///////wAAAAAAAP//AAAAAP////8AAP//AAD//wAAVFWqqlRVqqpUVaqqVFWqqv9//7//f/+//3//v/9//7+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xn5gx")
+
+[node name="wardrobe" type="Node3D"]
+
+[node name="Sketchfab_model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.57628e-07, 1, 0, -1, -3.57628e-07, 0, 0, 0)
+
+[node name="fffd2cbe58f54bbd82a55869b25d5f4c_fbx" type="Node3D" parent="Sketchfab_model"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, -0.01, 0, 0.01, -3.57628e-09, 0, 0, 0)
+
+[node name="RootNode" type="Node3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx"]
+
+[node name="cupboard" type="Node3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx/RootNode"]
+transform = Transform3D(60, 0, 0, 0, -1.07288e-05, 114, 0, -30, -4.07696e-05, 0, 110, 0)
+
+[node name="cupboard_Material_001_0" type="MeshInstance3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx/RootNode/cupboard"]
+mesh = SubResource("ArrayMesh_uew7h")
+skeleton = NodePath("")

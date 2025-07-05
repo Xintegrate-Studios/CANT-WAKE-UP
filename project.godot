@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="CAN'T WAKE UP"
-config/tags=PackedStringArray("3d")
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/tags=PackedStringArray("3d", "personal")
+config/features=PackedStringArray("4.5", "Forward Plus")
