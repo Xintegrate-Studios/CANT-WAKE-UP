@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbmsf23ymvvw2"]
+
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_lutt7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lutt7"]
+viewport_path = NodePath("Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+
+[node name="InteractableComponent" type="Node3D"]
+script = ExtResource("1_lutt7")
+
+[node name="Contents" type="Node3D" parent="."]
+
+[node name="UI" type="Sprite3D" parent="Contents"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_lutt7")
+
+[node name="SubViewport" type="SubViewport" parent="Contents/UI"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1000, 1000)
+
+[node name="Key" type="Label" parent="Contents/UI/SubViewport"]
+offset_right = 129.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+
+[node name="PlayerAreaBox" type="Area3D" parent="Contents"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/PlayerAreaBox"]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="Contents"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/MimicRaycastBox"]
+shape = SubResource("BoxShape3D_lutt7")

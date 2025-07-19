@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oopo5to6xrm"]
+
+[ext_resource type="PackedScene" uid="uid://d2wmpphgit0gr" path="res://ast/models/lamp.blend" id="1_gj55h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj55h"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_krb8p"]
+
+[node name="lamp" instance=ExtResource("1_gj55h")]
+
+[node name="LightSource" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.336109, 0)
+light_color = Color(0.930968, 0.962566, 0.881646, 1)
+light_volumetric_fog_energy = 0.0
+omni_range = 0.80963
+omni_attenuation = 2.165
+
+[node name="LightMesh" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.071, 0, 0, 0, 0.141, 0, 0, 0, 0.075, 0, 0.367204, 0)
+material_override = SubResource("StandardMaterial3D_gj55h")
+mesh = SubResource("SphereMesh_krb8p")

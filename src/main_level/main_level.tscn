@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=20 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="PackedScene" uid="uid://dkxc3trx4lke5" path="res://ast/models/bed.blend" id="1_85r4g"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
-[ext_resource type="PackedScene" uid="uid://d2wmpphgit0gr" path="res://ast/models/lamp.blend" id="7_5agnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -65,13 +64,6 @@ size = Vector3(1, 4.87903, 6.85999)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbfot"]
 size = Vector3(1, 4.87903, 15.6199)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5agnw"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_5agnw"]
-
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -91,6 +83,7 @@ BOB_FREQ = 5.0
 BOB_AMP = 0.02
 WALK_SPEED = 2.0
 SPRINT_SPEED = 4.0
+CROUCH_SPEED = 1.0
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.28885, 0, 0, 0, 2.28885, 0, 0, 0, 2.28885, 3.25639, 0, -2.08494)
@@ -221,18 +214,3 @@ shape = SubResource("BoxShape3D_mbfot")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="WallCollision"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, -5.1166)
 shape = SubResource("BoxShape3D_mbfot")
-
-[node name="lamp" parent="." instance=ExtResource("7_5agnw")]
-transform = Transform3D(0.68477, 0, 0, 0, 0.68477, 0, 0, 0, 0.68477, -0.710284, 1.05705, -1.01131)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711221, 1.23937, -1.00193)
-light_color = Color(0.930968, 0.962566, 0.881646, 1)
-light_volumetric_fog_energy = 0.0
-omni_range = 0.80963
-omni_attenuation = 2.165
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0505888, 0, 0, 0, 0.0842178, 0, 0, 0, 0.0537011, -0.709317, 1.31132, -1.01346)
-material_override = SubResource("StandardMaterial3D_5agnw")
-mesh = SubResource("SphereMesh_5agnw")
