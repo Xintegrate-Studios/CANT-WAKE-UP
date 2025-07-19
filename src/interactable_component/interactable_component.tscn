@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbmsf23ymvvw2"]
+[gd_scene load_steps=6 format=3 uid="uid://dbmsf23ymvvw2"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_lutt7"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_75gw0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lutt7"]
 viewport_path = NodePath("Contents/UI/SubViewport")
@@ -29,6 +30,7 @@ size = Vector2i(1000, 1000)
 [node name="Key" type="Label" parent="Contents/UI/SubViewport"]
 offset_right = 129.0
 offset_bottom = 146.0
+theme = ExtResource("2_75gw0")
 theme_override_font_sizes/font_size = 106
 text = "[E]"
 
