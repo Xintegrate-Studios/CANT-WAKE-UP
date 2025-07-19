@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbmsf23ymvvw2"]
+[gd_scene load_steps=7 format=3 uid="uid://dbmsf23ymvvw2"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_lutt7"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_75gw0"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lutt7"]
 viewport_path = NodePath("Contents/UI/SubViewport")
@@ -16,6 +19,7 @@ script = ExtResource("1_lutt7")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
 
 [node name="Contents" type="Node3D" parent="."]
 

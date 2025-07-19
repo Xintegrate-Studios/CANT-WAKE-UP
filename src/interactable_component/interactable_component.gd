@@ -10,6 +10,8 @@ var mimic_raycast_box_active : bool = false
 @export var UI_Sprite_Node : Sprite3D
 @export var SubViewport_Node : SubViewport
 
+@export var ActionToPress : InputEventAction
+
 func _ready() -> void:
 	toggle_interacting(false)
 
