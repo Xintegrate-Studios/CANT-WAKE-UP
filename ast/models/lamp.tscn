@@ -58,9 +58,10 @@ size = Vector3(2, 5, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.460693, 0.744049, 0.463135)
 
-[node name="lamp" type="Node3D" node_paths=PackedStringArray("light_source")]
+[node name="Lamp" type="Node3D" node_paths=PackedStringArray("light_source", "light_mesh")]
 script = ExtResource("1_xw1xc")
 light_source = NodePath("LightSource")
+light_mesh = NodePath("LightMesh")
 
 [node name="LampLow" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_w11af")

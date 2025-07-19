@@ -1,11 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=23 format=3 uid="uid://i1bumbuxjipv"]
 
-[ext_resource type="PackedScene" uid="uid://dkxc3trx4lke5" path="res://ast/models/bed.blend" id="1_85r4g"]
+[ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/models/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
@@ -66,19 +67,10 @@ size = Vector3(1, 4.87903, 6.85999)
 size = Vector3(1, 4.87903, 15.6199)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5agnw"]
-viewport_path = NodePath("lamp/InteractableComponent/Contents/UI/SubViewport")
+viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="World" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_goh21")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-light_energy = 0.0
-shadow_bias = 1.0
-directional_shadow_blend_splits = true
-directional_shadow_max_distance = 14.2
+script = ExtResource("1_3rixg")
 
 [node name="Player" parent="." instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
@@ -89,143 +81,163 @@ WALK_SPEED = 2.0
 SPRINT_SPEED = 4.0
 CROUCH_SPEED = 1.0
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="env" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_goh21")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.0
+shadow_bias = 1.0
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 14.2
+
+[node name="main" type="Node" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="main"]
 transform = Transform3D(2.28885, 0, 0, 0, 2.28885, 0, 0, 0, 2.28885, 3.25639, 0, -2.08494)
 material_override = SubResource("StandardMaterial3D_tw2e2")
 mesh = SubResource("PlaneMesh_scctx")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="main/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_n4qwq")
 
-[node name="Roof" type="MeshInstance3D" parent="."]
+[node name="Roof" type="MeshInstance3D" parent="main"]
 transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 3.09066, 3.63497, -1.80632)
 material_override = SubResource("StandardMaterial3D_goh21")
 mesh = SubResource("PlaneMesh_scctx")
+skeleton = NodePath("../..")
 
-[node name="Bed" parent="." instance=ExtResource("1_85r4g")]
-transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.281445, 0.267306)
-
-[node name="Wardrobe" parent="." instance=ExtResource("6_mbfot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33039, 0.0399998, -3.88321)
-
-[node name="Table" parent="." instance=ExtResource("6_5agnw")]
-transform = Transform3D(-4.37114e-08, 0, 0.465485, 0, 1, 0, -1, 0, -2.0347e-08, -0.723024, 0, -1.38403)
-
-[node name="Wall" type="Node3D" parent="."]
+[node name="Wall" type="Node3D" parent="main"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.7304, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
 mesh = SubResource("BoxMesh_scctx")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07496, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5814, 1.41232)
 mesh = SubResource("BoxMesh_goh21")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10188, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Wall2" type="Node3D" parent="."]
+[node name="Wall2" type="Node3D" parent="main"]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0.104869, 0, -1.29077)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
 mesh = SubResource("BoxMesh_scctx")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07496, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5814, 1.41232)
 mesh = SubResource("BoxMesh_goh21")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall2"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10188, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Wall3" type="Node3D" parent="."]
+[node name="Wall3" type="Node3D" parent="main"]
 transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.83527, 0, -3.26326)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
 mesh = SubResource("BoxMesh_scctx")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07496, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5814, 1.41232)
 mesh = SubResource("BoxMesh_goh21")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall3"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10188, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Wall4" type="Node3D" parent="."]
+[node name="Wall4" type="Node3D" parent="main"]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 7.63614, 0, -1.28199)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
 mesh = SubResource("BoxMesh_scctx")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall4"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07496, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall4"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5814, 1.41232)
 mesh = SubResource("BoxMesh_goh21")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall4"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10188, 1.35304)
 mesh = SubResource("BoxMesh_tw2e2")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="WallCollision" type="StaticBody3D" parent="."]
+[node name="WallCollision" type="StaticBody3D" parent="main"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/WallCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63848, 1.93951, -1.29022)
 shape = SubResource("BoxShape3D_n4qwq")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallCollision"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="main/WallCollision"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, 1.83217)
 shape = SubResource("BoxShape3D_mbfot")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="WallCollision"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="main/WallCollision"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, -5.1166)
 shape = SubResource("BoxShape3D_mbfot")
 
-[node name="lamp" parent="." instance=ExtResource("7_5agnw")]
+[node name="furniture" type="Node" parent="."]
+
+[node name="Wardrobe" parent="furniture" instance=ExtResource("6_mbfot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33039, 0.0399998, -3.88321)
+
+[node name="Table" parent="furniture" instance=ExtResource("6_5agnw")]
+transform = Transform3D(-4.37114e-08, 0, 0.465485, 0, 1, 0, -1, 0, -2.0347e-08, -0.723024, 0, -1.38403)
+
+[node name="Lamp" parent="furniture" instance=ExtResource("7_5agnw")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.649875, 1.13685, -1.09814)
 
-[node name="LightSource" parent="lamp" index="1"]
+[node name="LightSource" parent="furniture/Lamp" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0274084, 0.336109, 0)
 
-[node name="UI" parent="lamp/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="furniture/Lamp/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_5agnw")
 
-[editable path="lamp"]
+[node name="Bed" parent="furniture" instance=ExtResource("7_3rixg")]
+transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.281445, 0.267306)
+
+[node name="misc" type="Node" parent="."]
+
+[editable path="furniture/Lamp"]
