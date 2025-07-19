@@ -222,6 +222,9 @@ shape = SubResource("BoxShape3D_mbfot")
 [node name="lamp" parent="." instance=ExtResource("7_5agnw")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.649875, 1.13685, -1.09814)
 
+[node name="LightSource" parent="lamp" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0274084, 0.336109, 0)
+
 [node name="UI" parent="lamp/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_5agnw")
 
