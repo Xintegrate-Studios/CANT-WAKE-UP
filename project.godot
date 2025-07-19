@@ -21,6 +21,10 @@ boot_splash/show_image=false
 window/size/mode=4
 window/stretch/mode="viewport"
 
+[global_group]
+
+PlayerBody="The body of the player."
+
 [input]
 
 Crouch={

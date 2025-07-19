@@ -52,3 +52,8 @@ shape = SubResource("BoxShape3D_nyf0v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/MimicRaycastBox"]
 shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="body_entered" from="Contents/PlayerAreaBox" to="." method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="Contents/PlayerAreaBox" to="." method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="Contents/MimicRaycastBox" to="." method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="Contents/MimicRaycastBox" to="." method="_on_mimic_raycast_box_area_exited"]
