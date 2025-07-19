@@ -11,8 +11,11 @@ size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 
-[node name="InteractableComponent" type="Node3D"]
+[node name="InteractableComponent" type="Node3D" node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("1_lutt7")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
 
 [node name="Contents" type="Node3D" parent="."]
 
@@ -33,6 +36,8 @@ offset_bottom = 146.0
 theme = ExtResource("2_75gw0")
 theme_override_font_sizes/font_size = 106
 text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerAreaBox" type="Area3D" parent="Contents"]
 
