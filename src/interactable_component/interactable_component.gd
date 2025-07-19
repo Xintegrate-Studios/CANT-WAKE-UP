@@ -21,9 +21,9 @@ func toggle_interacting(interacting_val : bool):
 
 func _process(_delta: float) -> void:
 	if player_area_box_active and mimic_raycast_box_active:
-		interacting = true
+		toggle_interacting(true)
 	else:
-		interacting = false
+		toggle_interacting(false)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if interacting:

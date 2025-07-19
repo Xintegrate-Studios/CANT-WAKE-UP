@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5oopo5to6xrm"]
+[gd_scene load_steps=10 format=3 uid="uid://b5oopo5to6xrm"]
 
 [ext_resource type="PackedScene" uid="uid://d2wmpphgit0gr" path="res://ast/models/lamp.blend" id="1_gj55h"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_4vmpf"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="3_xw1xc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj55h"]
 emission_enabled = true
@@ -8,6 +10,18 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_krb8p"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4vmpf"]
+viewport_path = NodePath("Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(2, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(0.460693, 0.744049, 0.463135)
 
 [node name="lamp" instance=ExtResource("1_gj55h")]
 
@@ -22,3 +36,51 @@ omni_attenuation = 2.165
 transform = Transform3D(0.071, 0, 0, 0, 0.141, 0, 0, 0, 0.075, 0, 0.367204, 0)
 material_override = SubResource("StandardMaterial3D_gj55h")
 mesh = SubResource("SphereMesh_krb8p")
+
+[node name="InteractableComponent" type="Node3D" parent="." index="3" node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+script = ExtResource("2_4vmpf")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="InteractableComponent" index="0"]
+
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" index="0"]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.197493, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_4vmpf")
+
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" index="0"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" index="0"]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme = ExtResource("3_xw1xc")
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" index="0"]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0800323, 0)
+shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_exited"]

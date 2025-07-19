@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=22 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="PackedScene" uid="uid://dkxc3trx4lke5" path="res://ast/models/bed.blend" id="1_85r4g"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -63,6 +64,9 @@ size = Vector3(1, 4.87903, 6.85999)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbfot"]
 size = Vector3(1, 4.87903, 15.6199)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5agnw"]
+viewport_path = NodePath("lamp/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="World" type="Node3D"]
 
@@ -214,3 +218,11 @@ shape = SubResource("BoxShape3D_mbfot")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="WallCollision"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, -5.1166)
 shape = SubResource("BoxShape3D_mbfot")
+
+[node name="lamp" parent="." instance=ExtResource("7_5agnw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.649875, 1.13685, -1.09814)
+
+[node name="UI" parent="lamp/InteractableComponent/Contents" index="0"]
+texture = SubResource("ViewportTexture_5agnw")
+
+[editable path="lamp"]
