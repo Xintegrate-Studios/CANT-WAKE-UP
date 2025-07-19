@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5383d0xmvfux"]
+
+[ext_resource type="Script" uid="uid://ybhdbhsmcnqq" path="res://tests/test_world.gd" id="1_3nrhp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhhne"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_6h17p"]
+sky_material = SubResource("ProceduralSkyMaterial_vhhne")
+
+[sub_resource type="Environment" id="Environment_2o0ge"]
+background_mode = 2
+sky = SubResource("Sky_6h17p")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vhhne"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3nrhp"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="test world" type="Node3D"]
+script = ExtResource("1_3nrhp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2o0ge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.863756, 0.16141, -0.477359, 0, 0.947311, 0.320315, 0.50391, -0.276674, 0.818246, 0, 2.64015, 3.80287)
+
+[node name="MovingBody" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingBody"]
+mesh = SubResource("BoxMesh_vhhne")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingBody"]
+shape = SubResource("ConcavePolygonShape3D_3nrhp")

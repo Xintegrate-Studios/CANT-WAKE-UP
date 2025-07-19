@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn33uhkxd7rpo"
-path.s3tc="res://.godot/imported/PSX_Wood.png-aa942b097b589e9a25e6c7f31282815f.s3tc.ctex"
+uid="uid://jik1mvk3iua"
+path.s3tc="res://.godot/imported/wardrobe.jpg-ff3c96042574edf613bc0b812e683d89.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://ast/models/textures/PSX_Wood.png"
-dest_files=["res://.godot/imported/PSX_Wood.png-aa942b097b589e9a25e6c7f31282815f.s3tc.ctex"]
+source_file="res://ast/models/textures/wardrobe.jpg"
+dest_files=["res://.godot/imported/wardrobe.jpg-ff3c96042574edf613bc0b812e683d89.s3tc.ctex"]
 
 [params]
 
