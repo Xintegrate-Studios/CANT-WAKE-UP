@@ -255,8 +255,7 @@ shape = SubResource("BoxShape3D_n7bfk")
 body_to_drag = NodePath("..")
 target_position = Vector3(5, 0, 0)
 dragging = true
-max_speed = 15.0
-min_speed = 5.0
+drag_force = 70.0
 
 [node name="pizza_slice" parent="MovingBody" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(0.371353, 0, 0, 0, 0.371353, 0, 0, 0, 0.371353, -0.179901, -0.37812, 0)
