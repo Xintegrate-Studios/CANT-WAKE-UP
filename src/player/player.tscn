@@ -10,8 +10,9 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
-[node name="Player" type="CharacterBody3D" groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("DragInteractionPosition") groups=["PlayerBody"]]
 script = ExtResource("1_4anbu")
+DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,22 +27,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
-anchors_preset = -1
-anchor_left = 0.493924
-anchor_top = 0.489198
-anchor_right = 0.506076
-anchor_bottom = 0.510802
-offset_bottom = -3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="RaycastMimic" type="Area3D" parent="Head/Camera3D" groups=["raycast_mimic"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/RaycastMimic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737769)
 shape = SubResource("BoxShape3D_4anbu")
+
+[node name="DragInteractionPosition" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35021)

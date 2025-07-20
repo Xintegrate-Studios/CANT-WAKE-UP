@@ -1,5 +1,6 @@
 extends CharacterBody3D # Inheritance
 
+@export var DragInteractionPosition : Node3D
 
 # Utility variables
 @export_group("Utility") ## A group for gameplay variables
@@ -150,11 +151,10 @@ func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	return pos
-func _process(_delta): # called every frame.
-	
-	$Head/Camera3D.fov = FOV # set FOV to export value
-	
-	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set crosshair size the the export value
+
+func _process(_delta):
+	PlayerGlobal.drag_interaction_player_position = DragInteractionPosition.global_position
+	camera.fov = FOV # set FOV to export value
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
