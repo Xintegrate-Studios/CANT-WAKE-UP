@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b5383d0xmvfux"]
 
 [ext_resource type="Script" uid="uid://ybhdbhsmcnqq" path="res://tests/test_world.gd" id="1_3nrhp"]
-[ext_resource type="Script" uid="uid://cy2dxtsoshaxt" path="res://tests/lerp boi.gd" id="2_vhhne"]
+[ext_resource type="PackedScene" uid="uid://cjxrs2ad7oxr5" path="res://src/drag_interaction/drag_interaction.tscn" id="2_vhhne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhhne"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -36,7 +36,6 @@ transform = Transform3D(0.863756, 0.16141, -0.477359, 0, 0.947311, 0.320315, 0.5
 fov = 130.3
 
 [node name="MovingBody" type="CharacterBody3D" parent="."]
-script = ExtResource("2_vhhne")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MovingBody"]
 mesh = SubResource("BoxMesh_vhhne")
@@ -45,12 +44,8 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MovingBody"]
 shape = SubResource("BoxShape3D_vhhne")
 
-[node name="RigidBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07601, 0.31302, 0.605498)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody"]
-mesh = SubResource("BoxMesh_vhhne")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody"]
-shape = SubResource("BoxShape3D_vhhne")
+[node name="DragInteraction" parent="MovingBody" node_paths=PackedStringArray("body_to_drag") instance=ExtResource("2_vhhne")]
+body_to_drag = NodePath("..")
+target_position = Vector3(5, 0, 0)
+dragging = true
+max_speed = 10.0
