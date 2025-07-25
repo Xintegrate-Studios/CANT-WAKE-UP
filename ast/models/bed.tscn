@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://jtu6b73dretk"]
+[gd_scene load_steps=9 format=4 uid="uid://jtu6b73dretk"]
 
 [ext_resource type="Texture2D" uid="uid://1edrmudone5f" path="res://ast/models/textures/bed.png" id="1_76kw4"]
 
@@ -43,7 +43,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r2q01")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76kw4"]
-size = Vector3(2.19727, 1.02075, 1.22693)
+size = Vector3(2.02075, 0.359771, 1.22693)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vf56x"]
+size = Vector3(0.0368959, 0.992226, 1.10019)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63j2h"]
+size = Vector3(0.0514603, 0.681171, 1.10019)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d184h"]
+size = Vector3(1.96899, 0.365143, 1.22693)
 
 [node name="Bed" type="Node3D"]
 
@@ -57,5 +66,17 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185547, 0.189575, -0.00421143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0330806, 0.114365, -0.00421143)
 shape = SubResource("BoxShape3D_76kw4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07133, 0.188443, -0.00157178)
+shape = SubResource("BoxShape3D_vf56x")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03482, 0.0329156, -0.00157178)
+shape = SubResource("BoxShape3D_63j2h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.997288, 0.0736037, 0, -0.0736037, 0.997288, 0, 0, 0, 1, -0.00652523, 0.183314, -0.00421143)
+shape = SubResource("BoxShape3D_d184h")
