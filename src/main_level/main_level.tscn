@@ -106,6 +106,8 @@ mesh = SubResource("PlaneMesh_scctx")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="main/Floor"]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_n4qwq")
@@ -209,6 +211,7 @@ mesh = SubResource("BoxMesh_tw2e2")
 skeleton = NodePath("../../..")
 
 [node name="WallCollision" type="StaticBody3D" parent="main"]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main/WallCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63848, 1.93951, -1.29022)
@@ -246,6 +249,8 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 
 [node name="MovingBody" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988594, -2.41799)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MovingBody"]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0, 0)

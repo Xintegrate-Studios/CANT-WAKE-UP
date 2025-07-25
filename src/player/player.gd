@@ -108,10 +108,10 @@ func _physics_process(delta): # This is a special function that is called every 
 		if not is_on_floor(): # Check if the player is not on the floor
 			velocity.y -= gravity * delta # apply gravity to the player
 		
-		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"): # Check if the Sprint input is pressed and the Crouch input is not pressed
-			speed = SPRINT_SPEED # set the speed to the sprint speed
-		elif Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
+		## Handle Speed
+		#if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"): # Check if the Sprint input is pressed and the Crouch input is not pressed
+			#speed = SPRINT_SPEED # set the speed to the sprint speed
+		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
 			speed = CROUCH_SPEED # set the speed to the crouch speed
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed

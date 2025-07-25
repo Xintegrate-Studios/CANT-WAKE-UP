@@ -48,4 +48,3 @@ shape = SubResource("BoxShape3D_vhhne")
 body_to_drag = NodePath("..")
 target_position = Vector3(5, 0, 0)
 dragging = true
-max_speed = 10.0
