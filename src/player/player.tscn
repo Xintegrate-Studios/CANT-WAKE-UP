@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=6 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -36,3 +37,14 @@ shape = SubResource("BoxShape3D_4anbu")
 
 [node name="DragInteractionPosition" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11453)
+
+[node name="EffectLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="VHSEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer"]
+material = ExtResource("2_rxibo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
