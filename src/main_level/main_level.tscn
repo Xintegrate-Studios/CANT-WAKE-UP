@@ -178,7 +178,7 @@ mesh = SubResource("BoxMesh_tw2e2")
 skeleton = NodePath("../../..")
 
 [node name="Wall3" type="Node3D" parent="main"]
-transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 3.83527, 0, -3.26326)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, -3.0806, 0, -3.26326)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
@@ -201,7 +201,7 @@ mesh = SubResource("BoxMesh_tw2e2")
 skeleton = NodePath("../../..")
 
 [node name="Wall4" type="Node3D" parent="main"]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 7.63614, 0, -1.28199)
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 3.26867, 0, -1.28199)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.47134)
@@ -305,22 +305,22 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 
 [node name="misc" type="Node" parent="."]
 
-[node name="MovingBody" type="CharacterBody3D" parent="."]
+[node name="Pizza" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.352543, 0.988594, -2.41799)
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MovingBody"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Pizza"]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0.0283126, 0)
 shape = SubResource("BoxShape3D_n7bfk")
 
-[node name="DragInteraction" parent="MovingBody" node_paths=PackedStringArray("body_to_drag") instance=ExtResource("9_nh6qd")]
+[node name="DragInteraction" parent="Pizza" node_paths=PackedStringArray("body_to_drag") instance=ExtResource("9_nh6qd")]
 body_to_drag = NodePath("..")
 target_position = Vector3(5, 0, 0)
 dragging = true
 drag_force = 70.0
 
-[node name="pizza_slice" parent="MovingBody" instance=ExtResource("10_sfj7s")]
+[node name="pizza_slice" parent="Pizza" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(0.371353, 0, 0, 0, 0.371353, 0, 0, 0, 0.371353, -0.179901, -0.37812, 0)
 
 [editable path="furniture/Lamp"]

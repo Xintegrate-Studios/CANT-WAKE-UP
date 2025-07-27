@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjxrs2ad7oxr5"]
+[gd_scene load_steps=3 format=3 uid="uid://cjxrs2ad7oxr5"]
 
 [ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="1_ttowd"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ttowd"]
+viewport_path = NodePath("UI/SubViewport")
+
 [node name="DragInteraction" type="Node"]
 script = ExtResource("1_ttowd")
+
+[node name="UI" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource("ViewportTexture_ttowd")
+
+[node name="SubViewport" type="SubViewport" parent="UI"]
+transparent_bg = true
