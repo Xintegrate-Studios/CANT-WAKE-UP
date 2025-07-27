@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b5oopo5to6xrm"]
+[gd_scene load_steps=14 format=4 uid="uid://b5oopo5to6xrm"]
 
 [ext_resource type="Material" uid="uid://cobmi245rqja" path="res://res/mat/lamp_color.tres" id="1_4vmpf"]
 [ext_resource type="Script" uid="uid://wg3r2i8pa4vw" path="res://ast/models/lamp.gd" id="1_xw1xc"]
@@ -46,6 +46,9 @@ emission_energy_multiplier = 16.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_krb8p"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xw1xc"]
+size = Vector3(0.459229, 0.752319, 0.459229)
+
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
 
@@ -78,6 +81,14 @@ omni_attenuation = 2.165
 transform = Transform3D(0.071, 0, 0, 0, 0.141, 0, 0, 0, 0.075, 0, 0.367204, 0)
 material_override = SubResource("StandardMaterial3D_gj55h")
 mesh = SubResource("SphereMesh_krb8p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000366211, 0.0866089, -0.00256348)
+shape = SubResource("BoxShape3D_xw1xc")
 
 [node name="InteractableComponent" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("2_4vmpf")
