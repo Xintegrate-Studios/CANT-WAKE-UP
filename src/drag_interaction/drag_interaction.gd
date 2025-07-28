@@ -3,13 +3,13 @@ extends Node3D
 @export var body_to_drag : CharacterBody3D
 @export var target_position : Vector3
 @export var dragging : bool = false
-@export var drag_force = 10.0  # How strong the pull toward target is
-@export var drag_damping = 0.8  # Reduces velocity each frame (0.8 = 20% reduction)
-@export var gravity = 9.8
-@export var friction = 5.0
+@export var drag_force : float = 10.0  # How strong the pull toward target is
+@export var drag_damping : float = 0.8  # Reduces velocity each frame (0.8 = 20% reduction)
+@export var gravity : float = 9.8
+@export var friction : float = 5.0
 
 func _input(_event: InputEvent) -> void:
-	dragging = Input.is_action_pressed("Interact3")
+	dragging = Input.is_action_pressed("Interact3") and body_to_drag.hovering_over
 
 func _physics_process(delta: float) -> void:
 	if dragging:
