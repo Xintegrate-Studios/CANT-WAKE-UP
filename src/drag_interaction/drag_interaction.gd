@@ -1,4 +1,5 @@
-extends Node
+extends Node3D
+
 @export var body_to_drag : CharacterBody3D
 @export var target_position : Vector3
 @export var dragging : bool = false

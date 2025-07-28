@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjxrs2ad7oxr5"]
+[gd_scene load_steps=4 format=3 uid="uid://cjxrs2ad7oxr5"]
 
 [ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="1_ttowd"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="2_g55i3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ttowd"]
-viewport_path = NodePath("UI/SubViewport")
 
-[node name="DragInteraction" type="Node"]
+[node name="DragInteraction" type="Node3D"]
 script = ExtResource("1_ttowd")
 
 [node name="UI" type="Sprite3D" parent="."]
 billboard = 1
+no_depth_test = true
+render_priority = 3
 texture = SubResource("ViewportTexture_ttowd")
 
 [node name="SubViewport" type="SubViewport" parent="UI"]
 transparent_bg = true
+
+[node name="MouseTexture" type="TextureRect" parent="UI/SubViewport"]
+offset_left = 192.13
+offset_top = 188.395
+offset_right = 320.13
+offset_bottom = 316.395
+texture = ExtResource("2_g55i3")
