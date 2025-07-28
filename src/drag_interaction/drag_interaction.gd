@@ -8,9 +8,6 @@ extends Node3D
 @export var gravity : float = 9.8
 @export var friction : float = 5.0
 
-func _input(_event: InputEvent) -> void:
-	dragging = Input.is_action_pressed("Interact3") and body_to_drag.hovering_over
-
 func _physics_process(delta: float) -> void:
 	if dragging:
 		var current_pos = body_to_drag.global_transform.origin
