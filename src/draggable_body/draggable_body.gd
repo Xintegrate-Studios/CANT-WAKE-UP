@@ -7,6 +7,7 @@ var hovering_over : bool = false
 
 func _physics_process(_delta: float) -> void:
 	DragInteraction.target_position = PlayerGlobal.drag_interaction_player_position
+	MouseTexture.visible = hovering_over and !DragInteraction.dragging
 	
 
 func _input(event: InputEvent) -> void:
