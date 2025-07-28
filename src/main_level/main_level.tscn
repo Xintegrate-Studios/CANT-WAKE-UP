@@ -304,4 +304,7 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 [node name="DraggableBody" parent="." instance=ExtResource("9_nh6qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
+[node name="DraggableBody2" parent="." instance=ExtResource("9_nh6qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.51893)
+
 [editable path="furniture/Lamp"]

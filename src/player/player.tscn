@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
-[ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair001.png" id="3_mf2ua"]
+[ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 

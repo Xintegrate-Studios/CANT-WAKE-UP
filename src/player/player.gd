@@ -1,8 +1,7 @@
-extends CharacterBody3D # Inheritance
+extends CharacterBody3D
 
 @export var DragInteractionPosition : Node3D
 
-# Utility variables
 @export_group("Utility") ## A group for gameplay variables
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
@@ -69,9 +68,7 @@ extends CharacterBody3D # Inheritance
 @onready var head = $Head # reference to the head of the player scene. (used for mouse movement and looking around)
 @onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
 func _input(_event): # A built-in function that listens for input using the input map
 	if Input.is_action_just_pressed("Quit") and Quit == true:
 		get_tree().quit() # quit
@@ -87,10 +84,6 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Modify _physics_process to include smooth transition when not moving
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
@@ -115,7 +108,6 @@ func _physics_process(delta): # This is a special function that is called every 
 			speed = CROUCH_SPEED # set the speed to the crouch speed
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed
-		
 
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward") # get the input direction
@@ -131,8 +123,7 @@ func _physics_process(delta): # This is a special function that is called every 
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0) # linearly interpolate the player's velocity on the x-axis to the direction times the speed
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0) # linearly interpolate the player's velocity on the z-axis to the direction times the speed
-
-		
+			
 		move_and_slide() # Apply gravity and handle movement
 
 		# Check if the player is moving and on the floor
@@ -143,7 +134,6 @@ func _physics_process(delta): # This is a special function that is called every 
 			Wave_Length += delta * velocity.length() # Increase the wave length based on the player's velocity
 			camera.transform.origin = _headbob(Wave_Length) # Apply the headbob function to the camera's origin
 		else:
-			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z) # get the target position
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED) # linearly interpolate the camera's origin to the target position
 
@@ -154,11 +144,7 @@ func _headbob(time) -> Vector3:
 
 func _process(_delta):
 	PlayerGlobal.drag_interaction_player_position = DragInteractionPosition.global_position
-	camera.fov = FOV # set FOV to export value
+	camera.fov = FOV
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-func _ready(): # called when node enters scene tree, i.e when it has fully loaded
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
