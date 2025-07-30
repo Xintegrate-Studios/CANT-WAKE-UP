@@ -22,23 +22,22 @@ extends CharacterBody3D
 @export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
 @export var ResetPOS := Vector3(0, 0, 0) ## Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS. 
 
-@export_subgroup("Fade_In") ## A subgroup for the fade-in variables (on spawn)
+@export_subgroup("Fade_In")
 @export var Fade_In := false ## Whether to use the fade-in on startup or not. Reccomended to keep this on because it looks cool. 
 @export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) in seconds. 
 
-@export_group("Input") ## A group relating to inputs (keys on your keyboard)
+@export_group("Input")
 @export var Pause := true  ## Whether or not the player can use the Pause input to pause the game. (Normally Esc) (will be ON for final game.)
 @export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be OFF for final game.)
-@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 
-@export_group("Visual") ## A group for visual/camera variables
+@export_group("Visual")
 @export_subgroup("Camera")
 @export var FOV = 120
 @export_subgroup("Crosshair") ## A subgroup for crosshair variables.
 @export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
 
-@export_group("View Bobbing") ## a group for view bobbing variables.
+@export_group("View Bobbing")
 
 
 @export var BOB_FREQ := 3.0 ## The frequency of the waves (how often it occurs)
@@ -48,10 +47,10 @@ extends CharacterBody3D
 @export_subgroup("Other") ## a subgroup for other view bobbing variables.
 @export var Wave_Length = 0.0 ## The wavelength of the bobbing
 
-@export_group("Mouse") ## A group for mouse variables.
+@export_group("Mouse")
 @export var SENSITIVITY = 0.001 ## The sensitivity of the mouse when it is locked in the center (during gameplay)
 
-@export_group("Physics") ## A group for physics variables.
+@export_group("Physics")
 
 @export_subgroup("Movement") ## A subgroup for movement variables.
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
@@ -69,14 +68,12 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
 
 
-func _input(_event): # A built-in function that listens for input using the input map
-	if Input.is_action_just_pressed("Quit") and Quit == true:
-		get_tree().quit() # quit
+func _input(_event):
 	if Input.is_action_just_pressed("Reset") and Reset == true:
 		if ResetPOS == Vector3(999, 999, 999):
-			self.position = StartPOS
+			position = StartPOS
 		else:
-			self.position = ResetPOS
+			position = ResetPOS
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -84,21 +81,21 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
-func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
+func _physics_process(delta):
 	
 	# Crouching
 	if GAME_STATE != "DEAD" and is_on_floor(): # Check if the game state is not inventory or dead and if the player is on the floor
 		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
-			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
+			scale.y = lerp(scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
 		else: 
-			self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
+			scale.y = lerp(scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
 	else:
-		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
+		scale.y = lerp(scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
 	
 	
 	if !GAME_STATE == "DEAD":
-		# Always apply gravity unless game state is DEAD
-		if not is_on_floor(): # Check if the player is not on the floor
+		
+		if !is_on_floor(): # Check if the player is not on the floor
 			velocity.y -= gravity * delta # apply gravity to the player
 		
 		## Handle Speed
