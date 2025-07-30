@@ -9,6 +9,14 @@ func _physics_process(_delta: float) -> void:
 	DragInteraction.target_position = PlayerGlobal.drag_interaction_player_position
 	MouseTexture.visible = hovering_over and !DragInteraction.dragging
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Mouse_Wheel_Up") and DragInteraction.dragging:
+		rotation_degrees.y += 5
+	
+	if Input.is_action_just_pressed("Mouse_Wheel_Down") and DragInteraction.dragging:
+		rotation_degrees.y -= 5
+	
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact3") and hovering_over:
 		DragInteraction.dragging = true
@@ -19,7 +27,6 @@ func _input(_event: InputEvent) -> void:
 		DragInteraction.dragging = false
 		DraggableBodiesGlobal.currently_dragging = false
 		DraggableBodiesGlobal.currently_dragging_bodies.erase(self)
-
 
 
 func _on_player_mimic_raycast_area_area_entered(area: Area3D) -> void:

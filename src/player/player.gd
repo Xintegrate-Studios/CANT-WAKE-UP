@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 @export var DragInteractionPosition : Node3D
 
-@export_group("Utility") ## A group for gameplay variables
+@export_group("Utility")
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 @export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
 
-@export_group("Gameplay") ## A group for gameplay variables
+@export_group("Gameplay")
 
 @export_subgroup("Health") ## Health varibales subgroup 
 @export var UseHealth := true ## Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
@@ -17,7 +17,7 @@ extends CharacterBody3D
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
 
-@export_group("Spawn") ## A group for spawn variables
+@export_group("Spawn")
 
 @export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
 @export var ResetPOS := Vector3(0, 0, 0) ## Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS. 
