@@ -1,30 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://exvde5hu78bw"]
+[gd_scene load_steps=8 format=3 uid="uid://bpyx373jop5y4"]
 
-[ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_sikko"]
-[ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="3_w6aiq"]
-[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="4_wyh1p"]
+[ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_3ru5h"]
+[ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="2_2okfo"]
+[ext_resource type="PackedScene" uid="uid://c41u1i2d7lnxy" path="res://ast/models/pizza_slice.blend" id="2_xh6ch"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="3_eevf8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uyx4"]
+size = Vector3(1.24576, 0.0386505, 0.88739)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6t77"]
 viewport_path = NodePath("DragInteraction/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h6t77"]
+size = Vector3(0.44999, 0.255, 0.32204)
 
-[node name="DraggableBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture")]
+[node name="PizzaBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture")]
 collision_layer = 4
 collision_mask = 6
-script = ExtResource("1_sikko")
+script = ExtResource("1_3ru5h")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0, 0)
+transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, -0.0400739, 0.00139961, -0.00526454)
 shape = SubResource("BoxShape3D_2uyx4")
+
+[node name="pizza_slice" parent="." instance=ExtResource("2_xh6ch")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -0.0353739, 0, 0)
 
 [node name="DragInteraction" type="Node3D" parent="." node_paths=PackedStringArray("body_to_drag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00167271, 0.0885893, 0.0119386)
-script = ExtResource("3_w6aiq")
+script = ExtResource("2_2okfo")
 body_to_drag = NodePath("..")
 drag_force = 70.0
 
@@ -43,13 +49,13 @@ offset_left = 192.13
 offset_top = 188.395
 offset_right = 320.13
 offset_bottom = 316.395
-texture = ExtResource("4_wyh1p")
+texture = ExtResource("3_eevf8")
 
 [node name="PlayerMimicRaycastArea" type="Area3D" parent="."]
 collision_priority = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584564, 0.0288868, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0407757, 0.00872052, -0.00426316)
 shape = SubResource("BoxShape3D_h6t77")
 
 [connection signal="area_entered" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_entered"]

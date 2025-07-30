@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
 [ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/models/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
-[ext_resource type="PackedScene" uid="uid://exvde5hu78bw" path="res://src/draggable_body/draggable_body.tscn" id="9_nh6qd"]
+[ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -301,7 +301,7 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 
 [node name="misc" type="Node" parent="."]
 
-[node name="DraggableBody" parent="." instance=ExtResource("9_nh6qd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+[node name="PizzaBody" parent="." instance=ExtResource("9_nh6qd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 
 [editable path="furniture/Lamp"]
