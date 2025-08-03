@@ -14,6 +14,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		rotation_degrees.y += 5
 	
 	if Input.is_action_just_pressed("Mouse_Wheel_Down") and DragInteraction.dragging:
+		
 		rotation_degrees.y -= 5
 	
 
