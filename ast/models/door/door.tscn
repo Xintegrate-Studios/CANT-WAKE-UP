@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c70rol60wtjgl"]
+[gd_scene load_steps=15 format=4 uid="uid://c70rol60wtjgl"]
 
 [ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/models/door/door.gd" id="1_k3daa"]
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/psx door.png" id="2_ahuek"]
@@ -70,6 +70,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mmmig")
 
+[sub_resource type="Animation" id="Animation_uboid"]
+resource_name = "main"
+step = 0.0333333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjkwi"]
+_data = {
+&"main": SubResource("Animation_uboid")
+}
+
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
 
@@ -90,28 +99,37 @@ transform = Transform3D(1.335, 0, 0, 0, 0, -2.585, 0, 0.1, 0, 1.335, 0, 0)
 mesh = SubResource("ArrayMesh_23jix")
 skeleton = NodePath("")
 
-[node name="InteractableComponent" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fjkwi")
+}
+
+[node name="HingePivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3349, 0, 0)
+
+[node name="InteractableComponent" type="Node3D" parent="HingePivot" node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3349, 0, 0)
 script = ExtResource("3_uboid")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
 ActionToPress = SubResource("InputEventAction_75gw0")
 
-[node name="Contents" type="Node3D" parent="InteractableComponent"]
+[node name="Contents" type="Node3D" parent="HingePivot/InteractableComponent"]
 
-[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents"]
+[node name="UI" type="Sprite3D" parent="HingePivot/InteractableComponent/Contents"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
 texture = SubResource("ViewportTexture_ctiet")
 
-[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="HingePivot/InteractableComponent/Contents/UI"]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(1150, 1150)
 
-[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport"]
+[node name="Key" type="Label" parent="HingePivot/InteractableComponent/Contents/UI/SubViewport"]
 offset_left = 500.0
 offset_top = 500.0
 offset_right = 629.0
@@ -122,18 +140,18 @@ text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="PlayerAreaBox" type="Area3D" parent="HingePivot/InteractableComponent/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/InteractableComponent/Contents/PlayerAreaBox"]
 shape = SubResource("BoxShape3D_igycb")
 
-[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="MimicRaycastBox" type="Area3D" parent="HingePivot/InteractableComponent/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/InteractableComponent/Contents/MimicRaycastBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00362378, 0.0137178, 0)
 shape = SubResource("BoxShape3D_lutt7")
 
-[connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
-[connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
-[connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
-[connection signal="area_exited" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
+[connection signal="body_entered" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_exited"]

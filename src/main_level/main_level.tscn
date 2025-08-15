@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=35 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/models/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
+[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/models/door/door.tscn" id="10_sfj7s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -100,6 +101,9 @@ size = Vector3(0.0593255, 0.0529175, 1.07034)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5agnw"]
 viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sfj7s"]
+viewport_path = NodePath("door/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3rixg")
@@ -434,4 +438,11 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 [node name="PizzaBody" parent="." instance=ExtResource("9_nh6qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 
+[node name="door" parent="." instance=ExtResource("10_sfj7s")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.72878, 1.28259, -4.7704)
+
+[node name="UI" parent="door/InteractableComponent/Contents" index="0"]
+texture = SubResource("ViewportTexture_sfj7s")
+
 [editable path="furniture/Lamp"]
+[editable path="door"]
