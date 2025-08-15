@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sy4fw6y3qp8g"]
+
+[ext_resource type="PackedScene" uid="uid://u4760n2j54aj" path="res://ast/models/door/door.blend" id="1_o04a1"]
+[ext_resource type="ArrayMesh" uid="uid://ck6j76xp8mgf6" path="res://res/mesh/arr/door_array_mesh.tres" id="2_75m6i"]
+
+[node name="door" instance=ExtResource("1_o04a1")]
+
+[node name="Cube" parent="." index="0"]
+mesh = ExtResource("2_75m6i")

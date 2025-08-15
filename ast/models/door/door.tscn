@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://c70rol60wtjgl"]
+[gd_scene load_steps=12 format=3 uid="uid://c70rol60wtjgl"]
 
 [ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/models/door/door.gd" id="1_k3daa"]
-[ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/psx door.png" id="2_ahuek"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_uboid"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_fjkwi"]
+[ext_resource type="ArrayMesh" uid="uid://ck6j76xp8mgf6" path="res://res/mesh/arr/door_array_mesh.tres" id="4_uboid"]
 
 [sub_resource type="Animation" id="Animation_uboid"]
 resource_name = "main"
@@ -54,71 +54,6 @@ size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(2.69585, 5.22647, 0.463135)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3nv4"]
-resource_name = "Main_Door_Color"
-cull_mode = 2
-albedo_color = Color(0.461128, 0.329684, 0.209564, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5kte"]
-resource_name = "Door_Front"
-cull_mode = 2
-albedo_texture = ExtResource("2_ahuek")
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_mmmig"]
-_surfaces = [{
-"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
-"format": 34896613377,
-"index_count": 24,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUABwAEAAYABwAGAAUA"),
-"name": "Main_Door_Color",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAA//8AAP////8AAAAA////////AAD//wAAAAAAAA==")
-}, {
-"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
-"format": 34896613377,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"name": "Door_Front",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAP//AAD/////AAAAAAAA/////wAAAAD//wAAAAD///////8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_23jix"]
-resource_name = "door_Cube_001"
-_surfaces = [{
-"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
-"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAA=="),
-"format": 34896613399,
-"index_count": 24,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
-"material": SubResource("StandardMaterial3D_l3nv4"),
-"name": "Main_Door_Color",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///79U1VTVVNVU1VTVVNVU1VTV/7//v/+//7//v/+//7//v6oqqiqqKqoqqiqqKqoqqir/////////////////////")
-}, {
-"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
-"attribute_data": PackedByteArray("//8AAAAA//8AAAAA//////3/AAABAP7/AgAAAPv/+/8="),
-"format": 34896613399,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"material": SubResource("StandardMaterial3D_e5kte"),
-"name": "Door_Front",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAA/////wAA////////AAAAAP//AAAAAP//////////AAD/vwAA//////+/AAD//wAA/7//////////v/9//z//f/8//3//P/9//z////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_mmmig")
 
 [node name="door" type="Node3D" node_paths=PackedStringArray("DoorAnimation", "HingePivot")]
 script = ExtResource("1_k3daa")
@@ -179,7 +114,7 @@ shape = SubResource("BoxShape3D_lutt7")
 
 [node name="Cube" type="MeshInstance3D" parent="HingePivot"]
 transform = Transform3D(1.335, 0, 0, 0, -4.37114e-09, -2.585, 0, 0.1, -1.12994e-07, 0.000100374, 0, 0)
-mesh = SubResource("ArrayMesh_23jix")
+mesh = ExtResource("4_uboid")
 skeleton = NodePath("")
 
 [connection signal="action_triggered" from="HingePivot/InteractableComponent" to="." method="_door_triggered"]
