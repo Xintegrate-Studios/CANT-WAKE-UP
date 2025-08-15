@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c70rol60wtjgl"]
+[gd_scene load_steps=13 format=3 uid="uid://c70rol60wtjgl"]
 
 [ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/models/door/door.gd" id="1_k3daa"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_uboid"]
@@ -54,6 +54,9 @@ size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(2.69585, 5.22647, 0.463135)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uboid"]
+size = Vector3(2.71497, 5.22467, 0.307129)
 
 [node name="door" type="Node3D" node_paths=PackedStringArray("DoorAnimation", "HingePivot")]
 script = ExtResource("1_k3daa")
@@ -116,6 +119,14 @@ shape = SubResource("BoxShape3D_lutt7")
 transform = Transform3D(1.335, 0, 0, 0, -4.37114e-09, -2.585, 0, 0.1, -1.12994e-07, 0.000100374, 0, 0)
 mesh = ExtResource("4_uboid")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HingePivot"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.00708008)
+shape = SubResource("BoxShape3D_uboid")
 
 [connection signal="action_triggered" from="HingePivot/InteractableComponent" to="." method="_door_triggered"]
 [connection signal="body_entered" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
