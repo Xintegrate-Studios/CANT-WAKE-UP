@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=10 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
 [ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
 [ext_resource type="Texture2D" uid="uid://drsy870nrpayg" path="res://ast/textures/input/mouse_scroll_vertical_outline.png" id="4_244u8"]
+[ext_resource type="Script" uid="uid://dpssojwra2tn2" path="res://src/player/rotate_ui_container.gd" id="4_jiejy"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="5_5f2sf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
@@ -84,6 +85,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("4_jiejy")
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/RotateUIContainer"]
 layout_mode = 0
