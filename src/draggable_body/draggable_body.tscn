@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://exvde5hu78bw"]
+[gd_scene load_steps=8 format=3 uid="uid://exvde5hu78bw"]
 
 [ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_sikko"]
 [ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="3_w6aiq"]
@@ -11,12 +11,16 @@ viewport_path = NodePath("DragInteraction/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h6t77"]
 
-[node name="DraggableBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jw7y1"]
+size = Vector3(4, 4, 4)
+
+[node name="DraggableBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea")]
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_sikko")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
+PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0, 0)
@@ -52,5 +56,11 @@ collision_priority = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584564, 0.0288868, 0)
 shape = SubResource("BoxShape3D_h6t77")
 
+[node name="PlayerOutOfBoundsArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerOutOfBoundsArea"]
+shape = SubResource("BoxShape3D_jw7y1")
+
 [connection signal="area_entered" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_entered"]
 [connection signal="area_exited" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_exited"]
+[connection signal="body_exited" from="PlayerOutOfBoundsArea" to="." method="_on_player_out_of_bounds_area_body_exited"]

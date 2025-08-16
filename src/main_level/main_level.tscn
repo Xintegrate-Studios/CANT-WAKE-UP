@@ -87,6 +87,9 @@ size = Vector3(0.065, 1, 0.11)
 material = SubResource("StandardMaterial3D_scctx")
 size = Vector3(0.17, 1, 0.11)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_sfj7s"]
+viewport_path = NodePath("main/door/HingePivot/InteractableComponent/Contents/UI/SubViewport")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hnkfv"]
 size = Vector3(1.20026, 2.73096, 0.599854)
 
@@ -101,9 +104,6 @@ size = Vector3(0.0593255, 0.0529175, 1.07034)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5agnw"]
 viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sfj7s"]
-viewport_path = NodePath("door/HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_3rixg")
@@ -369,6 +369,15 @@ material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_ysgfl")
 skeleton = NodePath("../../../..")
 
+[node name="door" parent="main" instance=ExtResource("10_sfj7s")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
+
+[node name="HingePivot" parent="main/door" index="1"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
+
+[node name="UI" parent="main/door/HingePivot/InteractableComponent/Contents" index="0"]
+texture = SubResource("ViewportTexture_sfj7s")
+
 [node name="furniture" type="Node" parent="."]
 
 [node name="Wardrobe" parent="furniture" instance=ExtResource("6_mbfot")]
@@ -438,11 +447,5 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 [node name="PizzaBody" parent="." instance=ExtResource("9_nh6qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 
-[node name="door" parent="." instance=ExtResource("10_sfj7s")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
-
-[node name="UI" parent="door/HingePivot/InteractableComponent/Contents" index="0"]
-texture = SubResource("ViewportTexture_sfj7s")
-
+[editable path="main/door"]
 [editable path="furniture/Lamp"]
-[editable path="door"]

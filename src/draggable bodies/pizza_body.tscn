@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpyx373jop5y4"]
+[gd_scene load_steps=9 format=3 uid="uid://bpyx373jop5y4"]
 
 [ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_3ru5h"]
 [ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="2_2okfo"]
@@ -13,6 +13,9 @@ viewport_path = NodePath("DragInteraction/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h6t77"]
 size = Vector3(0.44999, 0.255, 0.32204)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xh6ch"]
+size = Vector3(4, 4, 4)
 
 [node name="PizzaBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture")]
 collision_layer = 4
@@ -58,5 +61,11 @@ collision_priority = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0407757, 0.00872052, -0.00426316)
 shape = SubResource("BoxShape3D_h6t77")
 
+[node name="PlayerOutOfBoundsArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerOutOfBoundsArea"]
+shape = SubResource("BoxShape3D_xh6ch")
+
 [connection signal="area_entered" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_entered"]
 [connection signal="area_exited" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_exited"]
+[connection signal="body_exited" from="PlayerOutOfBoundsArea" to="." method="_on_player_out_of_bounds_area_body_exited"]

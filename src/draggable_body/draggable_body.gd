@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var DragInteraction : Node3D
 @export var MouseTexture : TextureRect
+@export var PlayerOutOfBoundsArea : Area3D
 
 var hovering_over : bool = false
 
@@ -41,3 +42,9 @@ func _on_player_mimic_raycast_area_area_exited(area: Area3D) -> void:
 		hovering_over = false
 		DraggableBodiesGlobal.currently_hovering_over = false
 		DraggableBodiesGlobal.currently_hovering_over_body = null
+
+
+
+func _on_player_out_of_bounds_area_body_exited(body: Node3D) -> void:
+	if body.is_in_group(&"PlayerBody"):
+		print("nuh uh")
