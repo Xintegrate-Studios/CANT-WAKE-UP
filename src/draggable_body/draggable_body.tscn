@@ -17,6 +17,7 @@ size = Vector3(4, 4, 4)
 [node name="DraggableBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea")]
 collision_layer = 4
 collision_mask = 6
+collision_priority = 5.0
 script = ExtResource("1_sikko")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")

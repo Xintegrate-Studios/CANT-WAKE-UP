@@ -17,19 +17,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Mouse_Wheel_Down") and DragInteraction.dragging:
 		
 		rotation_degrees.y -= 5
-	
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact3") and hovering_over:
-		DragInteraction.dragging = true
-		DraggableBodiesGlobal.currently_dragging = true
-		DraggableBodiesGlobal.currently_dragging_bodies.append(self)
+		grab()
 	
 	if Input.is_action_just_released("Interact3"):
-		DragInteraction.dragging = false
-		DraggableBodiesGlobal.currently_dragging = false
-		DraggableBodiesGlobal.currently_dragging_bodies.erase(self)
-
+		let_go()
 
 func _on_player_mimic_raycast_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic"):
@@ -43,8 +37,17 @@ func _on_player_mimic_raycast_area_area_exited(area: Area3D) -> void:
 		DraggableBodiesGlobal.currently_hovering_over = false
 		DraggableBodiesGlobal.currently_hovering_over_body = null
 
-
-
 func _on_player_out_of_bounds_area_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"PlayerBody"):
-		print("nuh uh")
+	if body.is_in_group(&"PlayerBody") and DraggableBodiesGlobal.currently_dragging_bodies.has(self):
+		let_go()
+
+
+func grab():
+	DragInteraction.dragging = true
+	DraggableBodiesGlobal.currently_dragging = true
+	DraggableBodiesGlobal.currently_dragging_bodies.append(self)
+
+func let_go():
+	DragInteraction.dragging = false
+	DraggableBodiesGlobal.currently_dragging = false
+	DraggableBodiesGlobal.currently_dragging_bodies.erase(self)
