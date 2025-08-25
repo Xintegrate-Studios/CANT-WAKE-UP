@@ -511,9 +511,6 @@ skeleton = NodePath("../../../..")
 [node name="door1" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
 
-[node name="HingePivot" parent="main/door1" index="1"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
-
 [node name="UI" parent="main/door1/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
@@ -535,7 +532,7 @@ mesh = SubResource("BoxMesh_ysgfl")
 skeleton = NodePath("../../..")
 
 [node name="door2" parent="main" instance=ExtResource("10_sfj7s")]
-transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -5.938, 1.27, -13.994)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -5.938, 1.27, -13.994)
 STARTING_DOOR_STATE = 1
 
 [node name="HingePivot" parent="main/door2" index="1"]
