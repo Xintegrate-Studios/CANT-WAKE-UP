@@ -487,7 +487,7 @@ mesh = SubResource("BoxMesh_sfj7s")
 skeleton = NodePath("../../../..")
 
 [node name="Wall7" type="Node3D" parent="main/walls (mesh)"]
-transform = Transform3D(1.96701e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.96701e-07, 8.45042, 0.389, -2.72185)
+transform = Transform3D(1.96701e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.96701e-07, 8.45, 0.389, -2.977)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/walls (mesh)/Wall7"]
 transform = Transform3D(1, 0, 0, 0, 0.35898, 0, 0, 0, 1, 0, 2.10189, 1.47134)
@@ -588,6 +588,32 @@ material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_xonfo")
 skeleton = NodePath("../../..")
 
+[node name="door4" parent="main" instance=ExtResource("10_sfj7s")]
+transform = Transform3D(-0.5, 0, 1.19249e-08, 0, 0.5, 0, -1.19249e-08, 0, -0.5, 6.08133, 1.27, -9.05239)
+
+[node name="HingePivot" parent="main/door4" index="1"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
+
+[node name="UI" parent="main/door4/HingePivot/InteractableComponent/Contents" index="0"]
+texture = SubResource("ViewportTexture_sfj7s")
+
+[node name="MainBedroom" type="MeshInstance3D" parent="main/door4"]
+transform = Transform3D(-1.37806e-07, 0, -0.547868, 0, 2.52032, 0, 3.15264, 0, -2.39481e-08, 1.17782, 3.887, 1.35156)
+mesh = SubResource("BoxMesh_n0lbn")
+skeleton = NodePath("../../walls (mesh)")
+
+[node name="MainBedroom_L" type="MeshInstance3D" parent="main/door4"]
+transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, -0.297277)
+material_override = SubResource("StandardMaterial3D_nh6qd")
+mesh = SubResource("BoxMesh_b4j44")
+skeleton = NodePath("../../..")
+
+[node name="MainBedroom_R" type="MeshInstance3D" parent="main/door4"]
+transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, 2.96654)
+material_override = SubResource("StandardMaterial3D_nh6qd")
+mesh = SubResource("BoxMesh_xonfo")
+skeleton = NodePath("../../..")
+
 [node name="furniture" type="Node" parent="."]
 
 [node name="Wardrobe" parent="furniture" instance=ExtResource("6_mbfot")]
@@ -660,4 +686,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 [editable path="main/door1"]
 [editable path="main/door2"]
 [editable path="main/door3"]
+[editable path="main/door4"]
 [editable path="furniture/Lamp"]
