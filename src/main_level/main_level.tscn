@@ -39,7 +39,7 @@ albedo_texture = ExtResource("1_scctx")
 uv1_scale = Vector3(1.18, 1.18, 1.18)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_scctx"]
-size = Vector2(40, 40)
+size = Vector2(70, 70)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sfj7s"]
 data = PackedVector3Array(20, 0, 20, -20, 0, 20, 20, 0, -20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
@@ -510,6 +510,7 @@ skeleton = NodePath("../../../..")
 
 [node name="door1" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
+STARTING_DOOR_STATE = 1
 
 [node name="UI" parent="main/door1/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
@@ -533,7 +534,6 @@ skeleton = NodePath("../../..")
 
 [node name="door2" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -5.938, 1.27, -13.994)
-STARTING_DOOR_STATE = 1
 
 [node name="HingePivot" parent="main/door2" index="1"]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
