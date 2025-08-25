@@ -301,7 +301,7 @@ mesh = SubResource("BoxMesh_grjog")
 skeleton = NodePath("../../../..")
 
 [node name="Wall8" type="Node3D" parent="main/walls (mesh)"]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -11.3154, 0.389, -28.8553)
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -26.0803, 0.389, -28.8553)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/walls (mesh)/Wall8"]
 transform = Transform3D(1, 0, 0, 0, 0.35898, 0, 0, 0, 6.06432, 0, 2.10189, 1.4722)
@@ -321,6 +321,32 @@ mesh = SubResource("BoxMesh_nfile")
 skeleton = NodePath("../../../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="main/walls (mesh)/Wall8"]
+transform = Transform3D(1.016, 0, -4.3206e-14, 0, 0.194, 0, 7.10543e-15, 0, 6.178, 0, -0.18861, 1.471)
+material_override = SubResource("StandardMaterial3D_nh6qd")
+mesh = SubResource("BoxMesh_grjog")
+skeleton = NodePath("../../../..")
+
+[node name="Wall12" type="Node3D" parent="main/walls (mesh)"]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 21.193, 0.389, -28.8553)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/walls (mesh)/Wall12"]
+transform = Transform3D(1, 0, 0, 0, 0.35898, 0, 0, 0, 6.06432, 0, 2.10189, 1.4722)
+mesh = SubResource("BoxMesh_ibte4")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main/walls (mesh)/Wall12"]
+transform = Transform3D(1, 0, 0, 0, 0.19351, 0, 0, 0, 6.06432, 0, 0.084, 1.47014)
+material_override = SubResource("StandardMaterial3D_nh6qd")
+mesh = SubResource("BoxMesh_4s85u")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main/walls (mesh)/Wall12"]
+transform = Transform3D(1.016, 0, -4.3206e-14, 0, 0.194, 0, 7.10543e-15, 0, 6.178, 0, 0.781797, 1.471)
+material_override = SubResource("StandardMaterial3D_nh6qd")
+mesh = SubResource("BoxMesh_nfile")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="main/walls (mesh)/Wall12"]
 transform = Transform3D(1.016, 0, -4.3206e-14, 0, 0.194, 0, 7.10543e-15, 0, 6.178, 0, -0.18861, 1.471)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_grjog")
@@ -510,6 +536,7 @@ skeleton = NodePath("../../..")
 
 [node name="door2" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -5.938, 1.27, -13.994)
+STARTING_DOOR_STATE = 1
 
 [node name="HingePivot" parent="main/door2" index="1"]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)

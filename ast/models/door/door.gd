@@ -6,7 +6,7 @@ var DOOR_STATE : DOOR_STATES
 
 @export var DoorAnimation : AnimationPlayer
 @export var HingePivot : Node3D
-@export var STARTING_DOOR_STATE : DOOR_STATES = DOOR_STATES.CLOSED
+@export var STARTING_DOOR_STATE : DOOR_STATES
 
 func _ready() -> void:
 	DOOR_STATE = STARTING_DOOR_STATE
