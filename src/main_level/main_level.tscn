@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=52 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -75,6 +75,12 @@ size = Vector3(10.9527, 4.87903, 9.03906)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4s85u"]
 size = Vector3(14.3815, 5.28705, 14.5698)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybo0d"]
+size = Vector3(14.3815, 5.28705, 14.5698)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xonfo"]
+size = Vector3(14.3815, 5.28705, 5.32464)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scctx"]
 albedo_color = Color(0.43, 0.43, 0.43, 1)
@@ -246,6 +252,18 @@ shape = SubResource("BoxShape3D_ibte4")
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="main/WallCollision"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.7151, 2.14401, -17.7875)
 shape = SubResource("BoxShape3D_4s85u")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.842415, 2.14401, -32.6779)
+shape = SubResource("BoxShape3D_ybo0d")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.78017, 2.14401, -30.1878)
+shape = SubResource("BoxShape3D_xonfo")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.29891, 2.14401, -30.1878)
+shape = SubResource("BoxShape3D_xonfo")
 
 [node name="walls (mesh)" type="Node" parent="main"]
 
@@ -564,6 +582,9 @@ skeleton = NodePath("../../../..")
 [node name="door1" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
 STARTING_DOOR_STATE = 1
+
+[node name="HingePivot" parent="main/door1" index="1"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
 
 [node name="UI" parent="main/door1/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
