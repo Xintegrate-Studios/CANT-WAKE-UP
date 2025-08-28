@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CAN'T WAKE UP"
-config/tags=PackedStringArray("3d", "personal")
+config/tags=PackedStringArray("3d", "xintegrate_studios")
 run/main_scene="uid://i1bumbuxjipv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
