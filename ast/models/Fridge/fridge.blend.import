@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bj04d4ghii72y"
-path="res://.godot/imported/PSX_Fridge.blend-23bce39ef96b6eefd92afddb9176d050.scn"
+uid="uid://dlvbbq2bggqo7"
+path="res://.godot/imported/fridge.blend-a476ada9db58dc424f686ce4c9c6d4a7.scn"
 
 [deps]
 
-source_file="res://ast/models/fridge/PSX_Fridge.blend"
-dest_files=["res://.godot/imported/PSX_Fridge.blend-23bce39ef96b6eefd92afddb9176d050.scn"]
+source_file="res://ast/models/Fridge/fridge.blend"
+dest_files=["res://.godot/imported/fridge.blend-a476ada9db58dc424f686ce4c9c6d4a7.scn"]
 
 [params]
 
@@ -33,7 +33,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Bottom_Compartment_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://ast/models/Fridge/mat/BCM.tres",
+"use_external/path": "uid://uio1sb1t0wpv"
+},
+"Bottom_Door_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://ast/models/Fridge/mat/BDM.tres",
+"use_external/path": "uid://cnvix85tpx72t"
+},
+"Top_Compartment_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://ast/models/Fridge/mat/TCM.tres",
+"use_external/path": "uid://03it4ys5jepf"
+},
+"Top_Door_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://ast/models/Fridge/mat/TDM.tres",
+"use_external/path": "uid://ca0g0tdcq85kv"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
