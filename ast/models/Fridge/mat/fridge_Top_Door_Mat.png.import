@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cethg8ysp16hy"
-path.s3tc="res://.godot/imported/fridge_Top_Door_Mat.png-9e276aacb67f63e3d4daa74c2e1dac17.s3tc.ctex"
+path.s3tc="res://.godot/imported/fridge_Top_Door_Mat.png-e2814ce6b42da0138b92bce82c47f8b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://ast/models/Fridge/mat/fridge_Top_Door_Mat.png"
-dest_files=["res://.godot/imported/fridge_Top_Door_Mat.png-9e276aacb67f63e3d4daa74c2e1dac17.s3tc.ctex"]
+source_file="res://ast/models/fridge/mat/fridge_Top_Door_Mat.png"
+dest_files=["res://.godot/imported/fridge_Top_Door_Mat.png-e2814ce6b42da0138b92bce82c47f8b1.s3tc.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/models/door/door.tscn" id="10_sfj7s"]
-[ext_resource type="PackedScene" uid="uid://dlvbbq2bggqo7" path="res://ast/models/Fridge/fridge.blend" id="11_n7bfk"]
+[ext_resource type="PackedScene" uid="uid://dlvbbq2bggqo7" path="res://ast/models/fridge/fridge.blend" id="11_n7bfk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

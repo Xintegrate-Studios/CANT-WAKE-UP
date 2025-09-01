@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co5akmm47yaxj"
-path.s3tc="res://.godot/imported/fridge_Top_Compartment_Mat.png-d91797713a4d5889cc14546205acd99c.s3tc.ctex"
+path.s3tc="res://.godot/imported/fridge_Top_Compartment_Mat.png-1c25d8662c1ca315459c62ac970a9a67.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://ast/models/Fridge/mat/fridge_Top_Compartment_Mat.png"
-dest_files=["res://.godot/imported/fridge_Top_Compartment_Mat.png-d91797713a4d5889cc14546205acd99c.s3tc.ctex"]
+source_file="res://ast/models/fridge/mat/fridge_Top_Compartment_Mat.png"
+dest_files=["res://.godot/imported/fridge_Top_Compartment_Mat.png-1c25d8662c1ca315459c62ac970a9a67.s3tc.ctex"]
 
 [params]
 

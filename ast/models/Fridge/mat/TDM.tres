@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ca0g0tdcq85kv"]
 
-[ext_resource type="Texture2D" uid="uid://cethg8ysp16hy" path="res://ast/models/Fridge/mat/fridge_Top_Door_Mat.png" id="1_837cf"]
+[ext_resource type="Texture2D" uid="uid://cethg8ysp16hy" path="res://ast/models/fridge/mat/fridge_Top_Door_Mat.png" id="1_837cf"]
 
 [resource]
 cull_mode = 2
