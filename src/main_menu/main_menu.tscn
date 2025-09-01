@@ -1,3 +1,98 @@
-[gd_scene format=3 uid="uid://ch2svlx6b38qr"]
+[gd_scene load_steps=2 format=3 uid="uid://ch2svlx6b38qr"]
+
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="1_tlnm8"]
 
 [node name="MainMenu" type="Node3D"]
+
+[node name="ViewerDiscretionScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackBG" type="ColorRect" parent="ViewerDiscretionScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ViewerDiscretionScreen"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -187.5
+offset_right = 78.5
+offset_bottom = -164.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tlnm8")
+text = "CONTENT WARNING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ViewerDiscretionScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.375
+offset_top = -109.5
+offset_right = 249.375
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tlnm8")
+text = "CAN'T WAKE UP contains intense psychological horror, blood, and disturbing imagery. This game includes themes of self-harm and suicide."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="ViewerDiscretionScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.375
+offset_top = -22.5
+offset_right = 249.375
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tlnm8")
+text = "Player discretion is strongly advised. By continuing, you acknowledge that you understand the nature of this content."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="ViewerDiscretionScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.375
+offset_top = 89.5
+offset_right = 249.375
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tlnm8")
+text = "Press [ENTER] to continue, or [ESC] to quit."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
