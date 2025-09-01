@@ -1,6 +1,6 @@
 extends Node
 
-var TASKS = {
+const TASKS = {
 	
 	# normal ahh tasks
 	"GO_TO_BED": "Go to bed",
@@ -20,3 +20,5 @@ var TASKS = {
 	"HOLD_BREATH_FOREVER": "Hold your fucking breath forever",
 	"CUT_THROAT": "Cut your throat cunt",
 }
+
+var TASKS_TO_DO : Array = []

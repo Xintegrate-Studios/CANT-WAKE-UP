@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqbt7p56uoeq3"]
+
+[ext_resource type="Texture2D" uid="uid://cja31gneckgdw" path="res://ast/models/textures/dining_table.jpg" id="1_adrrt"]
+
+[resource]
+albedo_texture = ExtResource("1_adrrt")
+uv1_scale = Vector3(-0.375, -0.375, -0.375)
+uv1_offset = Vector3(0.98, 0.38, 0)
+texture_filter = 0
