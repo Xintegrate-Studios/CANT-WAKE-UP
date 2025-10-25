@@ -67,7 +67,7 @@ viewport_path = NodePath("Contents/UI/SubViewport")
 size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
-size = Vector3(2.1677856, 0.7268219, 1.1124878)
+size = Vector3(1.754303, 0.7268219, 1.1124878)
 
 [node name="Bed" type="Node3D"]
 script = ExtResource("1_lskcs")
@@ -108,7 +108,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="InteractableComponent"]
 
 [node name="UI" type="Sprite3D" parent="InteractableComponent/Contents"]
-transform = Transform3D(0.0564885, 0, 0, 0, 0.0564885, 0, 0, 0, 0.0564885, 0.19833681, 0, -0.523461)
+transform = Transform3D(0.0564885, 0, 0, 0, 0.0564885, 0, 0, 0, 0.0564885, 0.10655922, 0, -0.523461)
 billboard = 1
 no_depth_test = true
 render_priority = 1
@@ -138,10 +138,11 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019134492, -0.46813202, 9.1552734e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18760684, -0.46813202, 9.1552734e-05)
 shape = SubResource("BoxShape3D_lutt7")
 debug_color = Color(0.9612648, 9.62615e-08, 0.5140887, 0.41960785)
 
+[connection signal="action_triggered" from="InteractableComponent" to="." method="_on_bed_interacted"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
 [connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
