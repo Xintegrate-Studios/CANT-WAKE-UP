@@ -3,18 +3,19 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d2wmpphgit0gr"
-path="res://.godot/imported/lamp.blend-7ce52fff7c0fe138b6a1ea22d5e71280.scn"
+uid="uid://dkxc3trx4lke5"
+path="res://.godot/imported/bed.blend-cda2b1358919e896e3c09c9c84a9b7bb.scn"
 
 [deps]
 
-source_file="res://ast/models/lamp.blend"
-dest_files=["res://.godot/imported/lamp.blend-7ce52fff7c0fe138b6a1ea22d5e71280.scn"]
+source_file="res://ast/models/bed/bed.blend"
+dest_files=["res://.godot/imported/bed.blend-cda2b1358919e896e3c09c9c84a9b7bb.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -33,15 +34,10 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://res/mat/lamp_color.tres",
-"use_external/path": "uid://cobmi245rqja"
-}
-}
-}
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
@@ -60,3 +56,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
+gltf/naming_version=0

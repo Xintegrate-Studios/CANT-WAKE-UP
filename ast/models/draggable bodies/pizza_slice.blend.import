@@ -3,18 +3,19 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k2qgdc2lxue"
-path="res://.godot/imported/dining_table.blend-599a96e679544dd3f2bf8d07b3aa7c66.scn"
+uid="uid://c41u1i2d7lnxy"
+path="res://.godot/imported/pizza_slice.blend-6c8e3b901dfa47ea86bd610bed3cb247.scn"
 
 [deps]
 
-source_file="res://ast/models/dining_table.blend"
-dest_files=["res://.godot/imported/dining_table.blend-599a96e679544dd3f2bf8d07b3aa7c66.scn"]
+source_file="res://ast/models/draggable bodies/pizza_slice.blend"
+dest_files=["res://.godot/imported/pizza_slice.blend-6c8e3b901dfa47ea86bd610bed3cb247.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -33,15 +34,10 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Main": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://res/mat/dining_table_color.tres",
-"use_external/path": "uid://bqbt7p56uoeq3"
-}
-}
-}
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
@@ -60,3 +56,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
+gltf/naming_version=0

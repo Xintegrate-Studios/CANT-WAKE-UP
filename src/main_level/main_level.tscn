@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
-[ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table.blend" id="6_5agnw"]
-[ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/models/wardrobe.tscn" id="6_mbfot"]
-[ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/models/bed.tscn" id="7_3rixg"]
-[ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/models/lamp.tscn" id="7_5agnw"]
+[ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table/table.blend" id="6_5agnw"]
+[ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/actors/wardrobe/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/bed/bed.tscn" id="7_3rixg"]
+[ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/lamp/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
-[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/models/door/door.tscn" id="10_sfj7s"]
+[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
 [ext_resource type="PackedScene" uid="uid://dlvbbq2bggqo7" path="res://ast/models/fridge/fridge.blend" id="11_n7bfk"]
-[ext_resource type="PackedScene" uid="uid://k2qgdc2lxue" path="res://ast/models/dining_table.blend" id="12_hnkfv"]
+[ext_resource type="PackedScene" uid="uid://k2qgdc2lxue" path="res://ast/models/dining table/dining_table.blend" id="12_hnkfv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -585,9 +585,6 @@ skeleton = NodePath("../../../..")
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
 STARTING_DOOR_STATE = 1
 
-[node name="HingePivot" parent="main/door1" index="1"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
-
 [node name="UI" parent="main/door1/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
@@ -610,9 +607,6 @@ skeleton = NodePath("../../..")
 
 [node name="door2" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -5.938, 1.27, -13.994)
-
-[node name="HingePivot" parent="main/door2" index="1"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
 
 [node name="UI" parent="main/door2/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
@@ -637,9 +631,6 @@ skeleton = NodePath("../../..")
 [node name="door3" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-5.36422e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -5.36422e-08, -0.881199, 1.27, -22.3486)
 
-[node name="HingePivot" parent="main/door3" index="1"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
-
 [node name="UI" parent="main/door3/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
@@ -662,9 +653,6 @@ skeleton = NodePath("../../..")
 
 [node name="door4" parent="main" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, 1.19249e-08, 0, 0.5, 0, -1.19249e-08, 0, -0.5, 6.08133, 1.27, -9.05239)
-
-[node name="HingePivot" parent="main/door4" index="1"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1.3349, 0, 0)
 
 [node name="UI" parent="main/door4/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
