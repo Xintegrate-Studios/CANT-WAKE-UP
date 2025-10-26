@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bwolo2s856wqy"]
+
+[ext_resource type="Texture2D" uid="uid://bfgklkyhhw8tr" path="res://ast/models/textures/cheese_pizza.png" id="1_p8rns"]
+
+[resource]
+albedo_texture = ExtResource("1_p8rns")

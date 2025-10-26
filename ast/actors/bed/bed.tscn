@@ -108,7 +108,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="InteractableComponent"]
 
 [node name="UI" type="Sprite3D" parent="InteractableComponent/Contents"]
-transform = Transform3D(0.0564885, 0, 0, 0, 0.0564885, 0, 0, 0, 0.0564885, 0.10655922, 0, -0.523461)
+transform = Transform3D(0.0564885, 0, 0, 0, 0.0564885, 0, 0, 0, 0.0564885, 0.21690112, 0, -0.22921705)
 billboard = 1
 no_depth_test = true
 render_priority = 1
