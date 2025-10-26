@@ -10,7 +10,7 @@ extends CharacterBody3D
 @export var camera: Camera3D
 
 @export_group("visual")
-@export var FOV: float = 120
+@export var FOV: float = 70.0
 @export var crosshair_size: Vector2 = Vector2(12, 12)
 
 @export_group("mouse")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=56 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -169,17 +169,19 @@ viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubVi
 [sub_resource type="ViewportTexture" id="ViewportTexture_hnkfv"]
 viewport_path = NodePath("furniture/Bed/InteractableComponent/Contents/UI/SubViewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
+viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_3rixg")
 
 [node name="Player" parent="." instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
-FOV = 70
-BOB_FREQ = 5.0
-BOB_AMP = 0.02
 WALK_SPEED = 2.0
 SPRINT_SPEED = 4.0
 CROUCH_SPEED = 1.0
+BOB_FREQ = 5.0
+BOB_AMP = 0.02
 
 [node name="env" type="Node" parent="."]
 
@@ -757,9 +759,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 [node name="TableNote" parent="." instance=ExtResource("12_yj2oh")]
 transform = Transform3D(0.63072026, 0, 0.14514951, 0, 0.6472066, 0, -0.14514951, 0, 0.63072026, -0.5866182, 1.1756911, -17.177893)
 
+[node name="UI" parent="TableNote/InteractableComponent/Contents" index="0"]
+texture = SubResource("ViewportTexture_yj2oh")
+
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
 [editable path="main/doors/door3"]
 [editable path="main/doors/door4"]
 [editable path="furniture/Lamp"]
 [editable path="furniture/Bed"]
+[editable path="TableNote"]

@@ -114,6 +114,7 @@ vertical_alignment = 1
 
 [node name="NoteViewLayer" type="CanvasLayer" parent="Head/Camera3D"]
 layer = 16
+visible = false
 
 [node name="MainLayer" type="Control" parent="Head/Camera3D/NoteViewLayer"]
 layout_mode = 3
