@@ -19,8 +19,31 @@ transform = Transform3D(1, 0, 0, 0, 0.20938382, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_b0dv8")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0050181076, 0)
-text = "tasks
-dewfwefwefwefwef"
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.31168854, 0.0050181076, 0.030414745)
+modulate = Color(0, 0, 0, 1)
+text = "hey kiddo,
+
+mom and dad want you to get a few 
+things done before we’re back. we’ll 
+be home late tonight, so please go to 
+bed early, okay?
+
+- fold your clothes
+- unpack your storage box
+- put away your toys
+- make yourself dinner. there’s some 
+pizza in the fridge
+- wash the dishes
+- brush your teeth
+
+we might not wake you when we get in,
+so don’t worry if you hear us moving around.
+just stay in bed.
+love you.
+
+— mom & dad"
 font = ExtResource("3_yf13r")
-font_size = 7
+font_size = 6
+outline_size = 0
+horizontal_alignment = 0
+line_spacing = 3.49

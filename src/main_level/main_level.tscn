@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=55 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
 [ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/dining table/dining_table.tscn" id="12_hnkfv"]
+[ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/table note/table_note.tscn" id="12_yj2oh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -752,6 +753,9 @@ transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06
 
 [node name="PizzaBody" parent="." instance=ExtResource("9_nh6qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
+
+[node name="TableNote" parent="." instance=ExtResource("12_yj2oh")]
+transform = Transform3D(0.63072026, 0, 0.14514951, 0, 0.6472066, 0, -0.14514951, 0, 0.63072026, -0.5866182, 1.1756911, -17.177893)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
