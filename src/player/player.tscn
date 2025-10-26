@@ -116,7 +116,6 @@ vertical_alignment = 1
 
 [node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D"]
 layer = 16
-visible = false
 
 [node name="MainLayer" type="Control" parent="Head/Camera3D/NoteCloseupLayer"]
 layout_mode = 3
@@ -134,14 +133,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.52156866)
+color = Color(0, 0, 0, 0.38431373)
 
 [node name="Paper" type="TextureRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer"]
 layout_mode = 0
-offset_left = 429.00003
-offset_top = 57.000004
-offset_right = 1638.0
-offset_bottom = 1945.0
+offset_left = 419.00006
+offset_top = 66.0
+offset_right = 1628.0
+offset_bottom = 1954.0
+rotation = 0.015676692
 scale = Vector2(0.26921183, 0.26921183)
 texture = ExtResource("7_o822w")
 

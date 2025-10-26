@@ -38,14 +38,18 @@ var speed: float
 var bob_wave_length: float = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not PlayerGlobal.in_ui:
 		_handle_mouse_look(event.relative)
 
 func _physics_process(delta: float) -> void:
-	_handle_crouching(delta)
+	if not PlayerGlobal.in_ui:
+		_handle_crouching(delta)
+		_handle_movement(delta)
+		_apply_head_bob(delta)
+	else:
+		_stop_movement(delta)
+	
 	_apply_gravity(delta)
-	_handle_movement(delta)
-	_apply_head_bob(delta)
 	move_and_slide()
 
 func _handle_mouse_look(mouse_relative: Vector2) -> void:
@@ -78,6 +82,10 @@ func _handle_movement(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
+func _stop_movement(delta: float) -> void:
+	velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+	velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
+
 func _apply_head_bob(delta: float) -> void:
 	var is_moving = velocity.length() > 0.1 and is_on_floor()
 	
@@ -102,5 +110,6 @@ func _ready() -> void:
 	NoteCloseupLayer.hide()
 
 func show_note_closeup(note_id : int) -> void:
+	PlayerGlobal.in_ui = true
 	NoteContent.text = NotesGlobal.NOTES[note_id]
 	NoteCloseupLayer.show()
