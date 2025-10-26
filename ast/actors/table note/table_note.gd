@@ -14,4 +14,4 @@ func _update_note(note_id : int) -> void:
 	NoteContent.text = NotesGlobal.NOTES[note_id]
 
 func _on_note_closeup() -> void:
-	PlayerGlobal.player.show_note_closeup(NOTE_ID)
+	PlayerGlobal.player.toggle_note_closeup(!UIGlobal.in_note_closeup, NOTE_ID)

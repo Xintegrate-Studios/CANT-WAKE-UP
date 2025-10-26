@@ -26,15 +26,15 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.64910877, 0.03939812, 1.0049133)
 
-[node name="TableNote" type="Node3D" node_paths=PackedStringArray("NoteContent")]
+[node name="TableNote" type="Node3D" unique_id=382752213 node_paths=PackedStringArray("NoteContent")]
 script = ExtResource("1_7wqqk")
 NoteContent = NodePath("NoteContent")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=755728503]
 transform = Transform3D(1, 0, 0, 0, 0.20938382, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_b0dv8")
 
-[node name="NoteContent" type="Label3D" parent="."]
+[node name="NoteContent" type="Label3D" parent="." unique_id=1965980606]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.31168854, 0.0050181076, 0.030414745)
 modulate = Color(0, 0, 0, 1)
 text = "[text]"
@@ -44,28 +44,28 @@ outline_size = 0
 horizontal_alignment = 0
 line_spacing = 3.49
 
-[node name="InteractableComponent" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+[node name="InteractableComponent" type="Node3D" parent="." unique_id=560299394 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("4_rme4q")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
 ActionToPress = SubResource("InputEventAction_75gw0")
 
-[node name="Contents" type="Node3D" parent="InteractableComponent"]
+[node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1514945876]
 
-[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents"]
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=1632670890]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.04922521, 0.2954613)
 billboard = 1
 no_depth_test = true
 render_priority = 1
 texture = SubResource("ViewportTexture_i20jt")
 
-[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=343439390]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(1150, 1150)
 
-[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport"]
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" unique_id=443307529]
 offset_left = 500.0
 offset_top = 500.0
 offset_right = 629.0
@@ -76,14 +76,14 @@ text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1408373467]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" unique_id=1839383111]
 shape = SubResource("BoxShape3D_nyf0v")
 
-[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=766064732]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=1918532204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00277704, -0.0002898723, -0.0014801174)
 shape = SubResource("BoxShape3D_lutt7")
 

@@ -109,7 +109,13 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	NoteCloseupLayer.hide()
 
-func show_note_closeup(note_id : int) -> void:
-	PlayerGlobal.in_ui = true
-	NoteContent.text = NotesGlobal.NOTES[note_id]
-	NoteCloseupLayer.show()
+func toggle_note_closeup(show : bool, note_id : int = 1) -> void:
+	if show:
+		UIGlobal.in_note_closeup = true
+		PlayerGlobal.in_ui = true
+		NoteContent.text = NotesGlobal.NOTES[note_id]
+		NoteCloseupLayer.show()
+	else:
+		UIGlobal.in_note_closeup = false
+		PlayerGlobal.in_ui = false
+		NoteCloseupLayer.hide()
