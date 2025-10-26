@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c07y0b4830kan"]
+
+[ext_resource type="Script" uid="uid://botdob4r8nb22" path="res://ast/actors/table note/table_note.gd" id="1_7wqqk"]
+[ext_resource type="Texture2D" uid="uid://xm3bgawmeke4" path="res://ast/textures/paper.png" id="2_c6v82"]
+[ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="3_yf13r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf13r"]
+albedo_texture = ExtResource("2_c6v82")
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0dv8"]
+material = SubResource("StandardMaterial3D_yf13r")
+size = Vector3(0.64, 0.035, 1)
+
+[node name="TableNote" type="Node3D"]
+script = ExtResource("1_7wqqk")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.20938382, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_b0dv8")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0050181076, 0)
+text = "tasks
+dewfwefwefwefwef"
+font = ExtResource("3_yf13r")
+font_size = 7

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=54 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/lamp/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
-[ext_resource type="PackedScene" uid="uid://dlvbbq2bggqo7" path="res://ast/models/fridge/fridge.blend" id="11_n7bfk"]
 [ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/dining table/dining_table.tscn" id="12_hnkfv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
@@ -34,6 +33,73 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.5769
 volumetric_fog_length = 90.09
 volumetric_fog_detail_spread = 0.659754
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scctx"]
+albedo_color = Color(0.43, 0.43, 0.43, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_scctx"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 7.305, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh6qd"]
+albedo_color = Color(0.712129, 0.712129, 0.712129, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n7bfk"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 7.305, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sfj7s"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 0.88, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibte4"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 7.305, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4s85u"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 7.305, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfile"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 0.88, 4.94)
+
+[sub_resource type="BoxMesh" id="BoxMesh_grjog"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(7.745, 0.88, 4.94)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sfj7s"]
+viewport_path = NodePath("main/doors/door1/HingePivot/InteractableComponent/Contents/UI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfj7s"]
+albedo_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hnkfv"]
+material = SubResource("StandardMaterial3D_sfj7s")
+
+[sub_resource type="BoxMesh" id="BoxMesh_yj2oh"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(0.065, 1, 0.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysgfl"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(0.17, 1, 0.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n0lbn"]
+material = SubResource("StandardMaterial3D_sfj7s")
+size = Vector3(1.53, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b4j44"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(0.315, 1, 0.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ybo0d"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(0.43, 1, 0.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xonfo"]
+material = SubResource("StandardMaterial3D_scctx")
+size = Vector3(0.315, 1, 0.11)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw2e2"]
 albedo_color = Color(0.43, 0.43, 0.43, 1)
@@ -84,73 +150,6 @@ size = Vector3(14.3815, 5.28705, 14.5698)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xonfo"]
 size = Vector3(14.3815, 5.28705, 5.32464)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scctx"]
-albedo_color = Color(0.43, 0.43, 0.43, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_scctx"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 7.305, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh6qd"]
-albedo_color = Color(0.712129, 0.712129, 0.712129, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n7bfk"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 7.305, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_sfj7s"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 0.88, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ibte4"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 7.305, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4s85u"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 7.305, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_nfile"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 0.88, 4.94)
-
-[sub_resource type="BoxMesh" id="BoxMesh_grjog"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(7.745, 0.88, 4.94)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sfj7s"]
-viewport_path = NodePath("main/door1/HingePivot/InteractableComponent/Contents/UI/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfj7s"]
-albedo_color = Color(0.431373, 0.431373, 0.431373, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hnkfv"]
-material = SubResource("StandardMaterial3D_sfj7s")
-
-[sub_resource type="BoxMesh" id="BoxMesh_yj2oh"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(0.065, 1, 0.11)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ysgfl"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(0.17, 1, 0.11)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n0lbn"]
-material = SubResource("StandardMaterial3D_sfj7s")
-size = Vector3(1.53, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_b4j44"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(0.315, 1, 0.11)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ybo0d"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(0.43, 1, 0.11)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xonfo"]
-material = SubResource("StandardMaterial3D_scctx")
-size = Vector3(0.315, 1, 0.11)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_hnkfv"]
 size = Vector3(1.20026, 2.73096, 0.599854)
 
@@ -194,81 +193,6 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 14.2
 
 [node name="main" type="Node" parent="."]
-
-[node name="Floor" type="MeshInstance3D" parent="main"]
-transform = Transform3D(2, 0, 0, 0, 1.328, 0, 0, 0, 2, 3.25639, 0, -2.08494)
-material_override = SubResource("StandardMaterial3D_tw2e2")
-mesh = SubResource("PlaneMesh_scctx")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="main/Floor"]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="main/Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_sfj7s")
-
-[node name="Roof" type="MeshInstance3D" parent="main"]
-transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 3.09066, 3.63497, -1.80632)
-material_override = SubResource("StandardMaterial3D_goh21")
-mesh = SubResource("PlaneMesh_scctx")
-skeleton = NodePath("../..")
-
-[node name="WallCollision" type="StaticBody3D" parent="main"]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63848, 1.93951, -1.29022)
-shape = SubResource("BoxShape3D_n4qwq")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, 3.95942)
-shape = SubResource("BoxShape3D_nfile")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.85003, 1.93951, -9.22701)
-shape = SubResource("BoxShape3D_n0lbn")
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.4343, 1.93951, -4.8388)
-shape = SubResource("BoxShape3D_mbfot")
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.5046, 1.93951, -14.33)
-shape = SubResource("BoxShape3D_b4j44")
-
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.7332, 1.93951, -19.9888)
-shape = SubResource("BoxShape3D_mbfot")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.039, 1.94, -0.468212)
-shape = SubResource("BoxShape3D_n7bfk")
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.24633, 1.94, -1.93713)
-shape = SubResource("BoxShape3D_grjog")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.4805, 1.94, -8.55728)
-shape = SubResource("BoxShape3D_ibte4")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.7151, 2.14401, -17.7875)
-shape = SubResource("BoxShape3D_4s85u")
-
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.842415, 2.14401, -32.6779)
-shape = SubResource("BoxShape3D_ybo0d")
-
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.78017, 2.14401, -30.1878)
-shape = SubResource("BoxShape3D_xonfo")
-
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="main/WallCollision"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.29891, 2.14401, -30.1878)
-shape = SubResource("BoxShape3D_xonfo")
 
 [node name="walls (mesh)" type="Node" parent="main"]
 
@@ -584,98 +508,175 @@ material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_sfj7s")
 skeleton = NodePath("../../../..")
 
-[node name="door1" parent="main" instance=ExtResource("10_sfj7s")]
+[node name="doors" type="Node" parent="main"]
+
+[node name="door1" parent="main/doors" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4.06197, 1.2695, -4.08809)
 STARTING_DOOR_STATE = 1
 
-[node name="UI" parent="main/door1/HingePivot/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="main/doors/door1/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
-[node name="MainBedroom" type="MeshInstance3D" parent="main/door1"]
+[node name="MainBedroom" type="MeshInstance3D" parent="main/doors/door1"]
 transform = Transform3D(-1.37806e-07, 0, -0.547868, 0, 2.52032, 0, 3.15264, 0, -2.39481e-08, 1.17782, 3.887, 1.39606)
 mesh = SubResource("BoxMesh_hnkfv")
-skeleton = NodePath("../../walls (mesh)")
+skeleton = NodePath("../../../walls (mesh)")
 
-[node name="MainBedroom_L" type="MeshInstance3D" parent="main/door1"]
+[node name="MainBedroom_L" type="MeshInstance3D" parent="main/doors/door1"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, -0.0499401)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_yj2oh")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="MainBedroom_R" type="MeshInstance3D" parent="main/door1"]
+[node name="MainBedroom_R" type="MeshInstance3D" parent="main/doors/door1"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, 2.8357)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_ysgfl")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="door2" parent="main" instance=ExtResource("10_sfj7s")]
+[node name="door2" parent="main/doors" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -5.938, 1.27, -13.994)
 
-[node name="UI" parent="main/door2/HingePivot/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="main/doors/door2/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
-[node name="MainBedroom" type="MeshInstance3D" parent="main/door2"]
+[node name="MainBedroom" type="MeshInstance3D" parent="main/doors/door2"]
 transform = Transform3D(-1.37806e-07, 0, -0.547868, 0, 2.52032, 0, 3.15264, 0, -2.39481e-08, 1.17782, 3.887, 1.39606)
 mesh = SubResource("BoxMesh_n0lbn")
-skeleton = NodePath("../../walls (mesh)")
+skeleton = NodePath("../../../walls (mesh)")
 
-[node name="MainBedroom_L" type="MeshInstance3D" parent="main/door2"]
+[node name="MainBedroom_L" type="MeshInstance3D" parent="main/doors/door2"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, -0.297277)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_b4j44")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="MainBedroom_R" type="MeshInstance3D" parent="main/door2"]
+[node name="MainBedroom_R" type="MeshInstance3D" parent="main/doors/door2"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, 3.09383)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_ybo0d")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="door3" parent="main" instance=ExtResource("10_sfj7s")]
+[node name="door3" parent="main/doors" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-5.36422e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -5.36422e-08, -0.881199, 1.27, -22.3486)
 
-[node name="UI" parent="main/door3/HingePivot/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="main/doors/door3/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
-[node name="MainBedroom" type="MeshInstance3D" parent="main/door3"]
+[node name="MainBedroom" type="MeshInstance3D" parent="main/doors/door3"]
 transform = Transform3D(-1.37806e-07, 0, -0.547868, 0, 2.52032, 0, 3.15264, 0, -2.39481e-08, 1.17782, 3.887, 1.35156)
 mesh = SubResource("BoxMesh_n0lbn")
-skeleton = NodePath("../../walls (mesh)")
+skeleton = NodePath("../../../walls (mesh)")
 
-[node name="MainBedroom_L" type="MeshInstance3D" parent="main/door3"]
+[node name="MainBedroom_L" type="MeshInstance3D" parent="main/doors/door3"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, -0.297277)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_b4j44")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="MainBedroom_R" type="MeshInstance3D" parent="main/door3"]
+[node name="MainBedroom_R" type="MeshInstance3D" parent="main/doors/door3"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, 2.96654)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_xonfo")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="door4" parent="main" instance=ExtResource("10_sfj7s")]
+[node name="door4" parent="main/doors" instance=ExtResource("10_sfj7s")]
 transform = Transform3D(-0.5, 0, 1.19249e-08, 0, 0.5, 0, -1.19249e-08, 0, -0.5, 6.08133, 1.27, -9.05239)
 
-[node name="UI" parent="main/door4/HingePivot/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="main/doors/door4/HingePivot/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_sfj7s")
 
-[node name="MainBedroom" type="MeshInstance3D" parent="main/door4"]
+[node name="MainBedroom" type="MeshInstance3D" parent="main/doors/door4"]
 transform = Transform3D(-1.37806e-07, 0, -0.547868, 0, 2.52032, 0, 3.15264, 0, -2.39481e-08, 1.17782, 3.887, 1.35156)
 mesh = SubResource("BoxMesh_n0lbn")
-skeleton = NodePath("../../walls (mesh)")
+skeleton = NodePath("../../../walls (mesh)")
 
-[node name="MainBedroom_L" type="MeshInstance3D" parent="main/door4"]
+[node name="MainBedroom_L" type="MeshInstance3D" parent="main/doors/door4"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, -0.297277)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_b4j44")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="MainBedroom_R" type="MeshInstance3D" parent="main/door4"]
+[node name="MainBedroom_R" type="MeshInstance3D" parent="main/doors/door4"]
 transform = Transform3D(8.74228e-08, 2.68951e-14, 2, 1.74846e-07, -7.03808, 0, 2, 6.15288e-07, -8.74228e-08, 1.26872, 0.585, 2.96654)
 material_override = SubResource("StandardMaterial3D_nh6qd")
 mesh = SubResource("BoxMesh_xonfo")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
+
+[node name="Floor" type="MeshInstance3D" parent="main"]
+transform = Transform3D(2, 0, 0, 0, 1.328, 0, 0, 0, 2, 3.25639, 0, -2.08494)
+material_override = SubResource("StandardMaterial3D_tw2e2")
+mesh = SubResource("PlaneMesh_scctx")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/Floor"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sfj7s")
+
+[node name="Roof" type="MeshInstance3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 3.09066, 3.63497, -1.80632)
+material_override = SubResource("StandardMaterial3D_goh21")
+mesh = SubResource("PlaneMesh_scctx")
+skeleton = NodePath("../..")
+
+[node name="WallCollision" type="StaticBody3D" parent="main"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63848, 1.93951, -1.29022)
+shape = SubResource("BoxShape3D_n4qwq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.7415, 1.93951, 3.95942)
+shape = SubResource("BoxShape3D_nfile")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.85003, 1.93951, -9.22701)
+shape = SubResource("BoxShape3D_n0lbn")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.4343, 1.93951, -4.8388)
+shape = SubResource("BoxShape3D_mbfot")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.5046, 1.93951, -14.33)
+shape = SubResource("BoxShape3D_b4j44")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.7332, 1.93951, -19.9888)
+shape = SubResource("BoxShape3D_mbfot")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.039, 1.94, -0.468212)
+shape = SubResource("BoxShape3D_n7bfk")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.24633, 1.94, -1.93713)
+shape = SubResource("BoxShape3D_grjog")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.4805, 1.94, -8.55728)
+shape = SubResource("BoxShape3D_ibte4")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.7151, 2.14401, -17.7875)
+shape = SubResource("BoxShape3D_4s85u")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.842415, 2.14401, -32.6779)
+shape = SubResource("BoxShape3D_ybo0d")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.78017, 2.14401, -30.1878)
+shape = SubResource("BoxShape3D_xonfo")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="main/WallCollision"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.29891, 2.14401, -30.1878)
+shape = SubResource("BoxShape3D_xonfo")
 
 [node name="furniture" type="Node" parent="."]
 
@@ -744,20 +745,17 @@ transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.28144
 [node name="UI" parent="furniture/Bed/InteractableComponent/Contents" index="0"]
 texture = SubResource("ViewportTexture_hnkfv")
 
+[node name="DiningTable" parent="furniture" instance=ExtResource("12_hnkfv")]
+transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06539595, 0.00016201612, -17.741667)
+
 [node name="misc" type="Node" parent="."]
 
 [node name="PizzaBody" parent="." instance=ExtResource("9_nh6qd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278482, -2.25493)
 
-[node name="Main" parent="." instance=ExtResource("11_n7bfk")]
-transform = Transform3D(0.161882, 0, 0, 0, 0.161882, 0, 0, 0, 0.161882, 1.98177, 1.11626, -14.5402)
-
-[node name="DiningTable" parent="." instance=ExtResource("12_hnkfv")]
-transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06539595, 0.00016201612, -17.741667)
-
-[editable path="main/door1"]
-[editable path="main/door2"]
-[editable path="main/door3"]
-[editable path="main/door4"]
+[editable path="main/doors/door1"]
+[editable path="main/doors/door2"]
+[editable path="main/doors/door3"]
+[editable path="main/doors/door4"]
 [editable path="furniture/Lamp"]
 [editable path="furniture/Bed"]
