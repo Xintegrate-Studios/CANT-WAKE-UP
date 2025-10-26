@@ -22,6 +22,8 @@ boot_splash/show_image=false
 PlayerGlobal="*res://src/globals/player_global.gd"
 DraggableBodiesGlobal="*res://src/globals/draggable_bodies_global.gd"
 InputGlobal="*res://src/globals/input_global.gd"
+NotesGlobal="*res://src/globals/notes_global.gd"
+TasksGlobal="*res://src/globals/tasks_global.gd"
 
 [display]
 
