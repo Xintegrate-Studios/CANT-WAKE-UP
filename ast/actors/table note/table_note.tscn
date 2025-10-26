@@ -1,11 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://c07y0b4830kan"]
 
 [ext_resource type="Script" uid="uid://botdob4r8nb22" path="res://ast/actors/table note/table_note.gd" id="1_7wqqk"]
-[ext_resource type="Texture2D" uid="uid://xm3bgawmeke4" path="res://ast/textures/paper.png" id="2_c6v82"]
+[ext_resource type="Texture2D" uid="uid://cyfp20o3gwe4u" path="res://ast/textures/paper_physical.png" id="2_yf13r"]
 [ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="3_yf13r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf13r"]
-albedo_texture = ExtResource("2_c6v82")
+albedo_texture = ExtResource("2_yf13r")
+uv1_triplanar_sharpness = 0.7071069
 
 [sub_resource type="BoxMesh" id="BoxMesh_b0dv8"]
 material = SubResource("StandardMaterial3D_yf13r")
