@@ -17,7 +17,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "head", "camera") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "head", "camera") groups=["PlayerBody"]]
 collision_mask = 2
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
@@ -26,37 +26,37 @@ NoteContent = NodePath("Head/Camera3D/NoteCloseupLayer/MainLayer/Paper/NoteConte
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 
-[node name="Body" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=2041292677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_e8ep2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1505164380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("ConvexPolygonShape3D_ocuv0")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="." unique_id=1777356075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=699068989]
 
-[node name="RaycastMimic" type="Area3D" parent="Head/Camera3D" groups=["raycast_mimic"]]
+[node name="RaycastMimic" type="Area3D" parent="Head/Camera3D" unique_id=953426908 groups=["raycast_mimic"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/RaycastMimic"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/RaycastMimic" unique_id=2090937215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737769)
 shape = SubResource("BoxShape3D_4anbu")
 
-[node name="DragInteractionPosition" type="Node3D" parent="Head/Camera3D"]
+[node name="DragInteractionPosition" type="Node3D" parent="Head/Camera3D" unique_id=992156342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11453)
 
-[node name="MainLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="MainLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=466542388]
 
-[node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1599895072]
 layer = 5
 
-[node name="EffectLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="EffectLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1467373571]
 layer = 10
 
-[node name="VHSEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer"]
+[node name="VHSEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer" unique_id=1022563289]
 material = ExtResource("2_rxibo")
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,10 +65,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HUDNoEffectLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="HUDNoEffectLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1730195361]
 layer = 15
 
-[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer"]
+[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer" unique_id=518794310]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -83,7 +83,7 @@ grow_vertical = 2
 texture = ExtResource("3_mf2ua")
 expand_mode = 1
 
-[node name="RotateUIContainer" type="Control" parent="Head/Camera3D/HUDNoEffectLayer"]
+[node name="RotateUIContainer" type="Control" parent="Head/Camera3D/HUDNoEffectLayer" unique_id=1430492097]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +93,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_jiejy")
 
-[node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/RotateUIContainer"]
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/RotateUIContainer" unique_id=2001811862]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 604.0
@@ -102,7 +102,7 @@ offset_bottom = 636.0
 texture = ExtResource("4_244u8")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Head/Camera3D/HUDNoEffectLayer/RotateUIContainer"]
+[node name="Label" type="Label" parent="Head/Camera3D/HUDNoEffectLayer/RotateUIContainer" unique_id=2120604313]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 609.0
@@ -114,10 +114,10 @@ text = "Rotate Object"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1593337519]
 layer = 16
 
-[node name="MainLayer" type="Control" parent="Head/Camera3D/NoteCloseupLayer"]
+[node name="MainLayer" type="Control" parent="Head/Camera3D/NoteCloseupLayer" unique_id=396203887]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,7 +126,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BG" type="ColorRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer"]
+[node name="BG" type="ColorRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer" unique_id=1831895794]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.38431373)
 
-[node name="Paper" type="TextureRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer"]
+[node name="Paper" type="TextureRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer" unique_id=79791612]
 layout_mode = 0
 offset_left = 419.00006
 offset_top = 66.0
@@ -145,7 +145,7 @@ rotation = 0.015676692
 scale = Vector2(0.26921183, 0.26921183)
 texture = ExtResource("7_o822w")
 
-[node name="NoteContent" type="Label" parent="Head/Camera3D/NoteCloseupLayer/MainLayer/Paper"]
+[node name="NoteContent" type="Label" parent="Head/Camera3D/NoteCloseupLayer/MainLayer/Paper" unique_id=1038135223]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 14.858154
@@ -156,3 +156,20 @@ theme_override_constants/line_spacing = 30
 theme_override_fonts/font = ExtResource("8_x42xx")
 theme_override_font_sizes/font_size = 56
 text = "[text]"
+
+[node name="ExitNotice" type="Label" parent="Head/Camera3D/NoteCloseupLayer/MainLayer" unique_id=642267313]
+modulate = Color(1, 1, 1, 0.56078434)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -47.0
+offset_right = 39.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_5f2sf")
+text = "[E] Exit"
