@@ -2,32 +2,32 @@ extends CharacterBody3D
 
 @export var DragInteractionPosition: Node3D
 
-@export_group("UI")
+@export_group("ui")
 @export var note_content: Label
 
-@export_group("Body Parts")
+@export_group("body parts")
 @export var head: Node3D
 @export var camera: Camera3D
 
-@export_group("Visual")
+@export_group("visual")
 @export var FOV: float = 120
 @export var crosshair_size: Vector2 = Vector2(12, 12)
 
-@export_group("Mouse")
+@export_group("mouse")
 @export var SENSITIVITY: float = 0.001
 
-@export_group("Movement")
+@export_group("movement")
 @export var WALK_SPEED: float = 5.0
 @export var SPRINT_SPEED: float = 8.0
 @export var CROUCH_SPEED: float = 3.0
 @export var CROUCH_INTERPOLATION: float = 6.0
 
-@export_group("Jump")
+@export_group("jump")
 @export var JUMP_VELOCITY: float = 4.5
 @export var CROUCH_JUMP_VELOCITY: float = 4.5
 @export var gravity: float = 12.0
 
-@export_group("Head Bob")
+@export_group("headbob")
 @export var BOB_FREQ: float = 3.0
 @export var BOB_AMP: float = 0.08
 @export var BOB_SMOOTHING_SPEED: float = 3.0
