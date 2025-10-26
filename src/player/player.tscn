@@ -17,10 +17,12 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("DragInteractionPosition", "head", "camera") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "head", "camera") groups=["PlayerBody"]]
 collision_mask = 2
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
+NoteCloseupLayer = NodePath("Head/Camera3D/NoteCloseupLayer")
+NoteContent = NodePath("Head/Camera3D/NoteCloseupLayer/MainLayer/Paper/NoteContent")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 
@@ -112,11 +114,11 @@ text = "Rotate Object"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NoteViewLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D"]
 layer = 16
 visible = false
 
-[node name="MainLayer" type="Control" parent="Head/Camera3D/NoteViewLayer"]
+[node name="MainLayer" type="Control" parent="Head/Camera3D/NoteCloseupLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,7 +127,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BG" type="ColorRect" parent="Head/Camera3D/NoteViewLayer/MainLayer"]
+[node name="BG" type="ColorRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,7 +136,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.52156866)
 
-[node name="Paper" type="TextureRect" parent="Head/Camera3D/NoteViewLayer/MainLayer"]
+[node name="Paper" type="TextureRect" parent="Head/Camera3D/NoteCloseupLayer/MainLayer"]
 layout_mode = 0
 offset_left = 429.00003
 offset_top = 57.000004
@@ -143,7 +145,7 @@ offset_bottom = 1945.0
 scale = Vector2(0.26921183, 0.26921183)
 texture = ExtResource("7_o822w")
 
-[node name="NoteContent" type="Label" parent="Head/Camera3D/NoteViewLayer/MainLayer/Paper"]
+[node name="NoteContent" type="Label" parent="Head/Camera3D/NoteCloseupLayer/MainLayer/Paper"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 14.858154

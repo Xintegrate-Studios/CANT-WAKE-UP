@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @export var DragInteractionPosition: Node3D
+@export var NoteCloseupLayer : CanvasLayer
+@export var NoteContent : Label
 
 @export_group("ui")
 @export var note_content: Label
@@ -94,4 +96,11 @@ func _process(_delta: float) -> void:
 	camera.fov = FOV
 
 func _ready() -> void:
+	PlayerGlobal.player = self
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	NoteCloseupLayer.hide()
+
+func show_note_closeup(note_id : int) -> void:
+	NoteContent.text = NotesGlobal.NOTES[note_id]
+	NoteCloseupLayer.show()
