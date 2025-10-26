@@ -4,6 +4,9 @@ extends CharacterBody3D
 @export var NoteCloseupLayer : CanvasLayer
 @export var NoteContent : Label
 
+@export_group("audio")
+@export var paper_audio : AudioStreamPlayer
+
 @export_group("ui")
 @export var note_content: Label
 
@@ -111,6 +114,7 @@ func _ready() -> void:
 
 func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 	if show_closup:
+		paper_audio.play()
 		UIGlobal.in_note_closeup = true
 		PlayerGlobal.in_ui = true
 		NoteContent.text = NotesGlobal.NOTES[note_id]

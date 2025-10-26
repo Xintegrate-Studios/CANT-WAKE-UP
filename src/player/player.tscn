@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=13 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="5_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://bmjr7r1lh2o1n" path="res://ast/textures/paper_cropped.png" id="7_o822w"]
 [ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="8_x42xx"]
+[ext_resource type="AudioStream" uid="uid://jtbmjlxo0kgr" path="res://ast/audio/paper.ogg" id="9_l271a"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -17,12 +18,13 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
-[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "head", "camera") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "head", "camera") groups=["PlayerBody"]]
 collision_mask = 2
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
 NoteCloseupLayer = NodePath("Head/Camera3D/NoteCloseupLayer")
 NoteContent = NodePath("Head/Camera3D/NoteCloseupLayer/MainLayer/Paper/NoteContent")
+paper_audio = NodePath("audio/paper")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 
@@ -173,3 +175,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_5f2sf")
 text = "[E] Exit"
+
+[node name="audio" type="Node" parent="." unique_id=1389909550]
+
+[node name="paper" type="AudioStreamPlayer" parent="audio" unique_id=1546956703]
+stream = ExtResource("9_l271a")
