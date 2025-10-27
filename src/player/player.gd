@@ -117,7 +117,7 @@ func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 		paper_audio.play()
 		UIGlobal.in_note_closeup = true
 		PlayerGlobal.in_ui = true
-		NoteContent.text = NotesGlobal.NOTES[note_id]
+		NoteContent.text = NotesGlobal.NOTE_CLOSUPS[note_id]
 		NoteCloseupLayer.show()
 	else:
 		UIGlobal.in_note_closeup = false

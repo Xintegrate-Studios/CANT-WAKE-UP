@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c07y0b4830kan"]
+[gd_scene load_steps=13 format=3 uid="uid://c07y0b4830kan"]
 
 [ext_resource type="Script" uid="uid://botdob4r8nb22" path="res://ast/actors/table note/table_note.gd" id="1_7wqqk"]
 [ext_resource type="Texture2D" uid="uid://cyfp20o3gwe4u" path="res://ast/textures/paper_physical.png" id="2_yf13r"]
@@ -14,6 +14,9 @@ uv1_triplanar_sharpness = 0.7071069
 material = SubResource("StandardMaterial3D_yf13r")
 size = Vector3(0.64, 0.035, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_rme4q"]
+viewport_path = NodePath("NoteContent/UI/SubViewport")
+
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
 
@@ -26,23 +29,40 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.64910877, 0.03939812, 1.0049133)
 
-[node name="TableNote" type="Node3D" unique_id=382752213 node_paths=PackedStringArray("NoteContent")]
+[node name="TableNote" type="Node3D" unique_id=382752213 node_paths=PackedStringArray("NoteContentLabel")]
 script = ExtResource("1_7wqqk")
-NoteContent = NodePath("NoteContent")
+NoteContentLabel = NodePath("NoteContent/UI/SubViewport/Control/Label")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=755728503]
 transform = Transform3D(1, 0, 0, 0, 0.20938382, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_b0dv8")
 
-[node name="NoteContent" type="Label3D" parent="." unique_id=1965980606]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.31168854, 0.0050181076, 0.030414745)
+[node name="NoteContent" type="Node3D" parent="." unique_id=954745603]
+
+[node name="UI" type="Sprite3D" parent="NoteContent" unique_id=1789924165]
+transform = Transform3D(0.22177033, 0, 0, 0, -9.693888e-09, 0.22177033, 0, -0.22177033, -9.693888e-09, -0.009329587, 0.005343601, 0.0044156164)
+alpha_cut = 1
+alpha_scissor_threshold = 0.479
+texture = SubResource("ViewportTexture_rme4q")
+
+[node name="SubViewport" type="SubViewport" parent="NoteContent/UI" unique_id=21945242]
+transparent_bg = true
+size = Vector2i(274, 440)
+
+[node name="Control" type="Control" parent="NoteContent/UI/SubViewport" unique_id=58379930]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NoteContent/UI/SubViewport/Control" unique_id=394060843]
 modulate = Color(0, 0, 0, 1)
-text = "[text]"
-font = ExtResource("3_yf13r")
-font_size = 6
-outline_size = 0
-horizontal_alignment = 0
-line_spacing = 3.49
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_yf13r")
+theme_override_font_sizes/font_size = 16
+text = "text"
 
 [node name="InteractableComponent" type="Node3D" parent="." unique_id=560299394 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("4_rme4q")
