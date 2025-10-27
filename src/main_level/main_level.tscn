@@ -170,7 +170,7 @@ viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubVi
 viewport_path = NodePath("furniture/Bed/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ysgfl"]
-viewport_path = NodePath("NoteContent/UI/SubViewport")
+viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
