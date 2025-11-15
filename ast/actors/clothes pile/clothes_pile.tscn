@@ -1,6 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bpcmhqrvv7hog"]
-
-[ext_resource type="Script" uid="uid://dmidsf76y08vv" path="res://ast/actors/clothes pile/clothes_pile.gd" id="1_nryr4"]
+[gd_scene load_steps=12 format=4 uid="uid://bpcmhqrvv7hog"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v2vn"]
 resource_name = "green"
@@ -152,7 +150,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0xdau")
 
 [node name="clothes_pile" type="Node3D" unique_id=959401536]
-script = ExtResource("1_nryr4")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=444876546]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
