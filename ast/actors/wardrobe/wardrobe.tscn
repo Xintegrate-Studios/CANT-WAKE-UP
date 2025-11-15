@@ -111,6 +111,7 @@ shape = SubResource("BoxShape3D_ank7t")
 
 [node name="OpenMesh" type="MeshInstance3D" parent="." unique_id=1488379816]
 transform = Transform3D(0.33782363, 0, 0, 0, 1.461359, 0, 0, 0, 0.7801037, 0, 1.507676, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_8ckvv")
 mesh = SubResource("ArrayMesh_iyoid")
 
@@ -132,7 +133,6 @@ shape = SubResource("BoxShape3D_uhr41")
 
 [node name="ClosedMesh" type="MeshInstance3D" parent="." unique_id=383122532]
 transform = Transform3D(0.33782363, 0, 0, 0, 1.4613609, 0, 0, 0, 0.7801027, 0, 1.5076765, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_8ckvv")
 mesh = SubResource("ArrayMesh_1y52n")
 

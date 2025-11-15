@@ -4,6 +4,9 @@ var open : bool = false:
 	set(value):
 		open = value
 		
+		# if in wardrobe and its closed, stop dragging objects
+		if !open and PlayerGlobal.in_wardrobe:
+			DraggableBodiesGlobal.let_go_of_all_bodies()
 		
 		open_mesh.visible = open
 		closed_mesh.visible = !open
