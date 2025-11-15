@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
 [ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/dining table/dining_table.tscn" id="12_hnkfv"]
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/table note/table_note.tscn" id="12_yj2oh"]
-[ext_resource type="PackedScene" uid="uid://fiya2v1d0pa3" path="res://ast/models/toothbrush/toothbrush.blend" id="13_yj2oh"]
+[ext_resource type="PackedScene" uid="uid://bpcmhqrvv7hog" path="res://ast/actors/clothes pile/clothes_pile.tscn" id="13_yj2oh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -769,8 +769,8 @@ texture = SubResource("ViewportTexture_ysgfl")
 [node name="UI" parent="TableNote/InteractableComponent/Contents" parent_id_path=PackedInt32Array(845261255, 1514945876) index="0" unique_id=1632670890]
 texture = SubResource("ViewportTexture_yj2oh")
 
-[node name="toothbrush" parent="." unique_id=1051212860 instance=ExtResource("13_yj2oh")]
-transform = Transform3D(0.04520301, 0, -0.02137026, 0, 0.05, 0, 0.02137026, 0, 0.04520301, 1.4460623, 1.1845444, -17.682287)
+[node name="clothes_pile" parent="." unique_id=959401536 instance=ExtResource("13_yj2oh")]
+transform = Transform3D(-0.98861766, 0, -0.15044999, 0, 1, 0, 0.15044999, 0, -0.98861766, 1.565245, 0.8266577, 0.039521113)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
