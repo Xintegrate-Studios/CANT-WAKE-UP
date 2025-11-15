@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://cb4ibh01rqcpt"]
+[gd_scene load_steps=19 format=4 uid="uid://cb4ibh01rqcpt"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_cpeuc"]
 [ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/wardrobe/wardrobe.gd" id="1_dejff"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_dejff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ank7t"]
+size = Vector3(0.21481323, 2.8378906, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ckvv"]
 cull_mode = 2
@@ -40,8 +43,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ingbc")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dejff"]
-data = PackedVector3Array(-2.2161, -1, -0.8199, -0.9504, 1, -1, -2.2161, 1, -0.8199, -2.2161, -1, -0.8199, -0.9504, -1, -1, -0.9504, 1, -1, -0.95, -1, -1, 1, 1, -1, -0.95, 1, -1, -0.95, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, 0, 1, 1, 1, 1, 1, 0, 1, -1, 0, 1, -1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 0, 1, 1, 0, 1, -1, -1, 1, 1, 0, 1, 1, -1, -0.95, -1, 1, -0.9504, 1, 1, -0.95, 1, 1, -0.95, -1, 1, -0.9504, -1, 1, -0.9504, 1, 1, 1, -1, 1, -0.95, -1, 1, -0.95, 1, 1, 1, -1, 1, -0.95, 1, 1, 1, 1, 1, -0.95, -1, 0, 1, -1, 1, 1, -1, 0, -0.95, -1, 0, -0.95, -1, 1, 1, -1, 1, -0.95, -1, -1, -0.95, -1, 0, 1, -1, 0, -0.95, -1, -1, 1, -1, 0, 1, -1, -1, -0.9504, -1, 1, -2.2161, 1, 0.81979996, -0.9504, 1, 1, -0.9504, -1, 1, -2.2161, -1, 0.81979996, -2.2161, 1, 0.81979996, 1, 1, -1, -0.95, 1, 0, -0.95, 1, -1, 1, 1, -1, 1, 1, 0, -0.95, 1, 0, 1, 1, 0, -0.95, 1, 1, -0.95, 1, 0, 1, 1, 0, 1, 1, 1, -0.95, 1, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dejff"]
+size = Vector3(0.13043213, 2.0405273, 1.9575577)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhr41"]
+size = Vector3(0.13043213, 2.0405273, 2.8893127)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i6vr"]
 
@@ -75,7 +81,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qvb6x")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uhr41"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dejff"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
@@ -90,35 +96,52 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(1.1589012, 2.9217834, 1.7988129)
 
-[node name="wardrobe" type="Node3D" unique_id=1998482516 node_paths=PackedStringArray("open_mesh", "closed_mesh")]
+[node name="wardrobe" type="Node3D" unique_id=1998482516 node_paths=PackedStringArray("open_mesh", "closed_mesh", "open_collision", "closed_collision")]
 script = ExtResource("1_dejff")
 open_mesh = NodePath("OpenMesh")
 closed_mesh = NodePath("ClosedMesh")
+open_collision = NodePath("OpenMesh/StaticBody3D")
+closed_collision = NodePath("ClosedMesh/StaticBody3D")
+
+[node name="InWardrobeArea" type="Area3D" parent="." unique_id=446976683]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InWardrobeArea" unique_id=844692538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20692444, 1.5112565, 0)
+shape = SubResource("BoxShape3D_ank7t")
 
 [node name="OpenMesh" type="MeshInstance3D" parent="." unique_id=1488379816]
 transform = Transform3D(0.33782363, 0, 0, 0, 1.461359, 0, 0, 0, 0.7801037, 0, 1.507676, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_8ckvv")
 mesh = SubResource("ArrayMesh_iyoid")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="OpenMesh" unique_id=842519328]
+[node name="StaticBody3D" type="StaticBody3D" parent="OpenMesh" unique_id=1239357470]
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenMesh/StaticBody3D" unique_id=749600865]
-shape = SubResource("ConcavePolygonShape3D_dejff")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenMesh/StaticBody3D" unique_id=368678766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9473571, -0.011474609, -0.011608181)
+shape = SubResource("BoxShape3D_dejff")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenMesh/StaticBody3D" unique_id=470403210]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.4432884, -0.011474609, -0.8985686)
+shape = SubResource("BoxShape3D_uhr41")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="OpenMesh/StaticBody3D" unique_id=2031071081]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.4432884, -0.011474609, 0.90242416)
+shape = SubResource("BoxShape3D_uhr41")
 
 [node name="ClosedMesh" type="MeshInstance3D" parent="." unique_id=383122532]
 transform = Transform3D(0.33782363, 0, 0, 0, 1.4613609, 0, 0, 0, 0.7801027, 0, 1.5076765, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_8ckvv")
 mesh = SubResource("ArrayMesh_1y52n")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ClosedMesh" unique_id=1640670007]
+[node name="StaticBody3D" type="StaticBody3D" parent="ClosedMesh" unique_id=1407044601]
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedMesh/StaticBody3D" unique_id=1662346812]
-shape = SubResource("ConcavePolygonShape3D_uhr41")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedMesh/StaticBody3D" unique_id=1601853216]
+shape = SubResource("ConcavePolygonShape3D_dejff")
 
 [node name="InteractableComponent" type="Node3D" parent="." unique_id=1118434720 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5370538, 0)
@@ -164,6 +187,8 @@ shape = SubResource("BoxShape3D_nyf0v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0048160106, -0.03413391, 0.004371673)
 shape = SubResource("BoxShape3D_lutt7")
 
+[connection signal="body_entered" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_entered"]
+[connection signal="body_exited" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_exited"]
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_wardrobe_toggled"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
