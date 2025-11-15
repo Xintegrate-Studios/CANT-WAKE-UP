@@ -1,11 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=57 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table/table.blend" id="6_5agnw"]
-[ext_resource type="PackedScene" uid="uid://ccfnupg8iiqby" path="res://ast/actors/wardrobe/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/wardrobe/wardrobe.tscn" id="6_mbfot"]
 [ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/bed/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/lamp/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
@@ -151,9 +151,6 @@ size = Vector3(14.3815, 5.28705, 14.5698)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xonfo"]
 size = Vector3(14.3815, 5.28705, 5.32464)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hnkfv"]
-size = Vector3(1.20026, 2.73096, 0.599854)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sfj7s"]
 size = Vector3(0.0810318, 0.864258, 0.122192)
@@ -687,17 +684,6 @@ shape = SubResource("BoxShape3D_xonfo")
 
 [node name="furniture" type="Node" parent="." unique_id=1369029575]
 
-[node name="Wardrobe" parent="furniture" unique_id=1556550605 instance=ExtResource("6_mbfot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33039, 0.0399998, -4.14173)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="furniture/Wardrobe" unique_id=329206663]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="furniture/Wardrobe/StaticBody3D" unique_id=1467035716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000396729, 0.865479, -0.00256348)
-shape = SubResource("BoxShape3D_hnkfv")
-
 [node name="Table" parent="furniture" unique_id=1277542418 instance=ExtResource("6_5agnw")]
 transform = Transform3D(-4.37114e-08, 0, 0.465485, 0, 1, 0, -1, 0, -2.0347e-08, -0.723024, 0, -1.38403)
 
@@ -754,6 +740,9 @@ texture = SubResource("ViewportTexture_hnkfv")
 
 [node name="DiningTable" parent="furniture" unique_id=891228759 instance=ExtResource("12_hnkfv")]
 transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06539595, 0.00016201612, -17.741667)
+
+[node name="wardrobe" parent="furniture" unique_id=1998482516 instance=ExtResource("6_mbfot")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.13092256, -0.03806901, -4.1278224)
 
 [node name="misc" type="Node" parent="." unique_id=493519175]
 

@@ -1,60 +1,171 @@
-[gd_scene load_steps=5 format=4 uid="uid://ccfnupg8iiqby"]
+[gd_scene load_steps=17 format=4 uid="uid://cb4ibh01rqcpt"]
 
-[ext_resource type="Texture2D" uid="uid://jik1mvk3iua" path="res://ast/models/textures/wardrobe.jpg" id="1_u4yca"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_cpeuc"]
+[ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/wardrobe/wardrobe.gd" id="1_dejff"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_dejff"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b35r1"]
-resource_name = "Material.001"
-shading_mode = 0
-albedo_color = Color(0.57, 0.57, 0.57, 1)
-albedo_texture = ExtResource("1_u4yca")
-uv1_scale = Vector3(0.997063, 1, 1)
-texture_filter = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ckvv"]
+cull_mode = 2
+albedo_color = Color(0.6378435, 0.6378431, 0.63784313, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xn5gx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6am5y"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ingbc"]
+_surfaces = [{
+"aabb": AABB(-2.2160683, -1, -1, 3.2160683, 2, 2),
+"format": 34896613377,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAHAAYABAAIAAUABQAJAAcACAAJAAUACQAKAAcABAALAAgACAALAAkABAAMAAsACQANAAoACwANAAkADAAOAAsACwAOAA0ADgAKAA0ADAAPAA4ADgAPAAoADwAQAAoADwARABAAEQASABAAEQATABIA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAA8XAAC/ZP//AAAAAAAA/v8PFwAAv2QAAAAAAADIZAAAAAAAAP////8AAAAAyGT//wAAAADIZP///38AAP//AAAAAAAA//////9/AADIZP////8AAP//AAD/fwAAyGQAAP9/AAD///////8AAP//AAD//wAAyGQAAP//AAC/ZP////8AAL9kAAD//wAAAAD+/+/oAAAAAAAA7+gAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iyoid"]
+resource_name = "wardrobe_Cube_001"
+_surfaces = [{
+"aabb": AABB(-2.2160683, -1, -1, 3.2160683, 2, 2),
+"attribute_data": PackedByteArray("/1//3/+f/7//n//f/1//v/9fZL7/n/9//59kvv9f/3//X/9f/5//P/+f/1//X/8//1//f/+f/3//X5oB/58AAP+fmgH/XwAA/1//P/+f/z+aIf9f/1//P/9f/1+aIf8/miH/f/9f/3//X////5//3/+f////X//f/5//f2Te/19k3v9//5//X2Te/z//n/8/"),
+"format": 34896613399,
+"index_count": 66,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAAIAAoADAAKAA0ADgAPABAADgARAA8AEgAOABAAEgAQABMAFAAVABYAFAAXABUAGAAUABYAGAAWABkAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIQAiAB8AIQAjACIA"),
+"material": SubResource("StandardMaterial3D_6am5y"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAAAA8X7Pu/ZP//AADs+wAA/v8PF+z7v2QAAAAA7PvIZAAAAAD///////8AAP//yGT//wAA/////wAAAAD/////AAD/f1TV////////VNX//////39U1f//AAD//1TV//8AAAAAVNX/////AABU1chkAAD///+/v2T//////7/IZP//////v79kAAD///+///8AAP///7//////////v8hkAAD/f/+///8AAP///7///wAA/3//v8hkAAD///+/yGQAAAAA/7///wAAAAD/v79kAAD//zPAAAD+/+/oM8C/ZP////8zwAAAAADv6DPA/////wAA///IZP///3///8hk//8AAP////////9////IZP//////////////////L8Ivwi/CL8Ivwi/CL8Ivwv+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoqqiqqKqoqqir///////////////////////////////8AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38O+A74DvgO+A74DvgO+A74/3//v/9//7//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ingbc")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dejff"]
+data = PackedVector3Array(-2.2161, -1, -0.8199, -0.9504, 1, -1, -2.2161, 1, -0.8199, -2.2161, -1, -0.8199, -0.9504, -1, -1, -0.9504, 1, -1, -0.95, -1, -1, 1, 1, -1, -0.95, 1, -1, -0.95, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, 0, 1, 1, 1, 1, 1, 0, 1, -1, 0, 1, -1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 0, 1, 1, 0, 1, -1, -1, 1, 1, 0, 1, 1, -1, -0.95, -1, 1, -0.9504, 1, 1, -0.95, 1, 1, -0.95, -1, 1, -0.9504, -1, 1, -0.9504, 1, 1, 1, -1, 1, -0.95, -1, 1, -0.95, 1, 1, 1, -1, 1, -0.95, 1, 1, 1, 1, 1, -0.95, -1, 0, 1, -1, 1, 1, -1, 0, -0.95, -1, 0, -0.95, -1, 1, 1, -1, 1, -0.95, -1, -1, -0.95, -1, 0, 1, -1, 0, -0.95, -1, -1, 1, -1, 0, 1, -1, -1, -0.9504, -1, 1, -2.2161, 1, 0.81979996, -0.9504, 1, 1, -0.9504, -1, 1, -2.2161, -1, 0.81979996, -2.2161, 1, 0.81979996, 1, 1, -1, -0.95, 1, 0, -0.95, 1, -1, 1, 1, -1, 1, 1, 0, -0.95, 1, 0, 1, 1, 0, -0.95, 1, 1, -0.95, 1, 0, 1, 1, 0, 1, 1, 1, -0.95, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i6vr"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qvb6x"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uew7h"]
-resource_name = "wardrobe_cupboard_Material_001_0"
+[sub_resource type="ArrayMesh" id="ArrayMesh_1y52n"]
+resource_name = "wardrobe_Cube_003"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
-"attribute_data": PackedByteArray("/v8AAKmqVFX+/1RVqaoAAFRVAAAAAFRVVFVUVQAAAABUVVVVAACpqlRVqqoAAFVVqqoAAFVVVFWpqlRVVVUAAFVVVVWpqqqqqqpVVVVVqaoAAKmqVFX+/1RVqaoAAP7/"),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
 "format": 34896613399,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_b35r1"),
-"name": "Material.001",
+"material": SubResource("StandardMaterial3D_6i6vr"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAAqioAAP////+qKgAAAAD//6oqAAD//wAAqioAAP//AAAAAP///////wAAAAD/////AAD/////AAAAAP////8AAKoq//8AAP//qir///////+qKv//AAAAAKoq//8AAAAA/z8AAAAA////P///AAD///8/AAAAAAAA/z8AAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAP///////wAAAAAAAP//AAAAAP////8AAP//AAD//wAAVFWqqlRVqqpUVaqqVFWqqv9//7//f/+//3//v/9//7+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f/9//3//f/9//3//f/9/")
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xn5gx")
+shadow_mesh = SubResource("ArrayMesh_qvb6x")
 
-[node name="wardrobe" type="Node3D"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uhr41"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
-[node name="Sketchfab_model" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -3.57628e-07, 1, 0, -1, -3.57628e-07, 0, 0, 0)
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
 
-[node name="fffd2cbe58f54bbd82a55869b25d5f4c_fbx" type="Node3D" parent="Sketchfab_model"]
-transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, -0.01, 0, 0.01, -3.57628e-09, 0, 0, 0)
+[sub_resource type="ViewportTexture" id="ViewportTexture_dejff"]
+viewport_path = NodePath("InteractableComponent/Contents/UI/SubViewport")
 
-[node name="RootNode" type="Node3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(7, 5, 7)
 
-[node name="cupboard" type="Node3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx/RootNode"]
-transform = Transform3D(60, 0, 0, 0, -1.07288e-05, 114, 0, -30, -4.07696e-05, 0, 110, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(1.1589012, 2.9217834, 1.7988129)
 
-[node name="cupboard_Material_001_0" type="MeshInstance3D" parent="Sketchfab_model/fffd2cbe58f54bbd82a55869b25d5f4c_fbx/RootNode/cupboard"]
-mesh = SubResource("ArrayMesh_uew7h")
-skeleton = NodePath("")
+[node name="wardrobe" type="Node3D" unique_id=1998482516 node_paths=PackedStringArray("open_mesh", "closed_mesh")]
+script = ExtResource("1_dejff")
+open_mesh = NodePath("OpenMesh")
+closed_mesh = NodePath("ClosedMesh")
+
+[node name="OpenMesh" type="MeshInstance3D" parent="." unique_id=1488379816]
+transform = Transform3D(0.33782363, 0, 0, 0, 1.461359, 0, 0, 0, 0.7801037, 0, 1.507676, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_8ckvv")
+mesh = SubResource("ArrayMesh_iyoid")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OpenMesh" unique_id=842519328]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenMesh/StaticBody3D" unique_id=749600865]
+shape = SubResource("ConcavePolygonShape3D_dejff")
+
+[node name="ClosedMesh" type="MeshInstance3D" parent="." unique_id=383122532]
+transform = Transform3D(0.33782363, 0, 0, 0, 1.4613609, 0, 0, 0, 0.7801027, 0, 1.5076765, 0)
+material_override = SubResource("StandardMaterial3D_8ckvv")
+mesh = SubResource("ArrayMesh_1y52n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ClosedMesh" unique_id=1640670007]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedMesh/StaticBody3D" unique_id=1662346812]
+shape = SubResource("ConcavePolygonShape3D_uhr41")
+
+[node name="InteractableComponent" type="Node3D" parent="." unique_id=1118434720 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5370538, 0)
+script = ExtResource("1_cpeuc")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=48194554]
+
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=1489212653]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, -0.38994098, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_dejff")
+
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=91487049]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" unique_id=972159148]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme = ExtResource("2_dejff")
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=696654528]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" unique_id=1288177423]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1197192282]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=1312700964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0048160106, -0.03413391, 0.004371673)
+shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="action_triggered" from="InteractableComponent" to="." method="_on_wardrobe_toggled"]
+[connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
