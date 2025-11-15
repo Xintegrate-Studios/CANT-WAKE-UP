@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bpcmhqrvv7hog" path="res://ast/actors/clothes pile/clothes_pile.tscn" id="4_ewwei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uyx4"]
-size = Vector3(1, 0.4487915, 1.9626465)
+size = Vector3(1.3422852, 0.4487915, 1.9626465)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6t77"]
 viewport_path = NodePath("DragInteraction/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h6t77"]
+size = Vector3(0.5432129, 0.21697998, 0.7855835)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jw7y1"]
 size = Vector3(4, 4, 4)
@@ -26,7 +27,7 @@ MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1305771950]
-transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0.005821038, -0.006188333)
+transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0.0052534062, 0.005821038, -0.006188333)
 shape = SubResource("BoxShape3D_2uyx4")
 
 [node name="clothes_pile" parent="." unique_id=959401536 instance=ExtResource("4_ewwei")]
@@ -58,7 +59,7 @@ texture = ExtResource("3_2wkc6")
 collision_priority = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastArea" unique_id=2070768738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584564, 0.0288868, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017242655, 0.0025501251, -0.017913818)
 shape = SubResource("BoxShape3D_h6t77")
 
 [node name="PlayerOutOfBoundsArea" type="Area3D" parent="." unique_id=1157865981]
