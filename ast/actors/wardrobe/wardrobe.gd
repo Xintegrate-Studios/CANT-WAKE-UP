@@ -34,9 +34,10 @@ func _on_wardrobe_toggled() -> void:
 
 
 func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
-	print("noice")
-	print(str(body))
+	if body.is_in_group(&"DraggableBody"):
+		print("skib!")
 
 
 func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
-	pass # Replace with function body.
+	if body.is_in_group(&"DraggableBody"):
+		print("not skib")

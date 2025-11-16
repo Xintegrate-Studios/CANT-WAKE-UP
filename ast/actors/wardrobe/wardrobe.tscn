@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_dejff"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ank7t"]
-size = Vector3(0.19091797, 1.8436279, 1)
+size = Vector3(0.35620117, 1.8436279, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
@@ -178,7 +178,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InWardrobeArea" unique_id=378502451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14682198, 1.6227605, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064180374, 1.6227605, 0)
 shape = SubResource("BoxShape3D_ank7t")
 debug_color = Color(0, 1, 0.5666666, 1)
 
