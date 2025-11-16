@@ -1,8 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://cb4ibh01rqcpt"]
+[gd_scene load_steps=26 format=4 uid="uid://cb4ibh01rqcpt"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_cpeuc"]
 [ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/wardrobe/wardrobe.gd" id="1_dejff"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_dejff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ank7t"]
+size = Vector3(0.19091797, 1.8436279, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
@@ -171,6 +174,13 @@ open_draggable_collision = NodePath("OpenDraggableCollision")
 closed_collision = NodePath("ClosedCollision")
 
 [node name="InWardrobeArea" type="Area3D" parent="." unique_id=1338489578]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InWardrobeArea" unique_id=378502451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14682198, 1.6227605, 0)
+shape = SubResource("BoxShape3D_ank7t")
+debug_color = Color(0, 1, 0.5666666, 1)
 
 [node name="InteractableComponent" type="Node3D" parent="." unique_id=1118434720 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5370538, 0)
@@ -306,6 +316,8 @@ transform = Transform3D(-0.40726277, 0, -0.91331106, 0, 1, 0, 0.91331106, 0, -0.
 shape = SubResource("BoxShape3D_85ygy")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
+[connection signal="body_entered" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_entered"]
+[connection signal="body_exited" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_exited"]
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_wardrobe_toggled"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]

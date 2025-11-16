@@ -31,3 +31,12 @@ func _ready() -> void:
 
 func _on_wardrobe_toggled() -> void:
 	open = !open
+
+
+func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
+	print("noice")
+	print(str(body))
+
+
+func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
