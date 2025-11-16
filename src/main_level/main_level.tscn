@@ -742,7 +742,7 @@ texture = SubResource("ViewportTexture_hnkfv")
 transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06539595, 0.00016201612, -17.741667)
 
 [node name="wardrobe" parent="furniture" unique_id=1998482516 instance=ExtResource("6_mbfot")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.13092256, -0.03806901, -4.1278224)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.13092256, 0.01006183, -4.1278224)
 
 [node name="misc" type="Node" parent="." unique_id=493519175]
 

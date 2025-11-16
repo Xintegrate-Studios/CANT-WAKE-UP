@@ -13,15 +13,21 @@ var open : bool = false:
 		
 		if open:
 			open_collision.process_mode = Node.PROCESS_MODE_INHERIT
+			open_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
 			closed_collision.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			open_collision.process_mode = Node.PROCESS_MODE_DISABLED
+			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
 
 @export var open_mesh : MeshInstance3D
 @export var closed_mesh : MeshInstance3D
 @export var open_collision : StaticBody3D
+@export var open_draggable_collision : StaticBody3D
 @export var closed_collision : StaticBody3D
+
+func _ready() -> void:
+	open = false
 
 func _on_wardrobe_toggled() -> void:
 	open = !open
