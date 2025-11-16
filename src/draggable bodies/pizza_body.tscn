@@ -17,7 +17,7 @@ size = Vector3(0.44999, 0.255, 0.32204)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xh6ch"]
 size = Vector3(4, 4, 4)
 
-[node name="PizzaBody" type="CharacterBody3D" node_paths=PackedStringArray("DragInteraction", "MouseTexture")]
+[node name="DraggableBody[PIZZA]" type="CharacterBody3D" unique_id=1555997359 node_paths=PackedStringArray("DragInteraction", "MouseTexture") groups=["DraggableBody"]]
 collision_layer = 4
 collision_mask = 6
 collision_priority = 5.0
@@ -25,46 +25,46 @@ script = ExtResource("1_3ru5h")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1963516694]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, -0.0400739, 0.00139961, -0.00526454)
 shape = SubResource("BoxShape3D_2uyx4")
 
-[node name="pizza_slice" parent="." instance=ExtResource("2_xh6ch")]
+[node name="pizza_slice" parent="." unique_id=1186754745 instance=ExtResource("2_xh6ch")]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -0.0353739, 0, 0)
 
-[node name="DragInteraction" type="Node3D" parent="." node_paths=PackedStringArray("body_to_drag")]
+[node name="DragInteraction" type="Node3D" parent="." unique_id=1751648384 node_paths=PackedStringArray("body_to_drag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00167271, 0.0885893, 0.0119386)
 script = ExtResource("2_2okfo")
 body_to_drag = NodePath("..")
 drag_force = 70.0
 
-[node name="UI" type="Sprite3D" parent="DragInteraction"]
+[node name="UI" type="Sprite3D" parent="DragInteraction" unique_id=494953033]
 transform = Transform3D(0.113, 0, 0, 0, 0.113, 0, 0, 0, 0.113, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 3
 texture = SubResource("ViewportTexture_h6t77")
 
-[node name="SubViewport" type="SubViewport" parent="DragInteraction/UI"]
+[node name="SubViewport" type="SubViewport" parent="DragInteraction/UI" unique_id=1072304416]
 transparent_bg = true
 
-[node name="MouseTexture" type="TextureRect" parent="DragInteraction/UI/SubViewport"]
+[node name="MouseTexture" type="TextureRect" parent="DragInteraction/UI/SubViewport" unique_id=1148254728]
 offset_left = 192.13
 offset_top = 188.395
 offset_right = 320.13
 offset_bottom = 316.395
 texture = ExtResource("3_eevf8")
 
-[node name="PlayerMimicRaycastArea" type="Area3D" parent="."]
+[node name="PlayerMimicRaycastArea" type="Area3D" parent="." unique_id=1994185612]
 collision_priority = 2.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastArea" unique_id=859199724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0407757, 0.00872052, -0.00426316)
 shape = SubResource("BoxShape3D_h6t77")
 
-[node name="PlayerOutOfBoundsArea" type="Area3D" parent="."]
+[node name="PlayerOutOfBoundsArea" type="Area3D" parent="." unique_id=1611525678]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerOutOfBoundsArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerOutOfBoundsArea" unique_id=1249602711]
 shape = SubResource("BoxShape3D_xh6ch")
 
 [connection signal="area_entered" from="PlayerMimicRaycastArea" to="." method="_on_player_mimic_raycast_area_area_entered"]

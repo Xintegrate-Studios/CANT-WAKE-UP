@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 PlayerBody="The body of the player."
+DraggableBody=""
 
 [input]
 

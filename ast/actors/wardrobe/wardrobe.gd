@@ -31,11 +31,3 @@ func _ready() -> void:
 
 func _on_wardrobe_toggled() -> void:
 	open = !open
-
-func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"PlayerBody"):
-		PlayerGlobal.in_wardrobe = true
-
-func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"PlayerBody"):
-		PlayerGlobal.in_wardrobe = false

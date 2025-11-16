@@ -17,7 +17,7 @@ size = Vector3(0.5432129, 0.21697998, 0.7855835)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jw7y1"]
 size = Vector3(4, 4, 4)
 
-[node name="DraggableBody" type="CharacterBody3D" unique_id=1316753138 node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea")]
+[node name="DraggableBody[CLOTHES_PILE]" type="CharacterBody3D" unique_id=1316753138 node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea") groups=["DraggableBody"]]
 collision_layer = 4
 collision_mask = 6
 collision_priority = 5.0
