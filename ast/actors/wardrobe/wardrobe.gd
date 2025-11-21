@@ -23,8 +23,8 @@ var open : bool = false:
 var clothes_inside : bool = false:
 	set(value):
 		clothes_inside = value
-		if value and TasksGlobal.TASKS_TO_DO.has("CLOTHES_AWAY"):
-			print("yippee")
+		if value and TasksGlobal.TASKS_TO_DO.has("CLOTHES_AWAY"): # TASKS
+			TasksGlobal
 
 @export var open_mesh : MeshInstance3D
 @export var closed_mesh : MeshInstance3D

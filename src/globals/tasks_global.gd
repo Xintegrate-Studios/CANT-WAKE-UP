@@ -25,6 +25,12 @@ var TASKS_TO_DO : Array = []
 
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
 
+# utility functon to set a task as done/completed
+func complete_task(task_name : String) -> void:
+	if TASKS_TO_DO.has(task_name):
+		TASKS_DONE_FOR_THE_NIGHT.append(task_name)
+		TASKS_TO_DO.erase(task_name)
+
 var FIRST_NIGHT_TASKS : Array = [
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
