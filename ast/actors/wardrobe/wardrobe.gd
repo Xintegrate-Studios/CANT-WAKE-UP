@@ -34,10 +34,10 @@ func _on_wardrobe_toggled() -> void:
 
 
 func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"DraggableBody"):
+	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
 		print("skib!")
 
 
 func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"DraggableBody"):
+	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
 		print("not skib")
