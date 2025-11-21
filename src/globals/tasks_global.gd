@@ -23,6 +23,8 @@ const TASKS = {
 
 var TASKS_TO_DO : Array = []
 
+var TASKS_DONE_FOR_THE_NIGHT : Array = []
+
 var FIRST_NIGHT_TASKS : Array = [
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",

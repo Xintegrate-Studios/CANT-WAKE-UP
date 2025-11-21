@@ -20,7 +20,11 @@ var open : bool = false:
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
 
-var clothes_inside : bool = false
+var clothes_inside : bool = false:
+	set(value):
+		clothes_inside = value
+		if value and TasksGlobal.TASKS_TO_DO.has("CLOTHES_AWAY"):
+			print("yippee")
 
 @export var open_mesh : MeshInstance3D
 @export var closed_mesh : MeshInstance3D
