@@ -4,7 +4,7 @@ const TASKS = {
 	
 	# normal ahh tasks
 	"GO_TO_BED": "Go to bed",
-	"FOLD_CLOTHES": "Fold your clothes",
+	"CLOTHES_AWAY": "Put your clothes in your wardrobe",
 	"UNPACK_BOX": "Unpack your storage box",
 	"TURN_OFF_LIGHTS": "Turn off the lights",
 	"MAKE_DINNER": "Make dinner",
@@ -24,7 +24,7 @@ const TASKS = {
 var TASKS_TO_DO : Array = []
 
 var FIRST_NIGHT_TASKS : Array = [
-	"FOLD_CLOTHES",
+	"CLOTHES_AWAY",
 	"UNPACK_BOX",
 	"PUT_AWAY_TOYS",
 	"MAKE_DINNER",
