@@ -37,7 +37,7 @@ func uncomplete_task(task_name : String) -> void:
 		TASKS_TO_DO.append(task_name)
 		TASKS_DONE_FOR_THE_NIGHT.erase(task_name)
 
-var FIRST_NIGHT_TASKS : Array = [
+const FIRST_NIGHT_TASKS : Array = [
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
 	"PUT_AWAY_TOYS",
