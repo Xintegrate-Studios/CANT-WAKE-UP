@@ -25,6 +25,7 @@ script = ExtResource("1_qwicc")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
+ID = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1305771950]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0.0052534062, 0.005821038, -0.006188333)

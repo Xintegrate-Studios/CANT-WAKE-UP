@@ -20,11 +20,15 @@ var open : bool = false:
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
 
+var clothes_inside : bool = false
+
 @export var open_mesh : MeshInstance3D
 @export var closed_mesh : MeshInstance3D
 @export var open_collision : StaticBody3D
 @export var open_draggable_collision : StaticBody3D
 @export var closed_collision : StaticBody3D
+
+
 
 func _ready() -> void:
 	open = false
@@ -35,9 +39,11 @@ func _on_wardrobe_toggled() -> void:
 
 func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
-		print("skib!")
+		print("--clothes inside wardrobe")
+		clothes_inside = true
 
 
 func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
-		print("not skib")
+		print("!--clothes outside wardrobe")
+		clothes_inside = false
