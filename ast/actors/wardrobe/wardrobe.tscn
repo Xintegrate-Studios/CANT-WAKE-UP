@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cb4ibh01rqcpt"]
+[gd_scene load_steps=40 format=4 uid="uid://cb4ibh01rqcpt"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_cpeuc"]
 [ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/wardrobe/wardrobe.gd" id="1_dejff"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bywsxl15safyb" path="res://ast/models/hanger/hanger.blend" id="4_uhr41"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ank7t"]
-size = Vector3(0.35620117, 1.8436279, 1)
+size = Vector3(0.35620117, 2.2670288, 1)
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
@@ -284,6 +284,9 @@ size = Vector3(0.04537964, 3.03125, 0.6935425)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf8va"]
 size = Vector3(0.5389404, 0.6620178, 1.5691528)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ecgvr"]
+size = Vector3(0.7461548, 1.0906982, 1.2973633)
+
 [node name="wardrobe" type="Node3D" unique_id=1998482516 node_paths=PackedStringArray("open_mesh", "closed_mesh", "open_collision", "open_draggable_collision", "closed_collision")]
 script = ExtResource("1_dejff")
 open_mesh = NodePath("OpenMesh")
@@ -297,7 +300,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InWardrobeArea" unique_id=378502451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064180374, 1.6227605, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064180374, 1.834461, 0)
 shape = SubResource("BoxShape3D_ank7t")
 debug_color = Color(0, 1, 0.5666666, 1)
 
@@ -402,7 +405,7 @@ transform = Transform3D(3.9730322, 0, 0, 0, -1.8944896e-06, 3.9730327, 0, -3.973
 mesh = SubResource("ArrayMesh_qbnuv")
 
 [node name="hanger_with_shirt4" type="Node3D" parent="OpenMesh" unique_id=593200626]
-transform = Transform3D(-1.013, 0, -3.8378595e-08, 0, 0.23399916, 0, 8.8559275e-08, 0, -0.43900004, -0.004665675, 0.20761275, 0.77199787)
+transform = Transform3D(-1.013, 0, -3.8378595e-08, 0, 0.2339991, 0, 8.8559275e-08, 0, -0.43900004, -0.004665675, 0.20761275, 0.7376766)
 
 [node name="Object_3" type="MeshInstance3D" parent="OpenMesh/hanger_with_shirt4" unique_id=977909431]
 transform = Transform3D(3.9730322, 0, 0, 0, -1.8944896e-06, 3.9730327, 0, -3.9730327, -1.8944896e-06, -0.019701365, 0.70268244, 0)
@@ -507,6 +510,11 @@ debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 transform = Transform3D(-0.40726277, 0, -0.91331106, 0, 1, 0, 0.91331106, 0, -0.40726277, -0.52292514, 1.5410895, 0.7449523)
 shape = SubResource("BoxShape3D_85ygy")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenDraggableCollision" unique_id=2140335213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00088500977, 2.1017146, -0.011962891)
+shape = SubResource("BoxShape3D_ecgvr")
+debug_color = Color(0.98039216, 0.654902, 0, 0.27058825)
 
 [connection signal="body_entered" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_entered"]
 [connection signal="body_exited" from="InWardrobeArea" to="." method="_on_in_wardrobe_area_body_exited"]
