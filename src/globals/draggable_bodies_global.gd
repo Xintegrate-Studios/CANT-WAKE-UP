@@ -1,5 +1,11 @@
 extends Node
 
+enum BODY_IDS {
+	DEFAULT,
+	CLOTHES_PILE,
+	PIZZA
+}
+
 var currently_hovering_over : bool = false
 var currently_hovering_over_body
 var currently_dragging : bool = false:

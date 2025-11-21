@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var MouseTexture : TextureRect
 @export var PlayerOutOfBoundsArea : Area3D
 
+@export var ID : DraggableBodiesGlobal.BODY_IDS
+
 var hovering_over : bool = false
 
 func _physics_process(_delta: float) -> void:
