@@ -31,6 +31,12 @@ func complete_task(task_name : String) -> void:
 		TASKS_DONE_FOR_THE_NIGHT.append(task_name)
 		TASKS_TO_DO.erase(task_name)
 
+# utility functon to set a task as uncompleted
+func uncomplete_task(task_name : String) -> void:
+	if TASKS_DONE_FOR_THE_NIGHT.has(task_name):
+		TASKS_TO_DO.append(task_name)
+		TASKS_DONE_FOR_THE_NIGHT.erase(task_name)
+
 var FIRST_NIGHT_TASKS : Array = [
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
