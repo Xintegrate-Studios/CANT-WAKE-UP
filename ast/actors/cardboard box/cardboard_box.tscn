@@ -48,7 +48,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s4720")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ho7cs"]
-size = Vector3(1.9818726, 2.0218506, 0.113464355)
+size = Vector3(1.9818726, 2.0218506, 0.017669678)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_si0u0"]
 _surfaces = [{
@@ -96,40 +96,42 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.8146361, 0.86628723, 0.80761725)
 
-[node name="cardboard_box" type="Node3D" unique_id=992837989]
+[node name="cardboard_box" type="Node3D" unique_id=992837989 node_paths=PackedStringArray("open_mesh", "closed_mesh")]
 script = ExtResource("1_h752m")
+open_mesh = NodePath("Open")
+closed_mesh = NodePath("Closed")
 
 [node name="Closed" type="MeshInstance3D" parent="." unique_id=1853356462]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
 mesh = SubResource("ArrayMesh_s0yhl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Closed" unique_id=2127468671]
-collision_layer = 2
-collision_mask = 5
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1754426447]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00405884, 0.011657712, -0.94766235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00405884, 0.011657712, -1.0926671)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1337389143]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9262306, 0.011657712, 0.011163861)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0966203, 0.011657712, 0.011163861)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=2090337765]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.021180384, 0.011657712, 0.94716066)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.021180384, 0.011657712, 1.070273)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1797998652]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.9514698, 0.011657712, -0.011665576)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.070431, 0.011657712, -0.011665576)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="Open" type="MeshInstance3D" parent="." unique_id=807519085]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_lp6qq")
 
 [node name="InteractableComponent" type="Node3D" parent="." unique_id=1276813406 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008112371, 0, 0)
-visible = false
 script = ExtResource("3_ho7cs")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
@@ -139,7 +141,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1764687841]
 
 [node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=2032846630]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.28288308, -0.4686671)
 billboard = 1
 no_depth_test = true
 render_priority = 1

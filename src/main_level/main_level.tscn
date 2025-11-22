@@ -763,7 +763,7 @@ texture = SubResource("ViewportTexture_yj2oh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.467714, 0.8884065, 0.009940386)
 
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
-transform = Transform3D(0.63972074, 0, 0.7686074, 0, 1, 0, -0.7686074, 0, 0.63972074, 4.366124, 0.40529156, 0.2253809)
+transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.40529156, 0.2253809)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
