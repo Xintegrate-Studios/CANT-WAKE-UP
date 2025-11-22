@@ -21,6 +21,15 @@ const TASKS = {
 	"CUT_THROAT": "Cut your throat cunt",
 }
 
+const FIRST_NIGHT_TASKS : Array = [
+	"CLOTHES_AWAY",
+	"UNPACK_BOX",
+	"PUT_AWAY_TOYS",
+	"MAKE_DINNER",
+	"WASH_DISHES",
+	"BRUSH_TEETH",
+]
+
 var TASKS_TO_DO : Array = []
 
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
@@ -36,12 +45,3 @@ func uncomplete_task(task_name : String) -> void:
 	if TASKS_DONE_FOR_THE_NIGHT.has(task_name):
 		TASKS_TO_DO.append(task_name)
 		TASKS_DONE_FOR_THE_NIGHT.erase(task_name)
-
-const FIRST_NIGHT_TASKS : Array = [
-	"CLOTHES_AWAY",
-	"UNPACK_BOX",
-	"PUT_AWAY_TOYS",
-	"MAKE_DINNER",
-	"WASH_DISHES",
-	"BRUSH_TEETH",
-]
