@@ -1,6 +1,6 @@
 extends Node3D
 
-var draggables_inside : Array = [DraggableBody]
+var draggables_inside : Array[DraggableBody] = []
 
 
 var open : bool = false:
@@ -14,8 +14,10 @@ var open : bool = false:
 		open_mesh.visible = open
 		closed_mesh.visible = !open
 		
-		#for draggable in draggables_inside:
-			#draggable.disabled = !open
+		for draggable in draggables_inside:
+			draggable.interaction_disabled = !open
+			draggable.let_go()
+			draggable.hovering_over = false
 		
 		if open:
 			open_collision.process_mode = Node.PROCESS_MODE_INHERIT
