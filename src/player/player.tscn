@@ -19,8 +19,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 size = Vector3(0.05, 0.05, 1.52554)
 
 [node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "head", "camera") groups=["PlayerBody"]]
-collision_layer = 9
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
 NoteCloseupLayer = NodePath("Head/Camera3D/NoteCloseupLayer")
