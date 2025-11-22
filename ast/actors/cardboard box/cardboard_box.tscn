@@ -147,11 +147,11 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OpenCollision" unique_id=648313138]
-transform = Transform3D(0.8793496, 0.4761768, 0, -0.4761768, 0.8793496, 0, 0, 0, 1, -0.32365528, 0.5660335, -0.0036621094)
+transform = Transform3D(0.9399491, 0.3413148, 0, -0.3413148, 0.9399491, 0, 0, 0, 1, -0.3590237, 0.5660335, -0.0036621094)
 shape = SubResource("BoxShape3D_w0dvq")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenCollision" unique_id=1912078253]
-transform = Transform3D(0.884141, -0.46722007, 0, 0.46722007, 0.884141, 0, 0, 0, 1, 0.32405505, 0.5660335, -0.0036621094)
+transform = Transform3D(0.93922615, -0.34329903, 0, 0.34329903, 0.93922615, 0, 0, 0, 1, 0.35031858, 0.5660335, -0.0036621094)
 shape = SubResource("BoxShape3D_w0dvq")
 
 [node name="ClosedCollision" type="StaticBody3D" parent="." unique_id=135592870]
@@ -159,7 +159,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="ClosedCollision" unique_id=1841334319]
-transform = Transform3D(0.40529156, 0, 0, 0, -1.7715857e-08, -0.40529156, 0, 0.40529156, -1.7715857e-08, 0.0016450137, 0.4492153, -0.0030706525)
+transform = Transform3D(0.40529156, 0, 0, 0, -1.7715857e-08, -0.40529156, 0, 0.40529156, -1.7715857e-08, 0.0016450137, 0.50933725, -0.0030706525)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="Closed" type="MeshInstance3D" parent="." unique_id=1853356462]
