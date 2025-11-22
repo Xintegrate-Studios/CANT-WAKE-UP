@@ -11,6 +11,9 @@ size = Vector3(1.9818726, 2.0218506, 0.017669678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1jtvv"]
 size = Vector3(0.54577637, 2.0715332, 0.56573486)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0dvq"]
+size = Vector3(0.005584717, 0.32128906, 0.8129883)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a2hb"]
 resource_name = "cardboard"
 cull_mode = 2
@@ -99,13 +102,12 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.8146361, 0.86628723, 0.80761725)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w0dvq"]
-size = Vector3(0.005584717, 0.32128906, 0.8129883)
-
-[node name="cardboard_box" type="Node3D" unique_id=992837989 node_paths=PackedStringArray("open_mesh", "closed_mesh")]
+[node name="cardboard_box" type="Node3D" unique_id=992837989 node_paths=PackedStringArray("open_mesh", "closed_mesh", "open_collision", "closed_collision")]
 script = ExtResource("1_h752m")
 open_mesh = NodePath("Open")
 closed_mesh = NodePath("Closed")
+open_collision = NodePath("OpenCollision")
+closed_collision = NodePath("ClosedCollision")
 
 [node name="DraggableCollision" type="StaticBody3D" parent="." unique_id=2127468671]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
@@ -139,6 +141,26 @@ collision_layer = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCollision" unique_id=1148000976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04302978, 0.036987286, -0.017120363)
 shape = SubResource("BoxShape3D_1jtvv")
+
+[node name="OpenCollision" type="StaticBody3D" parent="." unique_id=1050492957]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenCollision" unique_id=648313138]
+transform = Transform3D(0.8793496, 0.4761768, 0, -0.4761768, 0.8793496, 0, 0, 0, 1, -0.32365528, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenCollision" unique_id=1912078253]
+transform = Transform3D(0.884141, -0.46722007, 0, 0.46722007, 0.884141, 0, 0, 0, 1, 0.32405505, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
+
+[node name="ClosedCollision" type="StaticBody3D" parent="." unique_id=135592870]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedCollision" unique_id=75725328]
+transform = Transform3D(0.8793496, 0.4761768, 0, -0.4761768, 0.8793496, 0, 0, 0, 1, -0.32365528, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ClosedCollision" unique_id=1425832953]
+transform = Transform3D(0.884141, -0.46722007, 0, 0.46722007, 0.884141, 0, 0, 0, 1, 0.32405505, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
 
 [node name="Closed" type="MeshInstance3D" parent="." unique_id=1853356462]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
@@ -192,16 +214,6 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=1932175499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008209288, 0.023323148, 0.0032958686)
 shape = SubResource("BoxShape3D_lutt7")
-
-[node name="OpenOnlyCollision" type="StaticBody3D" parent="." unique_id=1050492957]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenOnlyCollision" unique_id=648313138]
-transform = Transform3D(0.8793496, 0.4761768, 0, -0.4761768, 0.8793496, 0, 0, 0, 1, -0.32365528, 0.5660335, -0.0036621094)
-shape = SubResource("BoxShape3D_w0dvq")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenOnlyCollision" unique_id=1912078253]
-transform = Transform3D(0.884141, -0.46722007, 0, 0.46722007, 0.884141, 0, 0, 0, 1, 0.32405505, 0.5660335, -0.0036621094)
-shape = SubResource("BoxShape3D_w0dvq")
 
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_interactable_component_action_triggered"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
