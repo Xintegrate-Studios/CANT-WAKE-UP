@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://c413rw2q6aiqs"]
+[gd_scene load_steps=15 format=4 uid="uid://c413rw2q6aiqs"]
 
 [ext_resource type="Texture2D" uid="uid://5d8pcoocqfik" path="res://ast/models/cardboard box/cardboard_box_cardboard_box_texture.png" id="1_8d4cb"]
 [ext_resource type="Script" uid="uid://jusxctorg7jg" path="res://ast/actors/cardboard box/cardboard_box.gd" id="1_h752m"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_ho7cs"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_1jtvv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a2hb"]
 resource_name = "cardboard"
@@ -45,6 +47,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s4720")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ho7cs"]
+size = Vector3(1.9818726, 2.0218506, 0.113464355)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_si0u0"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1.0017215, 2, 2.760373, 2.0017216),
@@ -79,6 +84,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_si0u0")
 
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ho7cs"]
+viewport_path = NodePath("InteractableComponent/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(0.8146361, 0.86628723, 0.80761725)
+
 [node name="cardboard_box" type="Node3D" unique_id=992837989]
 script = ExtResource("1_h752m")
 
@@ -86,6 +103,77 @@ script = ExtResource("1_h752m")
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
 mesh = SubResource("ArrayMesh_s0yhl")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Closed" unique_id=2127468671]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1754426447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00405884, 0.011657712, -0.94766235)
+shape = SubResource("BoxShape3D_ho7cs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1337389143]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9262306, 0.011657712, 0.011163861)
+shape = SubResource("BoxShape3D_ho7cs")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=2090337765]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.021180384, 0.011657712, 0.94716066)
+shape = SubResource("BoxShape3D_ho7cs")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Closed/StaticBody3D" unique_id=1797998652]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.9514698, 0.011657712, -0.011665576)
+shape = SubResource("BoxShape3D_ho7cs")
+
 [node name="Open" type="MeshInstance3D" parent="." unique_id=807519085]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
 mesh = SubResource("ArrayMesh_lp6qq")
+
+[node name="InteractableComponent" type="Node3D" parent="." unique_id=1276813406 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008112371, 0, 0)
+visible = false
+script = ExtResource("3_ho7cs")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1764687841]
+
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=2032846630]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_ho7cs")
+
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=1040427473]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" unique_id=1785418462]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme = ExtResource("4_1jtvv")
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=551001745]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" unique_id=1445209798]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=454518046]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=1932175499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008209288, 0.023323148, 0.0032958686)
+shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="action_triggered" from="InteractableComponent" to="." method="_on_interactable_component_action_triggered"]
+[connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
