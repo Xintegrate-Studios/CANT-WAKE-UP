@@ -1,5 +1,8 @@
 extends Node3D
 
+var draggables_inside : Array = [DraggableBody]
+
+
 var open : bool = false:
 	set(value):
 		open = value
@@ -19,6 +22,9 @@ var open : bool = false:
 			open_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
+			
+			for draggable in draggables_inside:
+				draggable
 
 var clothes_inside : bool = false:
 	set(value):
@@ -45,12 +51,16 @@ func _on_wardrobe_toggled() -> void:
 
 
 func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
-		print("--clothes inside wardrobe")
-		clothes_inside = true
+	if body.is_in_group(&"DraggableBody"):
+		draggables_inside.append(body)
+		if body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
+			print("--clothes inside wardrobe")
+			clothes_inside = true
 
 
 func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"DraggableBody") and body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
-		print("!--clothes outside wardrobe")
-		clothes_inside = false
+	if body.is_in_group(&"DraggableBody"):
+		draggables_inside.erase(body)
+		if body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
+			print("!--clothes outside wardrobe")
+			clothes_inside = false
