@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c413rw2q6aiqs"]
+[gd_scene load_steps=17 format=4 uid="uid://c413rw2q6aiqs"]
 
 [ext_resource type="Texture2D" uid="uid://5d8pcoocqfik" path="res://ast/models/cardboard box/cardboard_box_cardboard_box_texture.png" id="1_8d4cb"]
 [ext_resource type="Script" uid="uid://jusxctorg7jg" path="res://ast/actors/cardboard box/cardboard_box.gd" id="1_h752m"]
@@ -99,6 +99,9 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.8146361, 0.86628723, 0.80761725)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0dvq"]
+size = Vector3(0.005584717, 0.32128906, 0.8129883)
+
 [node name="cardboard_box" type="Node3D" unique_id=992837989 node_paths=PackedStringArray("open_mesh", "closed_mesh")]
 script = ExtResource("1_h752m")
 open_mesh = NodePath("Open")
@@ -139,11 +142,11 @@ shape = SubResource("BoxShape3D_1jtvv")
 
 [node name="Closed" type="MeshInstance3D" parent="." unique_id=1853356462]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_s0yhl")
 
 [node name="Open" type="MeshInstance3D" parent="." unique_id=807519085]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
-visible = false
 mesh = SubResource("ArrayMesh_lp6qq")
 
 [node name="InteractableComponent" type="Node3D" parent="." unique_id=1276813406 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
@@ -189,6 +192,16 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=1932175499]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008209288, 0.023323148, 0.0032958686)
 shape = SubResource("BoxShape3D_lutt7")
+
+[node name="OpenOnlyCollision" type="StaticBody3D" parent="." unique_id=1050492957]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenOnlyCollision" unique_id=648313138]
+transform = Transform3D(0.8793496, 0.4761768, 0, -0.4761768, 0.8793496, 0, 0, 0, 1, -0.32365528, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenOnlyCollision" unique_id=1912078253]
+transform = Transform3D(0.884141, -0.46722007, 0, 0.46722007, 0.884141, 0, 0, 0, 1, 0.32405505, 0.5660335, -0.0036621094)
+shape = SubResource("BoxShape3D_w0dvq")
 
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_interactable_component_action_triggered"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
