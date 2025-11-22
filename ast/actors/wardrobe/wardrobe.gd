@@ -14,6 +14,9 @@ var open : bool = false:
 		open_mesh.visible = open
 		closed_mesh.visible = !open
 		
+		#for draggable in draggables_inside:
+			#draggable.disabled = !open
+		
 		if open:
 			open_collision.process_mode = Node.PROCESS_MODE_INHERIT
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
@@ -22,9 +25,6 @@ var open : bool = false:
 			open_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
-			
-			for draggable in draggables_inside:
-				draggable
 
 var clothes_inside : bool = false:
 	set(value):
