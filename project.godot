@@ -20,6 +20,7 @@ boot_splash/show_image=false
 [autoload]
 
 PlayerGlobal="*res://src/globals/player_global.gd"
+NightmanagerGlobal="*uid://btclgqd46w8vo"
 DraggableBodiesGlobal="*res://src/globals/draggable_bodies_global.gd"
 InputGlobal="*res://src/globals/input_global.gd"
 NotesGlobal="*res://src/globals/notes_global.gd"
@@ -123,6 +124,7 @@ Mouse_Wheel_Down={
 3d_physics/layer_2="Objects"
 3d_physics/layer_3="Draggables"
 3d_physics/layer_4="PlayerOnlyObjects"
+3d_physics/layer_5="DraggableOnlyObjects"
 
 [physics]
 

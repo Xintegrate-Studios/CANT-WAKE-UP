@@ -4,8 +4,8 @@ const TASKS = {
 	
 	# normal ahh tasks
 	"GO_TO_BED": "Go to bed",
-	"FOLD_CLOTHES": "Fold your clothes",
-	"UNPACK_BOXES": "Unpack the storage boxes",
+	"CLOTHES_AWAY": "Put your clothes in your wardrobe",
+	"UNPACK_BOX": "Unpack your storage box",
 	"TURN_OFF_LIGHTS": "Turn off the lights",
 	"MAKE_DINNER": "Make dinner",
 	"TAKE_SHOWER": "Take a shower",
@@ -21,4 +21,27 @@ const TASKS = {
 	"CUT_THROAT": "Cut your throat cunt",
 }
 
+const FIRST_NIGHT_TASKS : Array = [
+	"CLOTHES_AWAY",
+	"UNPACK_BOX",
+	"PUT_AWAY_TOYS",
+	"MAKE_DINNER",
+	"WASH_DISHES",
+	"BRUSH_TEETH",
+]
+
 var TASKS_TO_DO : Array = []
+
+var TASKS_DONE_FOR_THE_NIGHT : Array = []
+
+# utility functon to set a task as done/completed
+func complete_task(task_name : String) -> void:
+	if TASKS_TO_DO.has(task_name):
+		TASKS_DONE_FOR_THE_NIGHT.append(task_name)
+		TASKS_TO_DO.erase(task_name)
+
+# utility functon to set a task as uncompleted
+func uncomplete_task(task_name : String) -> void:
+	if TASKS_DONE_FOR_THE_NIGHT.has(task_name):
+		TASKS_TO_DO.append(task_name)
+		TASKS_DONE_FOR_THE_NIGHT.erase(task_name)
