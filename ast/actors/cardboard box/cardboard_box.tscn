@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_1jtvv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ho7cs"]
-size = Vector3(1.9818726, 2.0218506, 0.017669678)
+size = Vector3(1.9818726, 2.0218506, 0.23747253)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1jtvv"]
 size = Vector3(0.54577637, 2.0715332, 0.56573486)
@@ -159,7 +159,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="ClosedCollision" unique_id=1841334319]
-transform = Transform3D(0.40529156, 0, 0, 0, -1.7715857e-08, -0.40529156, 0, 0.40529156, -1.7715857e-08, 0.0016450137, 0.50933725, -0.0030706525)
+transform = Transform3D(0.40529156, 0, 0, 0, -1.7715857e-08, -0.40529156, 0, 0.40529156, -1.7715857e-08, 0.0016450137, 0.4647951, -0.0030706543)
 shape = SubResource("BoxShape3D_ho7cs")
 
 [node name="Closed" type="MeshInstance3D" parent="." unique_id=1853356462]
