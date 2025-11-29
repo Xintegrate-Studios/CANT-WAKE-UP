@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6g3hcmim8pis"
-path.s3tc="res://.godot/imported/plate_mat.png-bf4ebe1d838e8e45a78155840a9ebee6.s3tc.ctex"
+path.s3tc="res://.godot/imported/plate_mat.png-9eaa1bb3fd9678e74cb8fb5ac950a177.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ast/models/interactables/kitchen/plate/textures/plate_mat.png"
-dest_files=["res://.godot/imported/plate_mat.png-bf4ebe1d838e8e45a78155840a9ebee6.s3tc.ctex"]
+source_file="res://ast/models/draggables/kitchen/plate/textures/plate_mat.png"
+dest_files=["res://.godot/imported/plate_mat.png-9eaa1bb3fd9678e74cb8fb5ac950a177.s3tc.ctex"]
 
 [params]
 

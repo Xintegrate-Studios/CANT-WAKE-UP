@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c41u1i2d7lnxy"
-path="res://.godot/imported/pizza.blend-dcf7810f06901090e165f8ffa0f97bd0.scn"
+uid="uid://c7ncmeh005kvl"
+path="res://.godot/imported/plate.blend-c360dd232fdb8e40f8975fd0ad733d09.scn"
 
 [deps]
 
-source_file="res://ast/models/draggables/pizza/pizza.blend"
-dest_files=["res://.godot/imported/pizza.blend-dcf7810f06901090e165f8ffa0f97bd0.scn"]
+source_file="res://ast/models/draggables/kitchen/plate/plate.blend"
+dest_files=["res://.godot/imported/plate.blend-c360dd232fdb8e40f8975fd0ad733d09.scn"]
 
 [params]
 
@@ -37,15 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://res/mat/pizza_slice.tres",
-"use_external/path": "uid://bwolo2s856wqy"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
@@ -65,4 +57,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
-gltf/naming_version=0
+gltf/naming_version=2

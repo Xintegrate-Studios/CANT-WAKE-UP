@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7ncmeh005kvl"
-path="res://.godot/imported/plate.blend-0891eec44f6a1f3aa86e19e2852375c3.scn"
+uid="uid://7k6wwi865td5"
+path="res://.godot/imported/cup.blend-74d5c7c8fff1b7acf2e371325bc9711b.scn"
 
 [deps]
 
-source_file="res://ast/models/interactables/kitchen/plate/plate.blend"
-dest_files=["res://.godot/imported/plate.blend-0891eec44f6a1f3aa86e19e2852375c3.scn"]
+source_file="res://ast/models/draggables/kitchen/cup/cup.blend"
+dest_files=["res://.godot/imported/cup.blend-74d5c7c8fff1b7acf2e371325bc9711b.scn"]
 
 [params]
 
