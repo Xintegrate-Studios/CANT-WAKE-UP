@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbh6pbaquvl7"
-path.s3tc="res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"
+uid="uid://c8682emaem40m"
+path.s3tc="res://.godot/imported/fridge_Bottom_Compartment_Mat.png-94611e374f3591e24b98aba69f7b459c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "72002cb1a55f3b3006c690861006d237"
+}
 
 [deps]
 
-source_file="res://ast/textures/psx door.png"
-dest_files=["res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"]
+source_file="res://ast/models/appliances/fridge/mat/fridge_Bottom_Compartment_Mat.png"
+dest_files=["res://.godot/imported/fridge_Bottom_Compartment_Mat.png-94611e374f3591e24b98aba69f7b459c.s3tc.ctex"]
 
 [params]
 

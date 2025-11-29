@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbh6pbaquvl7"
-path.s3tc="res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"
+uid="uid://b60fbtrbltibr"
+path.s3tc="res://.godot/imported/toothpaste_Untitled design.png-184240c4cba52535294489e9a21e93bf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "260c8548688a8b037d82c7e2cf2ada05"
+}
 
 [deps]
 
-source_file="res://ast/textures/psx door.png"
-dest_files=["res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"]
+source_file="res://ast/models/props/toothpaste/toothpaste_Untitled design.png"
+dest_files=["res://.godot/imported/toothpaste_Untitled design.png-184240c4cba52535294489e9a21e93bf.s3tc.ctex"]
 
 [params]
 

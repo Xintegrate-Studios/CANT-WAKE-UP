@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbh6pbaquvl7"
-path.s3tc="res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"
+uid="uid://b0bhcn5kcfvtf"
+path.s3tc="res://.godot/imported/PSX_Wood.png-fc78529dd9ce3117b7591bfc9e318939.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ast/textures/psx door.png"
-dest_files=["res://.godot/imported/psx door.png-57f4cdd611b36d560716760e69ca5a29.s3tc.ctex"]
+source_file="res://ast/models/furniture/table/textures/PSX_Wood.png"
+dest_files=["res://.godot/imported/PSX_Wood.png-fc78529dd9ce3117b7591bfc9e318939.s3tc.ctex"]
 
 [params]
 

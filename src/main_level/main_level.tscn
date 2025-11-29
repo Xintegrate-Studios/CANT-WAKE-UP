@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
-[ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/table/table.blend" id="6_5agnw"]
+[ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/wardrobe/wardrobe.tscn" id="6_mbfot"]
 [ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/bed/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/lamp/lamp.tscn" id="7_5agnw"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
-[ext_resource type="PackedScene" uid="uid://owrvaj6audpb" path="res://ast/models/dino plush/dino_plush.blend" id="15_ibte4"]
+[ext_resource type="PackedScene" uid="uid://owrvaj6audpb" path="res://ast/models/draggables/dino plush/dino_plush.blend" id="15_ibte4"]
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
@@ -176,7 +176,7 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
-[node name="World" type="Node3D" unique_id=869210547]
+[node name="World3" type="Node3D" unique_id=869210547]
 script = ExtResource("1_3rixg")
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
@@ -768,11 +768,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.467714, 0.8884065, 0.009940
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.41170764, 0.2253809)
 
-[node name="dino_plush" parent="." unique_id=2122929178 instance=ExtResource("15_ibte4")]
+[node name="dino_plush" parent="." unique_id=1789552624 instance=ExtResource("15_ibte4")]
 transform = Transform3D(0.02773213, -0.29663518, 0, 0.29663518, 0.02773213, 0, 0, 0, 0.29792863, 0.19955528, 0.8660642, 0.15098181)
 
 [node name="demon" parent="." unique_id=1278099396 instance=ExtResource("16_4s85u")]
 transform = Transform3D(0.30607682, 0, -0.44487867, 0, 0.5400001, 0, 0.44487867, 0, 0.30607682, 1.6684594, 1.4199184, -2.010086)
+
+[node name="Sprite3D" type="Sprite3D" parent="demon" unique_id=408178547]
+transform = Transform3D(1.0496459, 0, 1.5256467, 0, 1.8518515, 0, -1.5256467, 0, 1.0496459, 1.3153895, -2.629478, 4.6553583)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
