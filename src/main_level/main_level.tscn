@@ -765,6 +765,7 @@ texture = SubResource("ViewportTexture_yj2oh")
 
 [node name="DraggableBody" parent="." unique_id=1316753138 instance=ExtResource("13_yj2oh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.467714, 0.8884065, 0.009940386)
+visible = false
 
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.41170764, 0.2253809)
