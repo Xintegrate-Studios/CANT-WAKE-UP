@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c70rol60wtjgl"]
 
-[ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/actors/door/door.gd" id="1_k3daa"]
+[ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/actors/architectural/door/door.gd" id="1_k3daa"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_uboid"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_fjkwi"]
 [ext_resource type="ArrayMesh" uid="uid://ck6j76xp8mgf6" path="res://res/mesh/arr/door_array_mesh.tres" id="4_uboid"]

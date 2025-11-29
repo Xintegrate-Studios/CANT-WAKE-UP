@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/furniture/bed/bed.tscn" id="7_3rixg"]
 [ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/furniture/lamp/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
-[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
+[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/architectural/door/door.tscn" id="10_sfj7s"]
 [ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/furniture/dining table/dining_table.tscn" id="12_hnkfv"]
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/props/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
@@ -176,7 +176,7 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
-[node name="World5" type="Node3D" unique_id=869210547]
+[node name="World6" type="Node3D" unique_id=869210547]
 script = ExtResource("1_3rixg")
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]

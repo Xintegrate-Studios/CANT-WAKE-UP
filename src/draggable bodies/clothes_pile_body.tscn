@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_qwicc"]
 [ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="2_ewwei"]
 [ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="3_2wkc6"]
-[ext_resource type="PackedScene" uid="uid://bpcmhqrvv7hog" path="res://ast/actors/clothes pile/clothes_pile.tscn" id="4_ewwei"]
+[ext_resource type="PackedScene" uid="uid://bpcmhqrvv7hog" path="res://ast/actors/draggables/clothes pile/clothes_pile.tscn" id="4_ewwei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uyx4"]
 size = Vector3(1.3422852, 0.4487915, 1.9626465)
