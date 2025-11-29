@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c07y0b4830kan"]
 
-[ext_resource type="Script" uid="uid://botdob4r8nb22" path="res://ast/actors/table note/table_note.gd" id="1_7wqqk"]
+[ext_resource type="Script" uid="uid://botdob4r8nb22" path="res://ast/actors/props/table note/table_note.gd" id="1_7wqqk"]
 [ext_resource type="Texture2D" uid="uid://cyfp20o3gwe4u" path="res://ast/textures/paper_physical.png" id="2_yf13r"]
 [ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="3_yf13r"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="4_rme4q"]

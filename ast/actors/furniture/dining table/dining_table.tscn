@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://13xcg7cbto0v"]
 
-[ext_resource type="Script" uid="uid://6oaieun7njtk" path="res://ast/actors/dining table/dining_table.gd" id="1_cwoir"]
+[ext_resource type="Script" uid="uid://6oaieun7njtk" path="res://ast/actors/furniture/dining table/dining_table.gd" id="1_cwoir"]
 
 [sub_resource type="Image" id="Image_3o3j2"]
 data = {

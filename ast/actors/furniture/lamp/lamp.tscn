@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://b5oopo5to6xrm"]
 
 [ext_resource type="Material" uid="uid://cobmi245rqja" path="res://res/mat/lamp_color.tres" id="1_4vmpf"]
-[ext_resource type="Script" uid="uid://wg3r2i8pa4vw" path="res://ast/actors/lamp/lamp.gd" id="1_xw1xc"]
+[ext_resource type="Script" uid="uid://wg3r2i8pa4vw" path="res://ast/actors/furniture/lamp/lamp.gd" id="1_xw1xc"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_4vmpf"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="3_xw1xc"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=4 uid="uid://cb4ibh01rqcpt"]
 
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="1_cpeuc"]
-[ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/wardrobe/wardrobe.gd" id="1_dejff"]
+[ext_resource type="Script" uid="uid://lst0820fcck1" path="res://ast/actors/furniture/wardrobe/wardrobe.gd" id="1_dejff"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="2_dejff"]
 [ext_resource type="PackedScene" uid="uid://bywsxl15safyb" path="res://ast/models/props/hanger/hanger.blend" id="4_uhr41"]
 

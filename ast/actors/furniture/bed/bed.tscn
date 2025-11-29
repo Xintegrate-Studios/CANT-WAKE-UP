@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://jtu6b73dretk"]
 
 [ext_resource type="Texture2D" uid="uid://1edrmudone5f" path="res://ast/models/textures/bed.png" id="1_76kw4"]
-[ext_resource type="Script" uid="uid://dqfylvsbmebyn" path="res://ast/actors/bed/bed.gd" id="1_lskcs"]
+[ext_resource type="Script" uid="uid://dqfylvsbmebyn" path="res://ast/actors/furniture/bed/bed.gd" id="1_lskcs"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_vf56x"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="3_63j2h"]
 

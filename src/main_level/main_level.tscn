@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
-[ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/wardrobe/wardrobe.tscn" id="6_mbfot"]
-[ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/bed/bed.tscn" id="7_3rixg"]
-[ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/lamp/lamp.tscn" id="7_5agnw"]
+[ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/furniture/wardrobe/wardrobe.tscn" id="6_mbfot"]
+[ext_resource type="PackedScene" uid="uid://jtu6b73dretk" path="res://ast/actors/furniture/bed/bed.tscn" id="7_3rixg"]
+[ext_resource type="PackedScene" uid="uid://b5oopo5to6xrm" path="res://ast/actors/furniture/lamp/lamp.tscn" id="7_5agnw"]
 [ext_resource type="PackedScene" uid="uid://bpyx373jop5y4" path="res://src/draggable bodies/pizza_body.tscn" id="9_nh6qd"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/door/door.tscn" id="10_sfj7s"]
-[ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/dining table/dining_table.tscn" id="12_hnkfv"]
-[ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/table note/table_note.tscn" id="12_yj2oh"]
+[ext_resource type="PackedScene" uid="uid://13xcg7cbto0v" path="res://ast/actors/furniture/dining table/dining_table.tscn" id="12_hnkfv"]
+[ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/props/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
-[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
+[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/furniture/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
 [ext_resource type="PackedScene" uid="uid://owrvaj6audpb" path="res://ast/models/draggables/dino plush/dino_plush.blend" id="15_ibte4"]
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 
@@ -176,7 +176,7 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
-[node name="World3" type="Node3D" unique_id=869210547]
+[node name="World5" type="Node3D" unique_id=869210547]
 script = ExtResource("1_3rixg")
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
