@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=60 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
+[ext_resource type="PackedScene" uid="uid://owrvaj6audpb" path="res://ast/models/dino plush/dino_plush.blend" id="15_ibte4"]
+[ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -765,6 +767,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.467714, 0.8884065, 0.009940
 
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.41170764, 0.2253809)
+
+[node name="dino_plush" parent="." unique_id=2122929178 instance=ExtResource("15_ibte4")]
+transform = Transform3D(0.02773213, -0.29663518, 0, 0.29663518, 0.02773213, 0, 0, 0, 0.29792863, 0.19955528, 0.8660642, 0.15098181)
+
+[node name="demon" parent="." unique_id=1278099396 instance=ExtResource("16_4s85u")]
+transform = Transform3D(0.30607682, 0, -0.44487867, 0, 0.5400001, 0, 0.44487867, 0, 0.30607682, 1.6684594, 1.4199184, -2.010086)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
