@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=60 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/furniture/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
+[ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
@@ -770,6 +771,9 @@ texture = ExtResource("17_nfile")
 
 [node name="DraggableBody[CLOTHES_PILE]" parent="." unique_id=1316753138 instance=ExtResource("13_yj2oh")]
 transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.8309844, 3.2695236, 0.47916144, 0.22021979)
+
+[node name="DraggableBody[DINO]" parent="." unique_id=446305919 instance=ExtResource("16_nfile")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.77974343, 0.14836922)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
