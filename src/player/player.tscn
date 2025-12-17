@@ -118,6 +118,7 @@ vertical_alignment = 1
 
 [node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1593337519]
 layer = 16
+visible = false
 
 [node name="MainLayer" type="Control" parent="Head/Camera3D/NoteCloseupLayer" unique_id=396203887]
 layout_mode = 3
@@ -175,6 +176,27 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_5f2sf")
 text = "[E] Exit"
+
+[node name="SleepUILayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=654494885]
+layer = 17
+
+[node name="MainLayer" type="Control" parent="Head/Camera3D/SleepUILayer" unique_id=903857325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlackFade" type="ColorRect" parent="Head/Camera3D/SleepUILayer/MainLayer" unique_id=1850973931]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="audio" type="Node" parent="." unique_id=1389909550]
 
