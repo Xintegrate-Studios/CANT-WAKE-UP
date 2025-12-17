@@ -9,6 +9,8 @@ extends CharacterBody3D
 
 @export_group("ui")
 @export var note_content: Label
+@export_subgroup("sleepuilayer")
+@export var sleepuilayer_blackfade : ColorRect
 
 @export_group("body parts")
 @export var head: Node3D
