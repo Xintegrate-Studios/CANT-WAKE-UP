@@ -764,6 +764,7 @@ transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80
 
 [node name="demon" parent="." unique_id=1278099396 instance=ExtResource("16_4s85u")]
 transform = Transform3D(0.30607682, 0, -0.44487867, 0, 0.5400001, 0, 0.44487867, 0, 0.30607682, 1.6684594, 1.4199184, -2.010086)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="demon" unique_id=408178547]
 transform = Transform3D(0.49961835, 0, 0.086200446, 0, 0.5069998, 0, -0.086200446, 0, 0.49961835, 0.09622975, 3.3902984, 0.23041645)
