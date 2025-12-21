@@ -47,7 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_handle_mouse_look(event.relative, PlayerGlobal.player_mouse_state)
 
 func _physics_process(delta: float) -> void:
-	if not PlayerGlobal.in_ui:
+	if not PlayerGlobal.in_ui and not PlayerGlobal.sleeping:
 		_handle_crouching(delta)
 		_handle_movement(delta)
 		_apply_head_bob(delta)
@@ -134,5 +134,7 @@ func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 		NoteCloseupLayer.hide()
 
 func sleep():
+	PlayerGlobal.sleeping = true
+	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
 	var tween = get_tree().create_tween()
 	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
