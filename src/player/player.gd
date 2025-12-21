@@ -44,7 +44,7 @@ var bob_wave_length: float = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and not PlayerGlobal.in_ui:
-		_handle_mouse_look(event.relative)
+		_handle_mouse_look(event.relative, PlayerGlobal.player_mouse_state)
 
 func _physics_process(delta: float) -> void:
 	if not PlayerGlobal.in_ui:
@@ -57,10 +57,17 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	move_and_slide()
 
-func _handle_mouse_look(mouse_relative: Vector2) -> void:
-	head.rotate_y(-mouse_relative.x * SENSITIVITY)
-	camera.rotate_x(-mouse_relative.y * SENSITIVITY)
-	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+func _handle_mouse_look(mouse_relative: Vector2, state: PlayerGlobal.PlayerMouseState) -> void:
+	if state == PlayerGlobal.PlayerMouseState.NORMAL:
+		head.rotate_y(-mouse_relative.x * SENSITIVITY)
+		camera.rotate_x(-mouse_relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	# mouse move slower
+	elif state == PlayerGlobal.PlayerMouseState.SLOW:
+		head.rotate_y(-mouse_relative.x * (SENSITIVITY / 20))
+		camera.rotate_x(-mouse_relative.y * (SENSITIVITY / 20))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _handle_crouching(delta: float) -> void:
 	var target_scale = 0.5 if Input.is_action_pressed("Crouch") and is_on_floor() else 1.0
@@ -125,3 +132,7 @@ func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 		UIGlobal.in_note_closeup = false
 		PlayerGlobal.in_ui = false
 		NoteCloseupLayer.hide()
+
+func sleep():
+	var tween = get_tree().create_tween()
+	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
