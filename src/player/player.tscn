@@ -182,6 +182,7 @@ text = "[E] Exit"
 layer = 17
 
 [node name="MainLayer" type="Control" parent="Head/Camera3D/SleepUILayer" unique_id=903857325]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

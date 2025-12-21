@@ -60,3 +60,7 @@ func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
 		if body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
 			print("!--clothes outside wardrobe")
 			clothes_inside = false
+
+
+func _on_in_wardrobe_bug_debounce_timeout() -> void:
+	pass # Replace with function body.
