@@ -18,7 +18,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
-[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
@@ -30,6 +30,7 @@ hud_no_effect_layer = NodePath("Head/Camera3D/HUDNoEffectLayer")
 sleepuilayer_blackfade = NodePath("Head/Camera3D/SleepUILayer/MainLayer/BlackFade")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
+mesh = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2041292677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
