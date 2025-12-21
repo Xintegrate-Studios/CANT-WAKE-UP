@@ -7,12 +7,20 @@ extends CharacterBody3D
 @export_group("audio")
 @export var paper_audio : AudioStreamPlayer
 
+@export_group("timers")
+@export var sleeptransitiontimer : Timer
+
 @export_group("ui")
 @export var note_content: Label
+@export_subgroup("canvaslayers")
+@export var hud_no_effect_layer : CanvasLayer
+@export_subgroup("sleepuilayer")
+@export var sleepuilayer_blackfade : ColorRect
 
 @export_group("body parts")
 @export var head: Node3D
 @export var camera: Camera3D
+@export var mesh : MeshInstance3D
 
 @export_group("visual")
 @export var FOV: float = 70.0
@@ -42,10 +50,10 @@ var bob_wave_length: float = 0.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and not PlayerGlobal.in_ui:
-		_handle_mouse_look(event.relative)
+		_handle_mouse_look(event.relative, PlayerGlobal.player_mouse_state)
 
 func _physics_process(delta: float) -> void:
-	if not PlayerGlobal.in_ui:
+	if not PlayerGlobal.in_ui and not PlayerGlobal.sleeping:
 		_handle_crouching(delta)
 		_handle_movement(delta)
 		_apply_head_bob(delta)
@@ -55,10 +63,17 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	move_and_slide()
 
-func _handle_mouse_look(mouse_relative: Vector2) -> void:
-	head.rotate_y(-mouse_relative.x * SENSITIVITY)
-	camera.rotate_x(-mouse_relative.y * SENSITIVITY)
-	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+func _handle_mouse_look(mouse_relative: Vector2, state: PlayerGlobal.PlayerMouseState) -> void:
+	if state == PlayerGlobal.PlayerMouseState.NORMAL:
+		head.rotate_y(-mouse_relative.x * SENSITIVITY)
+		camera.rotate_x(-mouse_relative.y * SENSITIVITY)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	# mouse move slower
+	elif state == PlayerGlobal.PlayerMouseState.SLOW:
+		head.rotate_y(-mouse_relative.x * (SENSITIVITY / 20))
+		camera.rotate_x(-mouse_relative.y * (SENSITIVITY / 20))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _handle_crouching(delta: float) -> void:
 	var target_scale = 0.5 if Input.is_action_pressed("Crouch") and is_on_floor() else 1.0
@@ -123,3 +138,22 @@ func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 		UIGlobal.in_note_closeup = false
 		PlayerGlobal.in_ui = false
 		NoteCloseupLayer.hide()
+
+func visibilitysetupforsleep():
+	hud_no_effect_layer.hide()
+	mesh.hide()
+
+func sleep():
+	PlayerGlobal.sleeping = true
+	PlayerGlobal.world.set_bed_can_interact(false)
+	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
+	var tween = get_tree().create_tween()
+	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
+	sleeptransitiontimer.start()
+
+func _on_sleeptransition_timeout() -> void:
+	PlayerGlobal.sleepCamera.make_current()
+	visibilitysetupforsleep()
+	var tween = get_tree().create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 0), 1.0).from(Color(1, 1, 1, 1))

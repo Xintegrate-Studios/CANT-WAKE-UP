@@ -8,7 +8,6 @@ class_name DraggableBody extends CharacterBody3D
 
 var interaction_disabled : bool = false
 var hovering_over : bool = false
-var in_enclosed_area : bool = false
 
 func _physics_process(_delta: float) -> void:
 	DragInteraction.target_position = PlayerGlobal.drag_interaction_player_position
