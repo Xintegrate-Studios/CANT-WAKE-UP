@@ -31,17 +31,36 @@ const FIRST_NIGHT_TASKS : Array = [
 ]
 
 var TASKS_TO_DO : Array = []
-
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
+var TASK_NOT_DONE_NUM : int = 0
+
 
 # utility functon to set a task as done/completed
 func complete_task(task_name : String) -> void:
 	if TASKS_TO_DO.has(task_name):
 		TASKS_DONE_FOR_THE_NIGHT.append(task_name)
 		TASKS_TO_DO.erase(task_name)
+		TASK_NOT_DONE_NUM = TASKS_TO_DO.size()
 
 # utility functon to set a task as uncompleted
 func uncomplete_task(task_name : String) -> void:
 	if TASKS_DONE_FOR_THE_NIGHT.has(task_name):
 		TASKS_TO_DO.append(task_name)
 		TASKS_DONE_FOR_THE_NIGHT.erase(task_name)
+		TASK_NOT_DONE_NUM = TASKS_TO_DO.size()
+
+
+# Initialize nightly tasks and reset counters
+func set_tasks_for_night(tasks: Array) -> void:
+	TASKS_TO_DO = tasks.duplicate()
+	TASKS_DONE_FOR_THE_NIGHT.clear()
+	TASK_NOT_DONE_NUM = TASKS_TO_DO.size()
+
+
+func get_tasks_not_done_num() -> int:
+	return TASK_NOT_DONE_NUM
+
+
+func _ready() -> void:
+	if TASKS_TO_DO.is_empty():
+		set_tasks_for_night(FIRST_NIGHT_TASKS)
