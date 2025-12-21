@@ -10,4 +10,5 @@ var sleeping : bool = false
 var in_ui : bool = false
 
 var player : CharacterBody3D
+var world : Node3D
 var sleepCamera : Camera3D

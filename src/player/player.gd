@@ -12,12 +12,15 @@ extends CharacterBody3D
 
 @export_group("ui")
 @export var note_content: Label
+@export_subgroup("canvaslayers")
+@export var hud_no_effect_layer : CanvasLayer
 @export_subgroup("sleepuilayer")
 @export var sleepuilayer_blackfade : ColorRect
 
 @export_group("body parts")
 @export var head: Node3D
 @export var camera: Camera3D
+@export var mesh : MeshInstance3D
 
 @export_group("visual")
 @export var FOV: float = 70.0
@@ -136,6 +139,10 @@ func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
 		PlayerGlobal.in_ui = false
 		NoteCloseupLayer.hide()
 
+func visibilitysetupforsleep():
+	hud_no_effect_layer.hide()
+	mesh.hide()
+
 func sleep():
 	PlayerGlobal.sleeping = true
 	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
@@ -143,6 +150,9 @@ func sleep():
 	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
 	sleeptransitiontimer.start()
 
-
 func _on_sleeptransition_timeout() -> void:
-	pass
+	PlayerGlobal.sleepCamera.make_current()
+	visibilitysetupforsleep()
+	var tween = get_tree().create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 0), 1.0).from(Color(1, 1, 1, 1))
