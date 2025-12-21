@@ -7,6 +7,9 @@ extends CharacterBody3D
 @export_group("audio")
 @export var paper_audio : AudioStreamPlayer
 
+@export_group("timers")
+@export var sleeptransitiontimer : Timer
+
 @export_group("ui")
 @export var note_content: Label
 @export_subgroup("sleepuilayer")
