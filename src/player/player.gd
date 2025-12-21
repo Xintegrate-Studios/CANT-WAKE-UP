@@ -141,3 +141,8 @@ func sleep():
 	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
 	var tween = get_tree().create_tween()
 	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
+	sleeptransitiontimer.start()
+
+
+func _on_sleeptransition_timeout() -> void:
+	pass

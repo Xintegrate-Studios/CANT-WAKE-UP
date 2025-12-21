@@ -187,6 +187,10 @@ CROUCH_SPEED = 1.0
 BOB_FREQ = 5.0
 BOB_AMP = 0.02
 
+[node name="sleepCamera" type="Camera3D" parent="." unique_id=380767909]
+transform = Transform3D(0.07978137, 0, -0.9968124, 0, 1, 0, 0.9968124, 0, 0.07978137, -0.46029833, 1.044894, 0.33143264)
+current = true
+
 [node name="env" type="Node" parent="." unique_id=3231113]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=915506045]
@@ -775,9 +779,6 @@ transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.830
 
 [node name="DraggableBody[DINO]" parent="." unique_id=446305919 instance=ExtResource("16_nfile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.77974343, 0.14836922)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=380767909]
-transform = Transform3D(0.07978137, 0, -0.9968124, 0, 1, 0, 0.9968124, 0, 0.07978137, -0.2975714, 1.044894, 0.31840852)
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]

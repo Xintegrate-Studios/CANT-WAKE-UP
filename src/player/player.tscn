@@ -211,3 +211,5 @@ stream = ExtResource("9_l271a")
 
 [node name="sleeptransition" type="Timer" parent="timers" unique_id=997535754]
 one_shot = true
+
+[connection signal="timeout" from="timers/sleeptransition" to="." method="_on_sleeptransition_timeout"]
