@@ -39,14 +39,11 @@ var skip_next_accuracy := false
 var skip_accuracy_threshold := 0.7  # near-next behavior
 
 # ======================
-# READY
+# BUILT-IN
 # ======================
 
 func start_breathing_cycle() -> void:
 	breath_interval_timer.start()
-
-func _ready() -> void:
-	start_breathing_cycle()
 
 func _process(_delta: float) -> void:
 	input_pressed = Input.is_action_pressed("input")
