@@ -1,4 +1,4 @@
-extends Control
+extends Node3D
 
 # ======================
 # DEBUG
@@ -57,17 +57,24 @@ func start_breathing_cycle() -> void:
 	breath_interval_timer.start()
 
 func _process(_delta: float) -> void:
-	input_pressed = Input.is_action_pressed("input")
+	input_pressed = Input.is_action_pressed("Breath")
+	
+	breath_interval_time_left_lbl.text = "BREATH INTERVAL: %.2f" % breath_interval_timer.time_left
+	accuracy_gap_time_left_lbl.text = "ACCURACY GAP: %.2f" % accuracy_gap_timer.time_left
+	#$infolbls/breathing_phase.text = "phase: " + breathing_phase
+	accuracy_lbl.text = "ACC: " + str(accuracy)
+	average_accuracy_lbl.text = "AVG: " + str(cumulative_accuracy)
+	fails_lbl.text = "FAILS: " + str(fails)
 
 # ======================
 # INPUT
 # ======================
 func _input(_event: InputEvent) -> void:
 	# EXHALE: press to hold
-	if Input.is_action_just_pressed("input") and breathing_phase == "exhale":
+	if Input.is_action_just_pressed("Breath") and breathing_phase == "exhale":
 		_try_score()
 	# INHALE: release to complete
-	elif Input.is_action_just_released("input") and breathing_phase == "inhale":
+	elif Input.is_action_just_released("Breath") and breathing_phase == "inhale":
 		_try_score()
 
 # ======================
