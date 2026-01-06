@@ -146,6 +146,7 @@ func visibilitysetupforsleep():
 func sleep():
 	PlayerGlobal.sleeping = true
 	PlayerGlobal.world.set_bed_can_interact(false)
+	PlayerGlobal.world.breathing_mechanic.init_timer.start()
 	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
 	var tween = get_tree().create_tween()
 	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
