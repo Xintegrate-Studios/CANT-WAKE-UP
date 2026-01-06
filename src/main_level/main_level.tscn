@@ -192,6 +192,8 @@ one_shot = true
 wait_time = 0.7
 one_shot = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="BreathingMechanic" unique_id=1151848615]
+
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
 WALK_SPEED = 2.0
