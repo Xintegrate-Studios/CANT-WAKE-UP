@@ -182,7 +182,7 @@ script = ExtResource("1_3rixg")
 breathing_mechanic = NodePath("BreathingMechanic")
 bed = NodePath("furniture/Bed")
 
-[node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "breath_interval_timer", "accuracy_gap_timer")]
+[node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
 fails_lbl = NodePath("HUDLayer/debug/fails")
 input_lbl = NodePath("HUDLayer/debug/input")
@@ -190,8 +190,13 @@ breath_interval_time_left_lbl = NodePath("HUDLayer/debug/breath_interval_time_le
 accuracy_gap_time_left_lbl = NodePath("HUDLayer/debug/accuracy_gap_time_left")
 accuracy_lbl = NodePath("HUDLayer/debug/accuracy")
 average_accuracy_lbl = NodePath("HUDLayer/debug/average_accuracy")
+init_timer = NodePath("init_timer")
 breath_interval_timer = NodePath("breath_interval")
 accuracy_gap_timer = NodePath("accuracy_gap")
+
+[node name="init_timer" type="Timer" parent="BreathingMechanic" unique_id=1104521472]
+wait_time = 3.0
+one_shot = true
 
 [node name="breath_interval" type="Timer" parent="BreathingMechanic" unique_id=344288522]
 wait_time = 2.5
@@ -858,6 +863,7 @@ transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.830
 [node name="DraggableBody[DINO]" parent="." unique_id=446305919 instance=ExtResource("16_nfile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.77974343, 0.14836922)
 
+[connection signal="timeout" from="BreathingMechanic/init_timer" to="BreathingMechanic" method="_on_init_timer_timeout"]
 [connection signal="timeout" from="BreathingMechanic/breath_interval" to="BreathingMechanic" method="_on_breath_interval_timeout"]
 [connection signal="timeout" from="BreathingMechanic/accuracy_gap" to="BreathingMechanic" method="_on_breath_accuracy_gap_timeout"]
 

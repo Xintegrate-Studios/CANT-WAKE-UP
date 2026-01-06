@@ -11,5 +11,3 @@ func _ready() -> void:
 	PlayerGlobal.world = self
 	PlayerGlobal.sleepCamera = $sleepCamera
 	NightmanagerGlobal.setup_tasks_for_night()
-	
-	breathing_mechanic.start_breathing_cycle()

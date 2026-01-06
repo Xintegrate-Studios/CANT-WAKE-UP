@@ -14,6 +14,7 @@ extends Node3D
 # ======================
 # CONFIG
 # ======================
+@export var init_timer : Timer
 @export var late_zero_scale := 2.0       # forgiveness multiplier
 @export var fail_release_threshold := 1.0 # seconds before window end that counts as fail
 
@@ -50,8 +51,11 @@ var skip_next_accuracy := false
 var skip_accuracy_threshold := 0.7  # near-next behavior
 
 # ======================
-# BUILT-IN
+# CORE
 # ======================
+
+func _on_init_timer_timeout() -> void:
+	start_breathing_cycle()
 
 func start_breathing_cycle() -> void:
 	breath_interval_timer.start()
@@ -61,6 +65,7 @@ func _process(_delta: float) -> void:
 	
 	breath_interval_time_left_lbl.text = "BREATH INTERVAL: %.2f" % breath_interval_timer.time_left
 	accuracy_gap_time_left_lbl.text = "ACCURACY GAP: %.2f" % accuracy_gap_timer.time_left
+	input_lbl.text = "INPUT: " + str(input_pressed)
 	#$infolbls/breathing_phase.text = "phase: " + breathing_phase
 	accuracy_lbl.text = "ACC: " + str(accuracy)
 	average_accuracy_lbl.text = "AVG: " + str(cumulative_accuracy)
