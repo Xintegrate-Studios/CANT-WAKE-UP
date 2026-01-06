@@ -121,7 +121,7 @@ func _on_breath_interval_timeout() -> void:
 		return
 	_start_accuracy_window()
 
-func _on_breath_accuracy_cap_timeout() -> void:
+func _on_breath_accuracy_gap_timeout() -> void:
 	if accuracy_window_active:
 		# fail but **don’t flip**, let player try again in same phase
 		_fail_phase(false)
