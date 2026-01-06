@@ -218,6 +218,22 @@ offset_right = 277.0
 offset_bottom = 337.0
 text = "INPUT: Y/N"
 
+[node name="breath_interval_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1011792800]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 354.0
+offset_right = 85.0
+offset_bottom = 377.0
+text = "BREATH INTERVAL: 0.00"
+
+[node name="accuracy_gap_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1913231619]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 378.0
+offset_right = 205.0
+offset_bottom = 401.0
+text = "ACCURACY GAP: 0.00"
+
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
 WALK_SPEED = 2.0
