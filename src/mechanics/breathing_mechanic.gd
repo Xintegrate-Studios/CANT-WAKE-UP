@@ -1,6 +1,17 @@
 extends Control
 
 # ======================
+# DEBUG
+# ======================
+
+@export var fails_lbl : Label
+@export var input_lbl : Label
+@export var breath_interval_time_left_lbl : Label
+@export var accuracy_gap_time_left_lbl : Label
+@export var accuracy_lbl : Label
+@export var average_accuracy_lbl : Label
+
+# ======================
 # CONFIG
 # ======================
 @export var late_zero_scale := 2.0       # forgiveness multiplier
