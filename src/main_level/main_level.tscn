@@ -1,9 +1,10 @@
-[gd_scene load_steps=67 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=68 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
+[ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/furniture/wardrobe/wardrobe.tscn" id="6_mbfot"]
@@ -374,6 +375,7 @@ offset_bottom = 354.0
 text = "AVG ACC: 00.00"
 
 [node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858]
+script = ExtResource("3_grjog")
 
 [node name="BlinkingEffectLayer" type="CanvasLayer" parent="BlinkingMechanic" unique_id=611756333]
 layer = 11
