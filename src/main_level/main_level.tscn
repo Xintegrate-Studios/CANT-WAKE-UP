@@ -288,9 +288,11 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "bed")]
+[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "blinking_mechanic", "blink_animations", "bed")]
 script = ExtResource("1_3rixg")
 breathing_mechanic = NodePath("BreathingMechanic")
+blinking_mechanic = NodePath("BlinkingMechanic")
+blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
 bed = NodePath("furniture/Bed")
 
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]

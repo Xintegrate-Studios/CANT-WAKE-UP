@@ -1,6 +1,8 @@
 extends Node3D
 
 @export var breathing_mechanic : Node3D
+@export var blinking_mechanic : Node3D
+@export var blink_animations : AnimationPlayer
 
 @export var bed : Node3D
 
