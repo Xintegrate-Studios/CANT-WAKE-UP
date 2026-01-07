@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var breathing_mechanic : Node3D
+
 @export var bed : Node3D
 
 func set_bed_can_interact(value : bool = true):

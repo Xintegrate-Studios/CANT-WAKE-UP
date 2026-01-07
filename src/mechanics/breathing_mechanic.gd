@@ -1,8 +1,20 @@
-extends Control
+extends Node3D
+
+# ======================
+# DEBUG
+# ======================
+
+@export var fails_lbl : Label
+@export var input_lbl : Label
+@export var breath_interval_time_left_lbl : Label
+@export var accuracy_gap_time_left_lbl : Label
+@export var accuracy_lbl : Label
+@export var average_accuracy_lbl : Label
 
 # ======================
 # CONFIG
 # ======================
+@export var init_timer : Timer
 @export var late_zero_scale := 2.0       # forgiveness multiplier
 @export var fail_release_threshold := 1.0 # seconds before window end that counts as fail
 
@@ -39,26 +51,35 @@ var skip_next_accuracy := false
 var skip_accuracy_threshold := 0.7  # near-next behavior
 
 # ======================
-# READY
+# CORE
 # ======================
-func _ready() -> void:
-	# start breathing interval
+
+func _on_init_timer_timeout() -> void:
+	start_breathing_cycle()
+
+func start_breathing_cycle() -> void:
 	breath_interval_timer.start()
 
-	# ensure input UI matches current internal state on startup
-
 func _process(_delta: float) -> void:
-	input_pressed = Input.is_action_pressed("input")
+	input_pressed = Input.is_action_pressed("Breath")
+	
+	breath_interval_time_left_lbl.text = "BREATH INTERVAL: %.2f" % breath_interval_timer.time_left
+	accuracy_gap_time_left_lbl.text = "ACCURACY GAP: %.2f" % accuracy_gap_timer.time_left
+	input_lbl.text = "INPUT: " + str(input_pressed)
+	#$infolbls/breathing_phase.text = "phase: " + breathing_phase
+	accuracy_lbl.text = "ACC: " + str(accuracy)
+	average_accuracy_lbl.text = "AVG: " + str(cumulative_accuracy)
+	fails_lbl.text = "FAILS: " + str(fails)
 
 # ======================
 # INPUT
 # ======================
 func _input(_event: InputEvent) -> void:
 	# EXHALE: press to hold
-	if Input.is_action_just_pressed("input") and breathing_phase == "exhale":
+	if Input.is_action_just_pressed("Breath") and breathing_phase == "exhale":
 		_try_score()
 	# INHALE: release to complete
-	elif Input.is_action_just_released("input") and breathing_phase == "inhale":
+	elif Input.is_action_just_released("Breath") and breathing_phase == "inhale":
 		_try_score()
 
 # ======================
@@ -105,7 +126,7 @@ func _on_breath_interval_timeout() -> void:
 		return
 	_start_accuracy_window()
 
-func _on_breath_accuracy_cap_timeout() -> void:
+func _on_breath_accuracy_gap_timeout() -> void:
 	if accuracy_window_active:
 		# fail but **don’t flip**, let player try again in same phase
 		_fail_phase(false)
