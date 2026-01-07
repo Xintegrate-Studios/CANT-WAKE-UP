@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=67 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -17,6 +17,116 @@
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
+
+[sub_resource type="Animation" id="Animation_nfile"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -560)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 1272)]
+}
+
+[sub_resource type="Animation" id="Animation_grjog"]
+resource_name = "close"
+length = 0.2
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -560)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 648), Vector2(1152, 1272)]
+}
+
+[sub_resource type="Animation" id="Animation_b4j44"]
+resource_name = "open"
+length = 0.2
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -560), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 1272), Vector2(1152, 648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4j44"]
+_data = {
+&"RESET": SubResource("Animation_nfile"),
+&"close": SubResource("Animation_grjog"),
+&"open": SubResource("Animation_b4j44")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grjog"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfile"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 162
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -207,7 +317,7 @@ wait_time = 0.7
 one_shot = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="BreathingMechanic" unique_id=1151848615]
-layer = 11
+layer = 12
 
 [node name="debug" type="Control" parent="BreathingMechanic/HUDLayer" unique_id=59346117]
 layout_mode = 3
@@ -262,6 +372,99 @@ offset_top = 331.0
 offset_right = 1146.0
 offset_bottom = 354.0
 text = "AVG ACC: 00.00"
+
+[node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858]
+
+[node name="BlinkingEffectLayer" type="CanvasLayer" parent="BlinkingMechanic" unique_id=611756333]
+layer = 11
+
+[node name="blink_animations" type="AnimationPlayer" parent="BlinkingMechanic/BlinkingEffectLayer" unique_id=1546091291]
+libraries = {
+&"": SubResource("AnimationLibrary_b4j44")
+}
+
+[node name="MainLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer" unique_id=1100512635]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer" unique_id=1487759586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -560.0
+offset_bottom = -560.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=1117908037]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 940.0
+offset_right = 1031.0
+offset_bottom = 1722.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_grjog")
+
+[node name="Panel3" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=1547369814]
+layout_mode = 0
+offset_left = -385.04102
+offset_top = 682.74915
+offset_right = 538.959
+offset_bottom = 1517.4303
+rotation = 0.46974972
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="Panel2" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=2010270304]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 1081.0001
+offset_right = 1623.0
+offset_bottom = 1952.9816
+rotation = -0.4435314
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="TopLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer" unique_id=1545456924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = 1272.0
+offset_right = 1152.0
+offset_bottom = 1272.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+
+[node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=1879825800]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 940.0
+offset_right = 1031.0
+offset_bottom = 1722.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_grjog")
+
+[node name="Panel3" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=913385450]
+layout_mode = 0
+offset_left = -385.04102
+offset_top = 682.74915
+offset_right = 538.959
+offset_bottom = 1517.4303
+rotation = 0.46974972
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="Panel2" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=353257195]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 1081.0001
+offset_right = 1623.0
+offset_bottom = 1952.9816
+rotation = -0.4435314
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
