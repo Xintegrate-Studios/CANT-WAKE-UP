@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=70 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -288,6 +288,17 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grjog"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 2.07
+subsurf_scatter_strength = 0.2
+stencil_flags = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_b4j44"]
+material = SubResource("StandardMaterial3D_grjog")
+
 [node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "blinking_mechanic", "blink_animations", "bed")]
 script = ExtResource("1_3rixg")
 breathing_mechanic = NodePath("BreathingMechanic")
@@ -328,15 +339,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="fails" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=620844591]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 314.0
-offset_right = 70.0
-offset_bottom = 337.0
-text = "FAILS: #"
-
-[node name="fails2" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=543409443]
+[node name="blink_phase" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=543409443]
 layout_mode = 0
 offset_left = 522.0
 offset_top = 609.0
@@ -344,7 +347,17 @@ offset_right = 646.0
 offset_bottom = 632.0
 text = "BLINK PHASE: \"\""
 
+[node name="fails" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=620844591]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 314.0
+offset_right = 70.0
+offset_bottom = 337.0
+text = "FAILS: #"
+
 [node name="input" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=2011519649]
+visible = false
 layout_mode = 0
 offset_left = 192.0
 offset_top = 314.0
@@ -353,6 +366,7 @@ offset_bottom = 337.0
 text = "INPUT: Y/N"
 
 [node name="breath_interval_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1011792800]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 354.0
@@ -361,6 +375,7 @@ offset_bottom = 377.0
 text = "BREATH INTERVAL: 0.00"
 
 [node name="accuracy_gap_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1913231619]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 378.0
@@ -369,6 +384,7 @@ offset_bottom = 401.0
 text = "ACCURACY GAP: 0.00"
 
 [node name="accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=427177976]
+visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 310.0
@@ -377,6 +393,7 @@ offset_bottom = 333.0
 text = "ACC: 00.00"
 
 [node name="average_accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1843297724]
+visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 331.0
@@ -384,8 +401,9 @@ offset_right = 1146.0
 offset_bottom = 354.0
 text = "AVG ACC: 00.00"
 
-[node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858]
+[node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858 node_paths=PackedStringArray("blink_phase_lbl")]
 script = ExtResource("3_grjog")
+blink_phase_lbl = NodePath("../BreathingMechanic/HUDLayer/debug/blink_phase")
 
 [node name="BlinkingEffectLayer" type="CanvasLayer" parent="BlinkingMechanic" unique_id=611756333]
 layer = 11
@@ -1062,13 +1080,20 @@ texture = SubResource("ViewportTexture_yj2oh")
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.41170764, 0.2253809)
 
-[node name="demon" parent="." unique_id=1278099396 instance=ExtResource("16_4s85u")]
-transform = Transform3D(0.30607682, 0, -0.44487867, 0, 0.5400001, 0, 0.44487867, 0, 0.30607682, 1.6684594, 1.4199184, -2.010086)
-visible = false
+[node name="demon" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
+transform = Transform3D(0.132466, 0, -0.5235005, 0, 0.5400001, 0, 0.5235005, 0, 0.132466, 1.446, 0.047, -1.099)
 
 [node name="Sprite3D" type="Sprite3D" parent="demon" unique_id=408178547]
-transform = Transform3D(0.49961835, 0, 0.086200446, 0, 0.5069998, 0, -0.086200446, 0, 0.49961835, 0.09622975, 3.3902984, 0.23041645)
+transform = Transform3D(0.5069571, 0.00065337407, 0.0065598674, 5.820766e-11, 0.5045035, -0.050249454, -0.006592326, 0.05024519, 0.50446105, 0.00070177636, 3.6978056, 0.24582492)
 texture = ExtResource("17_nfile")
+
+[node name="eye1" type="MeshInstance3D" parent="demon" unique_id=2012541267]
+transform = Transform3D(0.042971283, 0, 9.313226e-10, 0, 0.04297128, 0, -9.313226e-10, 0, 0.042971283, -0.11064643, 3.925483, 0.23026472)
+mesh = SubResource("SphereMesh_b4j44")
+
+[node name="eye2" type="MeshInstance3D" parent="demon" unique_id=2022589781]
+transform = Transform3D(0.042971283, 0, 9.313226e-10, 0, 0.04297128, 0, -9.313226e-10, 0, 0.042971283, 0.06499161, 3.925483, 0.23026472)
+mesh = SubResource("SphereMesh_b4j44")
 
 [node name="DraggableBody[CLOTHES_PILE]" parent="." unique_id=1316753138 instance=ExtResource("13_yj2oh")]
 transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.8309844, 3.2695236, 0.47916144, 0.22021979)
