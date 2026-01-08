@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=68 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -287,17 +287,6 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grjog"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 2.07
-subsurf_scatter_strength = 0.2
-stencil_flags = 2
-
-[sub_resource type="SphereMesh" id="SphereMesh_b4j44"]
-material = SubResource("StandardMaterial3D_grjog")
 
 [node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "blinking_mechanic", "blink_animations", "bed")]
 script = ExtResource("1_3rixg")
@@ -1082,18 +1071,13 @@ transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80
 
 [node name="demon" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
 transform = Transform3D(0.132466, 0, -0.5235005, 0, 0.5400001, 0, 0.5235005, 0, 0.132466, 1.446, 0.047, -1.099)
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="demon" unique_id=408178547]
-transform = Transform3D(0.5069571, 0.00065337407, 0.0065598674, 5.820766e-11, 0.5045035, -0.050249454, -0.006592326, 0.05024519, 0.50446105, 0.00070177636, 3.6978056, 0.24582492)
+transform = Transform3D(0.5069571, 0.0018605137, 0.0063243383, 0, 0.48638943, -0.1430877, -0.006592326, 0.14307554, 0.4863485, -0.01599356, 3.622797, 0.22397387)
+cast_shadow = 0
+texture_filter = 0
 texture = ExtResource("17_nfile")
-
-[node name="eye1" type="MeshInstance3D" parent="demon" unique_id=2012541267]
-transform = Transform3D(0.042971283, 0, 9.313226e-10, 0, 0.04297128, 0, -9.313226e-10, 0, 0.042971283, -0.11064643, 3.925483, 0.23026472)
-mesh = SubResource("SphereMesh_b4j44")
-
-[node name="eye2" type="MeshInstance3D" parent="demon" unique_id=2022589781]
-transform = Transform3D(0.042971283, 0, 9.313226e-10, 0, 0.04297128, 0, -9.313226e-10, 0, 0.042971283, 0.06499161, 3.925483, 0.23026472)
-mesh = SubResource("SphereMesh_b4j44")
 
 [node name="DraggableBody[CLOTHES_PILE]" parent="." unique_id=1316753138 instance=ExtResource("13_yj2oh")]
 transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.8309844, 3.2695236, 0.47916144, 0.22021979)
