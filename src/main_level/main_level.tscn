@@ -1,9 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=70 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
+[ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/furniture/wardrobe/wardrobe.tscn" id="6_mbfot"]
@@ -17,6 +18,116 @@
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
+
+[sub_resource type="Animation" id="Animation_nfile"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_grjog"]
+resource_name = "close"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -560)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 648), Vector2(1152, 1272)]
+}
+
+[sub_resource type="Animation" id="Animation_b4j44"]
+resource_name = "open"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainLayer/BottomLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -560), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainLayer/TopLayer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 1272), Vector2(1152, 648)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4j44"]
+_data = {
+&"RESET": SubResource("Animation_nfile"),
+&"close": SubResource("Animation_grjog"),
+&"open": SubResource("Animation_b4j44")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grjog"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfile"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 162
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_scctx"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -177,9 +288,18 @@ viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yj2oh"]
 viewport_path = NodePath("TableNote/InteractableComponent/Contents/UI/SubViewport")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "bed")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0lbn"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
+material = SubResource("StandardMaterial3D_n0lbn")
+
+[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "blinking_mechanic", "blink_animations", "bed")]
 script = ExtResource("1_3rixg")
 breathing_mechanic = NodePath("BreathingMechanic")
+blinking_mechanic = NodePath("BlinkingMechanic")
+blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
 bed = NodePath("furniture/Bed")
 
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
@@ -207,7 +327,7 @@ wait_time = 0.7
 one_shot = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="BreathingMechanic" unique_id=1151848615]
-layer = 11
+layer = 12
 
 [node name="debug" type="Control" parent="BreathingMechanic/HUDLayer" unique_id=59346117]
 layout_mode = 3
@@ -215,7 +335,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="blink_phase" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=543409443]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 609.0
+offset_right = 646.0
+offset_bottom = 632.0
+text = "BLINK PHASE: \"\""
+
 [node name="fails" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=620844591]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 314.0
@@ -224,6 +353,7 @@ offset_bottom = 337.0
 text = "FAILS: #"
 
 [node name="input" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=2011519649]
+visible = false
 layout_mode = 0
 offset_left = 192.0
 offset_top = 314.0
@@ -232,6 +362,7 @@ offset_bottom = 337.0
 text = "INPUT: Y/N"
 
 [node name="breath_interval_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1011792800]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 354.0
@@ -240,6 +371,7 @@ offset_bottom = 377.0
 text = "BREATH INTERVAL: 0.00"
 
 [node name="accuracy_gap_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1913231619]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 378.0
@@ -248,6 +380,7 @@ offset_bottom = 401.0
 text = "ACCURACY GAP: 0.00"
 
 [node name="accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=427177976]
+visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 310.0
@@ -256,12 +389,106 @@ offset_bottom = 333.0
 text = "ACC: 00.00"
 
 [node name="average_accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1843297724]
+visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 331.0
 offset_right = 1146.0
 offset_bottom = 354.0
 text = "AVG ACC: 00.00"
+
+[node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858 node_paths=PackedStringArray("blink_phase_lbl")]
+script = ExtResource("3_grjog")
+blink_phase_lbl = NodePath("../BreathingMechanic/HUDLayer/debug/blink_phase")
+
+[node name="BlinkingEffectLayer" type="CanvasLayer" parent="BlinkingMechanic" unique_id=611756333]
+layer = 11
+
+[node name="blink_animations" type="AnimationPlayer" parent="BlinkingMechanic/BlinkingEffectLayer" unique_id=1546091291]
+libraries = {
+&"": SubResource("AnimationLibrary_b4j44")
+}
+
+[node name="MainLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer" unique_id=1100512635]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer" unique_id=1487759586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=1117908037]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 940.0
+offset_right = 1031.0
+offset_bottom = 1722.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_grjog")
+
+[node name="Panel3" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=1547369814]
+layout_mode = 0
+offset_left = -385.04102
+offset_top = 682.74915
+offset_right = 538.959
+offset_bottom = 1517.4303
+rotation = 0.46974972
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="Panel2" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=2010270304]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 1081.0001
+offset_right = 1623.0
+offset_bottom = 1952.9816
+rotation = -0.4435314
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="TopLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer" unique_id=1545456924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = 648.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+
+[node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=1879825800]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 940.0
+offset_right = 1031.0
+offset_bottom = 1722.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_grjog")
+
+[node name="Panel3" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=913385450]
+layout_mode = 0
+offset_left = -385.04102
+offset_top = 682.74915
+offset_right = 538.959
+offset_bottom = 1517.4303
+rotation = 0.46974972
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
+
+[node name="Panel2" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=353257195]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 1081.0001
+offset_right = 1623.0
+offset_bottom = 1952.9816
+rotation = -0.4435314
+theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
@@ -849,13 +1076,23 @@ texture = SubResource("ViewportTexture_yj2oh")
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.80642396, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.80642396, 3.2658575, 0.41170764, 0.2253809)
 
-[node name="demon" parent="." unique_id=1278099396 instance=ExtResource("16_4s85u")]
-transform = Transform3D(0.30607682, 0, -0.44487867, 0, 0.5400001, 0, 0.44487867, 0, 0.30607682, 1.6684594, 1.4199184, -2.010086)
-visible = false
+[node name="demon" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
+transform = Transform3D(0.29197562, 0, -0.4542579, 0, 0.5400001, 0, 0.4542579, 0, 0.29197562, 2.172407, 0.307935, -1.5659002)
 
-[node name="Sprite3D" type="Sprite3D" parent="demon" unique_id=408178547]
-transform = Transform3D(0.49961835, 0, 0.086200446, 0, 0.5069998, 0, -0.086200446, 0, 0.49961835, 0.09622975, 3.3902984, 0.23041645)
+[node name="smile" type="Sprite3D" parent="demon" unique_id=408178547]
+transform = Transform3D(0.5069571, 0.0018605137, 0.0063243383, 0, 0.48638943, -0.1430877, -0.006592326, 0.14307554, 0.4863485, -0.01599356, 3.622797, 0.22397387)
+visible = false
+cast_shadow = 0
+texture_filter = 0
 texture = ExtResource("17_nfile")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="demon" unique_id=646709750]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.112929486, 3.799613, 0.22450894)
+mesh = SubResource("SphereMesh_ybo0d")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="demon" unique_id=1490808724]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.057534195, 3.799613, 0.22450894)
+mesh = SubResource("SphereMesh_ybo0d")
 
 [node name="DraggableBody[CLOTHES_PILE]" parent="." unique_id=1316753138 instance=ExtResource("13_yj2oh")]
 transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.8309844, 3.2695236, 0.47916144, 0.22021979)
@@ -866,6 +1103,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.77974343, 0.1483
 [connection signal="timeout" from="BreathingMechanic/init_timer" to="BreathingMechanic" method="_on_init_timer_timeout"]
 [connection signal="timeout" from="BreathingMechanic/breath_interval" to="BreathingMechanic" method="_on_breath_interval_timeout"]
 [connection signal="timeout" from="BreathingMechanic/accuracy_gap" to="BreathingMechanic" method="_on_breath_accuracy_gap_timeout"]
+[connection signal="animation_finished" from="BlinkingMechanic/BlinkingEffectLayer/blink_animations" to="BlinkingMechanic" method="_on_blink_animations_animation_finished"]
+[connection signal="animation_started" from="BlinkingMechanic/BlinkingEffectLayer/blink_animations" to="BlinkingMechanic" method="_on_blink_animations_animation_started"]
 
 [editable path="main/doors/door1"]
 [editable path="main/doors/door2"]
