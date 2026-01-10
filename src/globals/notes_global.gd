@@ -54,3 +54,6 @@ love you.
 — mom & dad",
 
 }
+
+func get_note(note_id: int) -> String:
+	return NOTES.get(note_id, "Note not found.")
