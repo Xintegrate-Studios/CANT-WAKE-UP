@@ -27,6 +27,7 @@ NotesGlobal="*res://src/globals/notes_global.gd"
 TasksGlobal="*res://src/globals/tasks_global.gd"
 UIGlobal="*res://src/globals/ui_global.gd"
 SleepManagerGlobal="*uid://cqc57fmk8kjpv"
+ParalysisphasemanagerGlobal="*uid://ebys7wi6y72d"
 
 [display]
 
