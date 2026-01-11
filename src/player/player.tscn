@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=21 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
 [ext_resource type="Shader" uid="uid://bqnwwm7jkxpd" path="res://res/shad/canvas/radialblur.gdshader" id="3_8ydov"]
 [ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
@@ -19,6 +20,67 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
+
+[sub_resource type="Animation" id="Animation_2smqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 263)]
+}
+
+[sub_resource type="Animation" id="Animation_cwolq"]
+resource_name = "main"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -33), Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(280, 265), Vector2(280, 239)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2smqc"]
+_data = {
+&"RESET": SubResource("Animation_2smqc"),
+&"main": SubResource("Animation_cwolq")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
 shader = ExtResource("3_8ydov")
@@ -85,6 +147,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11453)
 
 [node name="MainLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=466542388]
 
+[node name="AccuracyGapIcon" type="Control" parent="Head/Camera3D/MainLayer" unique_id=888935670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/MainLayer/AccuracyGapIcon" unique_id=1048311245]
+libraries = {
+&"": SubResource("AnimationLibrary_2smqc")
+}
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon" unique_id=252486705]
+clip_children = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = 263.0
+offset_right = 320.0
+offset_bottom = 303.00446
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon/Mask" unique_id=1469988746]
+layout_mode = 0
+offset_top = -33.0
+offset_right = 40.0
+offset_bottom = 7.0
+texture = ExtResource("2_cwolq")
+expand_mode = 1
+
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1599895072]
 layer = 5
 
@@ -112,6 +204,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BuckshotEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer" unique_id=1767192952]
+visible = false
 material = SubResource("ShaderMaterial_cwolq")
 anchors_preset = 15
 anchor_right = 1.0
