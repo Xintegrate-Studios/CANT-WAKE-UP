@@ -35,20 +35,20 @@ var input_pressed: bool:
 @export var breath_interval_timer : Timer
 @export var accuracy_gap_timer : Timer
 
-var breathing_phase := "exhale"          # always start on exhale
+var breathing_phase : String = "exhale"          # always start on exhale
 
 var accuracy_window_active := false
-var window_start_ms := 0
-var window_duration := 0.0
+var window_start_ms : int = 0
+var window_duration : float = 0.0
 
-var accuracy := 0.0
-var total_score := 0.0
-var hits_count := 0
-var cumulative_accuracy := 0.0
-var fails := 0
+var accuracy : float = 0.0
+var total_score : float = 0.0
+var hits_count : int = 0
+var cumulative_accuracy : float = 0.0
+var fails : int = 0
 
-var skip_next_accuracy := false
-var skip_accuracy_threshold := 0.7  # near-next behavior
+var skip_next_accuracy : bool = false
+var skip_accuracy_threshold : float = 0.7  # near-next behavior
 
 # ======================
 # CORE
@@ -58,6 +58,8 @@ func _on_init_timer_timeout() -> void:
 	start_breathing_cycle()
 
 func start_breathing_cycle() -> void:
+	
+	PlayerGlobal.player.breath_interval_anim.speed_scale = 1.0
 	breath_interval_timer.start()
 
 func _process(_delta: float) -> void:
