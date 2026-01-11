@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bn2fftbpm7rpw"]
 
-[ext_resource type="Shader" uid="uid://u8ig6bwmnk3g" path="res://res/shad/VHS.gdshader" id="1_k5tg3"]
+[ext_resource type="Shader" uid="uid://u8ig6bwmnk3g" path="res://res/shad/canvas/vhs.gdshader" id="1_k5tg3"]
 
 [resource]
 shader = ExtResource("1_k5tg3")

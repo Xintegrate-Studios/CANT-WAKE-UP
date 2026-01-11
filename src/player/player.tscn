@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=15 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
+[ext_resource type="Shader" uid="uid://bqnwwm7jkxpd" path="res://res/shad/canvas/radialblur.gdshader" id="3_8ydov"]
 [ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
 [ext_resource type="Texture2D" uid="uid://drsy870nrpayg" path="res://ast/textures/input/mouse_scroll_vertical_outline.png" id="4_244u8"]
 [ext_resource type="Script" uid="uid://dpssojwra2tn2" path="res://src/player/rotate_ui_container.gd" id="4_jiejy"]
@@ -17,6 +18,13 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
+shader = ExtResource("3_8ydov")
+shader_parameter/intensity = 7.462000354445
+shader_parameter/falloff = 0.0310000014725
+shader_parameter/samples = 20
+shader_parameter/center = Vector2(0.685, -0.365)
 
 [node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
@@ -64,6 +72,15 @@ layer = 10
 
 [node name="VHSEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer" unique_id=1022563289]
 material = ExtResource("2_rxibo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RadialBlur" type="ColorRect" parent="Head/Camera3D/EffectLayer" unique_id=370920534]
+material = SubResource("ShaderMaterial_ylhto")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
