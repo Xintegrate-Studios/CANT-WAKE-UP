@@ -58,8 +58,11 @@ func _on_init_timer_timeout() -> void:
 	start_breathing_cycle()
 
 func start_breathing_cycle() -> void:
+	breath_interval_timer.wait_time = SleepManagerGlobal.BREATH_INTERVAL_SEC
+	accuracy_gap_timer.wait_time = SleepManagerGlobal.ACCURACY_GAP_SEC
 	
-	PlayerGlobal.player.breath_interval_anim.speed_scale = 1.0
+	PlayerGlobal.player.breath_interval_anim.speed_scale = 1.0 / SleepManagerGlobal.BREATH_INTERVAL_SEC
+	PlayerGlobal.player.accuracy_gap_anim.speed_scale = 1.0 / SleepManagerGlobal.ACCURACY_GAP_SEC
 	breath_interval_timer.start()
 
 func _process(_delta: float) -> void:
