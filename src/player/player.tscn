@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=23 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
@@ -49,33 +49,6 @@ shader_parameter/glitch_strength = 0.0
 shader_parameter/glitch_speed = 0.0
 shader_parameter/viewport_size_override = Vector2(0, 0)
 
-[sub_resource type="Animation" id="Animation_6bm8s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/Mask/Icon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -7)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Mask:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -19)]
-}
-
 [sub_resource type="Animation" id="Animation_wlj80"]
 resource_name = "main"
 step = 0.0333333
@@ -89,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -7), Vector2(0, -33)]
+"values": [Vector2(0, -33), Vector2(0, -7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,40 +74,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 26)]
+"values": [Vector2(0, 26), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6bm8s"]
 _data = {
-&"RESET": SubResource("Animation_6bm8s"),
 &"main": SubResource("Animation_wlj80")
-}
-
-[sub_resource type="Animation" id="Animation_rl62b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/Mask/Icon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Mask:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -40)]
 }
 
 [sub_resource type="Animation" id="Animation_2smqc"]
@@ -167,7 +112,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rl62b"]
 _data = {
-&"RESET": SubResource("Animation_rl62b"),
 &"main": SubResource("Animation_2smqc")
 }
 
@@ -301,6 +245,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="AccuracyGapIcon" type="Control" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator" unique_id=888935670]
 layout_mode = 1
@@ -309,6 +254,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon" unique_id=578906682]
 libraries = {
@@ -321,22 +267,23 @@ offset_left = 38.0
 offset_top = 590.0
 offset_right = 78.0
 offset_bottom = 630.0
+mouse_filter = 2
 
 [node name="Mask" type="ColorRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/Container" unique_id=252486705]
 clip_children = 1
 visibility_layer = 2
 layout_mode = 0
-offset_top = -19.0
+offset_top = 9.361017
 offset_right = 40.0
-offset_bottom = 21.0
+offset_bottom = 49.361008
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
 visibility_layer = 2
 layout_mode = 0
-offset_top = -7.0
+offset_top = -16.361017
 offset_right = 40.0
-offset_bottom = 33.0
+offset_bottom = 23.638983
 texture = ExtResource("2_cwolq")
 expand_mode = 1
 
@@ -347,6 +294,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon" unique_id=1376577058]
 libraries = {
@@ -359,20 +307,21 @@ offset_left = 38.0
 offset_top = 623.0
 offset_right = 78.0
 offset_bottom = 663.0
+mouse_filter = 2
 
 [node name="Mask" type="ColorRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon/Container" unique_id=1381788878]
 clip_children = 1
 visibility_layer = 4
 layout_mode = 0
-offset_top = -40.0
 offset_right = 40.0
+offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
 visibility_layer = 4
 layout_mode = 0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
 texture = ExtResource("3_2smqc")
 expand_mode = 1
 
