@@ -344,7 +344,6 @@ offset_bottom = 632.0
 text = "BLINK PHASE: \"\""
 
 [node name="fails" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=620844591]
-visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 314.0
@@ -353,7 +352,6 @@ offset_bottom = 337.0
 text = "FAILS: #"
 
 [node name="input" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=2011519649]
-visible = false
 layout_mode = 0
 offset_left = 192.0
 offset_top = 314.0
@@ -362,7 +360,6 @@ offset_bottom = 337.0
 text = "INPUT: Y/N"
 
 [node name="breath_interval_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1011792800]
-visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 354.0
@@ -371,7 +368,6 @@ offset_bottom = 377.0
 text = "BREATH INTERVAL: 0.00"
 
 [node name="accuracy_gap_time_left" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1913231619]
-visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 378.0
@@ -380,7 +376,6 @@ offset_bottom = 401.0
 text = "ACCURACY GAP: 0.00"
 
 [node name="accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=427177976]
-visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 310.0
@@ -389,7 +384,6 @@ offset_bottom = 333.0
 text = "ACC: 00.00"
 
 [node name="average_accuracy" type="Label" parent="BreathingMechanic/HUDLayer/debug" unique_id=1843297724]
-visible = false
 layout_mode = 0
 offset_left = 965.0
 offset_top = 331.0
