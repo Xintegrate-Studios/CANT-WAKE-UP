@@ -22,6 +22,33 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
+shader = ExtResource("3_8ydov")
+shader_parameter/intensity = 7.462000354445
+shader_parameter/falloff = 0.0310000014725
+shader_parameter/samples = 20
+shader_parameter/center = Vector2(0.685, -0.365)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwolq"]
+shader = ExtResource("4_ylhto")
+shader_parameter/exposure = 1.84000008088023
+shader_parameter/contrast = 1.05
+shader_parameter/saturation = 0.5690000270275
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 2.0000000475
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 7.2530002495175
+shader_parameter/dither_strength = 0.154000007315
+shader_parameter/chrom_aberration = 0.0
+shader_parameter/vignette_strength = 1.2
+shader_parameter/grain_strength = 0.25
+shader_parameter/tint_strength = 0.1310000062225
+shader_parameter/scanline_density = 240.0
+shader_parameter/scanline_strength = 0.0
+shader_parameter/glitch_strength = 0.0
+shader_parameter/glitch_speed = 0.0
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
 [sub_resource type="Animation" id="Animation_6bm8s"]
 length = 0.001
 tracks/0/type = "value"
@@ -144,33 +171,6 @@ _data = {
 &"main": SubResource("Animation_2smqc")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
-shader = ExtResource("3_8ydov")
-shader_parameter/intensity = 7.462000354445
-shader_parameter/falloff = 0.0310000014725
-shader_parameter/samples = 20
-shader_parameter/center = Vector2(0.685, -0.365)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwolq"]
-shader = ExtResource("4_ylhto")
-shader_parameter/exposure = 1.84000008088023
-shader_parameter/contrast = 1.05
-shader_parameter/saturation = 0.5690000270275
-shader_parameter/enable_pixelate = true
-shader_parameter/pixel_factor = 2.0000000475
-shader_parameter/enable_posterize = true
-shader_parameter/color_levels = 7.2530002495175
-shader_parameter/dither_strength = 0.154000007315
-shader_parameter/chrom_aberration = 0.0
-shader_parameter/vignette_strength = 1.2
-shader_parameter/grain_strength = 0.25
-shader_parameter/tint_strength = 0.1310000062225
-shader_parameter/scanline_density = 240.0
-shader_parameter/scanline_strength = 0.0
-shader_parameter/glitch_strength = 0.0
-shader_parameter/glitch_speed = 0.0
-shader_parameter/viewport_size_override = Vector2(0, 0)
-
 [node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
 script = ExtResource("1_4anbu")
@@ -208,80 +208,6 @@ shape = SubResource("BoxShape3D_4anbu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11453)
 
 [node name="MainLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=466542388]
-
-[node name="AccuracyGapIcon" type="Control" parent="Head/Camera3D/MainLayer" unique_id=888935670]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/MainLayer/AccuracyGapIcon" unique_id=578906682]
-libraries = {
-&"": SubResource("AnimationLibrary_6bm8s")
-}
-
-[node name="Container" type="Control" parent="Head/Camera3D/MainLayer/AccuracyGapIcon" unique_id=345613486]
-anchors_preset = 0
-offset_left = 280.0
-offset_top = 239.0
-offset_right = 320.0
-offset_bottom = 279.0
-
-[node name="Mask" type="ColorRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon/Container" unique_id=252486705]
-clip_children = 1
-visibility_layer = 2
-layout_mode = 0
-offset_top = -19.0
-offset_right = 40.0
-offset_bottom = 21.0
-color = Color(0, 0, 0, 1)
-
-[node name="Icon" type="TextureRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
-visibility_layer = 2
-layout_mode = 0
-offset_top = -7.0
-offset_right = 40.0
-offset_bottom = 33.0
-texture = ExtResource("2_cwolq")
-expand_mode = 1
-
-[node name="BreathIntervalIcon" type="Control" parent="Head/Camera3D/MainLayer" unique_id=134239768]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/MainLayer/BreathIntervalIcon" unique_id=1376577058]
-libraries = {
-&"": SubResource("AnimationLibrary_rl62b")
-}
-
-[node name="Container" type="Control" parent="Head/Camera3D/MainLayer/BreathIntervalIcon" unique_id=238970373]
-anchors_preset = 0
-offset_left = 280.0
-offset_top = 272.0
-offset_right = 320.0
-offset_bottom = 312.0
-
-[node name="Mask" type="ColorRect" parent="Head/Camera3D/MainLayer/BreathIntervalIcon/Container" unique_id=1381788878]
-clip_children = 1
-visibility_layer = 4
-layout_mode = 0
-offset_top = -40.0
-offset_right = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Icon" type="TextureRect" parent="Head/Camera3D/MainLayer/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
-visibility_layer = 4
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_2smqc")
-expand_mode = 1
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1599895072]
 layer = 5
@@ -367,6 +293,88 @@ theme_override_font_sizes/font_size = 11
 text = "Rotate"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BreathingIndicator" type="Control" parent="Head/Camera3D/HUDNoEffectLayer" unique_id=901187983]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AccuracyGapIcon" type="Control" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator" unique_id=888935670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon" unique_id=578906682]
+libraries = {
+&"": SubResource("AnimationLibrary_6bm8s")
+}
+
+[node name="Container" type="Control" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon" unique_id=345613486]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 590.0
+offset_right = 78.0
+offset_bottom = 630.0
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/Container" unique_id=252486705]
+clip_children = 1
+visibility_layer = 2
+layout_mode = 0
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 21.0
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
+visibility_layer = 2
+layout_mode = 0
+offset_top = -7.0
+offset_right = 40.0
+offset_bottom = 33.0
+texture = ExtResource("2_cwolq")
+expand_mode = 1
+
+[node name="BreathIntervalIcon" type="Control" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator" unique_id=134239768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon" unique_id=1376577058]
+libraries = {
+&"": SubResource("AnimationLibrary_rl62b")
+}
+
+[node name="Container" type="Control" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon" unique_id=238970373]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 623.0
+offset_right = 78.0
+offset_bottom = 663.0
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon/Container" unique_id=1381788878]
+clip_children = 1
+visibility_layer = 4
+layout_mode = 0
+offset_top = -40.0
+offset_right = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
+visibility_layer = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_2smqc")
+expand_mode = 1
 
 [node name="NoteCloseupLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1593337519]
 layer = 16
