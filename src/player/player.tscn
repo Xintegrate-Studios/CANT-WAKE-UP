@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=24 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
+[ext_resource type="Texture2D" uid="uid://d1nvnc2h6yef0" path="res://ast/textures/hud/breath_interval_meter.png" id="3_2smqc"]
 [ext_resource type="Shader" uid="uid://bqnwwm7jkxpd" path="res://res/shad/canvas/radialblur.gdshader" id="3_8ydov"]
 [ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
 [ext_resource type="Texture2D" uid="uid://drsy870nrpayg" path="res://ast/textures/input/mouse_scroll_vertical_outline.png" id="4_244u8"]
@@ -80,6 +81,15 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_2smqc"),
 &"main": SubResource("Animation_cwolq")
+}
+
+[sub_resource type="Animation" id="Animation_rl62b"]
+resource_name = "main"
+step = 0.0333333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlj80"]
+_data = {
+&"main": SubResource("Animation_rl62b")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
@@ -162,19 +172,52 @@ libraries = {
 
 [node name="Mask" type="ColorRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon" unique_id=252486705]
 clip_children = 1
+visibility_layer = 2
 layout_mode = 0
 offset_left = 280.0
 offset_top = 263.0
 offset_right = 320.0
-offset_bottom = 303.00446
+offset_bottom = 303.0009
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/MainLayer/AccuracyGapIcon/Mask" unique_id=1469988746]
+visibility_layer = 2
 layout_mode = 0
 offset_top = -33.0
 offset_right = 40.0
 offset_bottom = 7.0
 texture = ExtResource("2_cwolq")
+expand_mode = 1
+
+[node name="BreathIntervalIcon" type="Control" parent="Head/Camera3D/MainLayer" unique_id=134239768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/MainLayer/BreathIntervalIcon" unique_id=642084400]
+libraries = {
+&"": SubResource("AnimationLibrary_wlj80")
+}
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/MainLayer/BreathIntervalIcon" unique_id=1381788878]
+clip_children = 1
+visibility_layer = 2
+layout_mode = 0
+offset_left = 280.0
+offset_top = 265.0
+offset_right = 320.0
+offset_bottom = 305.0029
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/MainLayer/BreathIntervalIcon/Mask" unique_id=1185152088]
+visibility_layer = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_2smqc")
 expand_mode = 1
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1599895072]
