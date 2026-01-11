@@ -115,7 +115,7 @@ _data = {
 &"main": SubResource("Animation_2smqc")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera", "mesh") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "breath_interval_icon", "accuracy_gap_icon", "breath_interval_anim", "accuracy_gap_anim", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
@@ -125,6 +125,10 @@ paper_audio = NodePath("audio/paper")
 sleeptransitiontimer = NodePath("timers/sleeptransition")
 hud_no_effect_layer = NodePath("Head/Camera3D/HUDNoEffectLayer")
 sleepuilayer_blackfade = NodePath("Head/Camera3D/SleepUILayer/MainLayer/BlackFade")
+breath_interval_icon = NodePath("Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon")
+accuracy_gap_icon = NodePath("Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon")
+breath_interval_anim = NodePath("Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/BreathIntervalIcon/AnimationPlayer")
+accuracy_gap_anim = NodePath("Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/AnimationPlayer")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 mesh = NodePath("MeshInstance3D")
@@ -273,17 +277,17 @@ mouse_filter = 2
 clip_children = 1
 visibility_layer = 2
 layout_mode = 0
-offset_top = 9.361017
+offset_top = 26.0
 offset_right = 40.0
-offset_bottom = 49.361008
+offset_bottom = 65.99999
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/HUDNoEffectLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
 visibility_layer = 2
 layout_mode = 0
-offset_top = -16.361017
+offset_top = -33.0
 offset_right = 40.0
-offset_bottom = 23.638983
+offset_bottom = 7.0
 texture = ExtResource("2_cwolq")
 expand_mode = 1
 

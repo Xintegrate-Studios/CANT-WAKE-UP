@@ -347,7 +347,7 @@ text = "BLINK PHASE: \"\""
 layout_mode = 0
 offset_left = 24.0
 offset_top = 314.0
-offset_right = 70.0
+offset_right = 85.0
 offset_bottom = 337.0
 text = "FAILS: #"
 
@@ -363,7 +363,7 @@ text = "INPUT: Y/N"
 layout_mode = 0
 offset_left = 24.0
 offset_top = 354.0
-offset_right = 85.0
+offset_right = 205.0
 offset_bottom = 377.0
 text = "BREATH INTERVAL: 0.00"
 
