@@ -5,7 +5,7 @@ const PHASE_COUNT : int = int(ParalysisPhase.REALITYDISTORTION) + 1
 var paralysis_phase : ParalysisPhase = ParalysisPhase.NORMAL
 
 var phase_weights_by_night : Dictionary = {
-	1: [1, 2, 2],
+	1: [1, 1, 1],
 	2: [1, 1, 1],
 	3: [1, 1, 1],
 	4: [1, 1, 1],
