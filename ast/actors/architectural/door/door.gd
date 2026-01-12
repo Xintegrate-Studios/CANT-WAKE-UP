@@ -22,3 +22,6 @@ func _door_triggered() -> void:
 	else:
 		DOOR_STATE = DOOR_STATES.CLOSED
 		DoorAnimation.play(&"main")
+		
+		
+		
