@@ -113,6 +113,7 @@ func visual_fail():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(PlayerGlobal.player.breath_interval_icon, "modulate", Color(1, 1, 1, 1), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
 	tween.tween_property(PlayerGlobal.player.accuracy_gap_icon, "modulate", Color(1, 1, 1, 1), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
+	tween.tween_property(PlayerGlobal.player.fail_icon, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
 
 func _fail_phase(flip_phase: bool = true) -> void:
 	visual_fail()

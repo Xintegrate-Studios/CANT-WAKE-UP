@@ -21,7 +21,7 @@ extends CharacterBody3D
 @export var accuracy_gap_icon : Control
 @export var breath_interval_anim : AnimationPlayer
 @export var accuracy_gap_anim : AnimationPlayer
-
+@export var fail_icon : TextureRect
 
 @export_group("body parts")
 @export var head: Node3D

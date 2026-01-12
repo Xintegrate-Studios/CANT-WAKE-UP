@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=26 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://houce5uea7iv" path="res://res/shad/canvas/buckshoteffect.gdshader" id="4_ylhto"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="5_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://bmjr7r1lh2o1n" path="res://ast/textures/paper_cropped.png" id="7_o822w"]
+[ext_resource type="Texture2D" uid="uid://dbqrcmq0kv2g0" path="res://ast/textures/hud/fail.png" id="7_rl62b"]
 [ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="8_x42xx"]
 [ext_resource type="AudioStream" uid="uid://jtbmjlxo0kgr" path="res://ast/audio/paper.ogg" id="9_l271a"]
 
@@ -173,7 +174,7 @@ _data = {
 &"inhale": SubResource("Animation_2smqc")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "breath_interval_icon", "accuracy_gap_icon", "breath_interval_anim", "accuracy_gap_anim", "head", "camera", "mesh") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "breath_interval_icon", "accuracy_gap_icon", "breath_interval_anim", "accuracy_gap_anim", "fail_icon", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
@@ -187,6 +188,7 @@ breath_interval_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/Breathing
 accuracy_gap_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon")
 breath_interval_anim = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/AnimationPlayer")
 accuracy_gap_anim = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/AnimationPlayer")
+fail_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/FailIcon")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 mesh = NodePath("MeshInstance3D")
@@ -339,6 +341,17 @@ layout_mode = 0
 offset_top = -40.0
 offset_right = 40.0
 texture = ExtResource("3_2smqc")
+expand_mode = 1
+
+[node name="FailIcon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator" unique_id=1013680040]
+modulate = Color(1, 0, 0, 0)
+layout_mode = 0
+offset_left = 34.0
+offset_top = 578.0
+offset_right = 74.0
+offset_bottom = 618.0
+scale = Vector2(1.2163386, 1.2163386)
+texture = ExtResource("7_rl62b")
 expand_mode = 1
 
 [node name="HUDNoEffectLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1730195361]
