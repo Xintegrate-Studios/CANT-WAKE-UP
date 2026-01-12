@@ -295,12 +295,14 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("breathing_mechanic", "blinking_mechanic", "blink_animations", "bed")]
+[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
+bed = NodePath("furniture/Bed")
 breathing_mechanic = NodePath("BreathingMechanic")
 blinking_mechanic = NodePath("BlinkingMechanic")
 blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
-bed = NodePath("furniture/Bed")
+sleep_head = NodePath("sleepCameraHead")
+sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1151848615]
 layer = 12
@@ -492,8 +494,10 @@ CROUCH_SPEED = 1.0
 BOB_FREQ = 5.0
 BOB_AMP = 0.02
 
-[node name="sleepCamera" type="Camera3D" parent="." unique_id=380767909]
-transform = Transform3D(0.07978137, 0, -0.9968124, 0, 1, 0, 0.9968124, 0, 0.07978137, -0.46029833, 1.044894, 0.33143264)
+[node name="sleepCameraHead" type="Node3D" parent="." unique_id=1280949831]
+transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026299044, -0.35807413, 1.0595236, 0.14405009)
+
+[node name="sleepCamera" type="Camera3D" parent="sleepCameraHead" unique_id=380767909]
 
 [node name="env" type="Node" parent="." unique_id=3231113]
 

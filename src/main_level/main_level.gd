@@ -1,10 +1,23 @@
 extends Node3D
 
+@export var bed : Node3D
+
 @export var breathing_mechanic : Node3D
 @export var blinking_mechanic : Node3D
 @export var blink_animations : AnimationPlayer
 
-@export var bed : Node3D
+@export var sleep_head : Node3D
+@export var sleep_camera : Camera3D
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and not PlayerGlobal.in_ui and PlayerGlobal.sleeping:
+		_handle_mouse_look(event.relative)
+
+func _handle_mouse_look(mouse_relative: Vector2) -> void:
+	sleep_head.rotate_y(-mouse_relative.x * (SettingsData.DATA["SENSITIVITY"] / 20))
+	sleep_camera.rotate_x(-mouse_relative.y * (SettingsData.DATA["SENSITIVITY"] / 20))
+	sleep_camera.rotation.x = clamp(sleep_camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func set_bed_can_interact(value : bool = true):
 	bed.can_interact = value
