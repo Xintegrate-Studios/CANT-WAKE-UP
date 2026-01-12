@@ -308,6 +308,8 @@ sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 [node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585]
 script = ExtResource("2_b4j44")
 
+[node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhaseActor" unique_id=353991023]
+
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
 fails_lbl = NodePath("../DebugLayer/debug/fails")
