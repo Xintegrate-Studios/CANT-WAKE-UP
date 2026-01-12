@@ -63,6 +63,7 @@ func start_indicator():
 	
 
 func start_breathing_cycle() -> void:
+	SleepManagerGlobal.breathing_mechanic_running = true
 	start_indicator()
 	breath_interval_timer.wait_time = SleepManagerGlobal.BREATH_INTERVAL_SEC
 	accuracy_gap_timer.wait_time = SleepManagerGlobal.ACCURACY_GAP_SEC

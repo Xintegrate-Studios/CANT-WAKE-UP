@@ -306,7 +306,6 @@ bed = NodePath("furniture/Bed")
 layer = 12
 
 [node name="debug" type="Control" parent="HUDLayer" unique_id=59346117]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
