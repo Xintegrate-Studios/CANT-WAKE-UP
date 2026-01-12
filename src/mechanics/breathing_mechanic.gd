@@ -149,9 +149,11 @@ func _on_breath_accuracy_gap_timeout() -> void:
 	if accuracy_window_active:
 		
 		if breathing_phase == "inhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_exhale", -1, 0.0, true)
 			PlayerGlobal.player.breath_interval_anim.stop(true)
 			PlayerGlobal.player.breath_interval_anim.play(&"inhale")
 		elif breathing_phase == "exhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
 			PlayerGlobal.player.breath_interval_anim.stop(true)
 			PlayerGlobal.player.breath_interval_anim.play(&"exhale")
 		
