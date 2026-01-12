@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=28 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
 [ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
@@ -49,6 +49,34 @@ shader_parameter/scanline_strength = 0.0
 shader_parameter/glitch_strength = 0.0
 shader_parameter/glitch_speed = 0.0
 shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_oyld2"]
+resource_name = "RESET"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 26)]
+}
 
 [sub_resource type="Animation" id="Animation_6bm8s"]
 resource_name = "aft_exhale"
@@ -108,8 +136,37 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6bm8s"]
 _data = {
+&"RESET": SubResource("Animation_oyld2"),
 &"aft_exhale": SubResource("Animation_6bm8s"),
 &"aft_inhale": SubResource("Animation_wlj80")
+}
+
+[sub_resource type="Animation" id="Animation_hrerp"]
+resource_name = "RESET"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rl62b"]
@@ -170,6 +227,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rl62b"]
 _data = {
+&"RESET": SubResource("Animation_hrerp"),
 &"exhale": SubResource("Animation_rl62b"),
 &"inhale": SubResource("Animation_2smqc")
 }
@@ -291,16 +349,17 @@ mouse_filter = 2
 clip_children = 1
 visibility_layer = 2
 layout_mode = 0
+offset_top = 26.0
 offset_right = 40.0
-offset_bottom = 40.000015
+offset_bottom = 66.000015
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
 visibility_layer = 2
 layout_mode = 0
-offset_top = -7.0
+offset_top = -33.0
 offset_right = 40.0
-offset_bottom = 33.0
+offset_bottom = 7.0
 texture = ExtResource("2_cwolq")
 expand_mode = 1
 
@@ -330,15 +389,15 @@ mouse_filter = 2
 clip_children = 1
 visibility_layer = 4
 layout_mode = 0
-offset_top = -40.0
 offset_right = 40.0
+offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
 visibility_layer = 4
 layout_mode = 0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
 texture = ExtResource("3_2smqc")
 expand_mode = 1
 
