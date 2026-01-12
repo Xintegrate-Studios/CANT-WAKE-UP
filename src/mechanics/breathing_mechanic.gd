@@ -27,7 +27,6 @@ var input_pressed: bool:
 	get:
 		return _input_pressed_internal
 
-
 # ======================
 # VARIABLES
 # ======================
