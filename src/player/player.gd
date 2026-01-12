@@ -32,9 +32,6 @@ extends CharacterBody3D
 @export var FOV: float = 70.0
 @export var crosshair_size: Vector2 = Vector2(12, 12)
 
-@export_group("mouse")
-@export var SENSITIVITY: float = 0.001
-
 @export_group("movement")
 @export var WALK_SPEED: float = 5.0
 @export var SPRINT_SPEED: float = 8.0
@@ -71,14 +68,14 @@ func _physics_process(delta: float) -> void:
 
 func _handle_mouse_look(mouse_relative: Vector2, state: PlayerGlobal.PlayerMouseState) -> void:
 	if state == PlayerGlobal.PlayerMouseState.NORMAL:
-		head.rotate_y(-mouse_relative.x * SENSITIVITY)
-		camera.rotate_x(-mouse_relative.y * SENSITIVITY)
+		head.rotate_y(-mouse_relative.x * SettingsData.DATA["SENSITIVITY"])
+		camera.rotate_x(-mouse_relative.y * SettingsData.DATA["SENSITIVITY"])
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
 	# mouse move slower
 	elif state == PlayerGlobal.PlayerMouseState.SLOW:
-		head.rotate_y(-mouse_relative.x * (SENSITIVITY / 20))
-		camera.rotate_x(-mouse_relative.y * (SENSITIVITY / 20))
+		head.rotate_y(-mouse_relative.x * (SettingsData.DATA["SENSITIVITY"] / 20))
+		camera.rotate_x(-mouse_relative.y * (SettingsData.DATA["SENSITIVITY"] / 20))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _handle_crouching(delta: float) -> void:

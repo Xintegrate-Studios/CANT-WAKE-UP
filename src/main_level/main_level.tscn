@@ -312,6 +312,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="blink_phase" type="Label" parent="HUDLayer/debug" unique_id=543409443]
 layout_mode = 0
@@ -412,6 +413,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BottomLayer" type="Control" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer" unique_id=1487759586]
 layout_mode = 1
@@ -420,6 +422,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/BottomLayer" unique_id=1117908037]
 layout_mode = 0
@@ -459,6 +462,7 @@ offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.1415927
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="BlinkingMechanic/BlinkingEffectLayer/MainLayer/TopLayer" unique_id=1879825800]
 layout_mode = 0
@@ -498,6 +502,7 @@ BOB_AMP = 0.02
 transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026299044, -0.35807413, 1.0595236, 0.14405009)
 
 [node name="sleepCamera" type="Camera3D" parent="sleepCameraHead" unique_id=380767909]
+fov = 70.0
 
 [node name="env" type="Node" parent="." unique_id=3231113]
 
