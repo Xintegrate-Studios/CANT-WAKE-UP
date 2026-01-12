@@ -291,17 +291,16 @@ mouse_filter = 2
 clip_children = 1
 visibility_layer = 2
 layout_mode = 0
-offset_top = 26.0
 offset_right = 40.0
-offset_bottom = 66.000015
+offset_bottom = 40.000015
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
 visibility_layer = 2
 layout_mode = 0
-offset_top = -33.0
+offset_top = -7.0
 offset_right = 40.0
-offset_bottom = 7.0
+offset_bottom = 33.0
 texture = ExtResource("2_cwolq")
 expand_mode = 1
 
@@ -331,26 +330,26 @@ mouse_filter = 2
 clip_children = 1
 visibility_layer = 4
 layout_mode = 0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
 visibility_layer = 4
 layout_mode = 0
-offset_top = -40.0
 offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("3_2smqc")
 expand_mode = 1
 
 [node name="FailIcon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator" unique_id=1013680040]
 modulate = Color(1, 0, 0, 0)
 layout_mode = 0
-offset_left = 34.0
-offset_top = 578.0
-offset_right = 74.0
-offset_bottom = 618.0
-scale = Vector2(1.2163386, 1.2163386)
+offset_left = 28.000002
+offset_top = 573.00006
+offset_right = 68.0
+offset_bottom = 613.00006
+scale = Vector2(1.5016135, 1.5016135)
 texture = ExtResource("7_rl62b")
 expand_mode = 1
 
