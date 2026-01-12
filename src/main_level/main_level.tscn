@@ -296,9 +296,10 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
 bed = NodePath("furniture/Bed")
+paralysis_phase_actor = NodePath("ParalysisPhaseActor")
 breathing_mechanic = NodePath("BreathingMechanic")
 blinking_mechanic = NodePath("BlinkingMechanic")
 blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
