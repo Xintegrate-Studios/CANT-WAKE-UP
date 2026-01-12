@@ -83,10 +83,12 @@ func _input(_event: InputEvent) -> void:
 	# EXHALE: press to hold
 	if Input.is_action_just_pressed("Breath") and breathing_phase == "exhale":
 		_try_score()
+		PlayerGlobal.player.breath_interval_anim.stop(true)
+		PlayerGlobal.player.breath_interval_anim.play(&"in")
 	# INHALE: release to complete
 	elif Input.is_action_just_released("Breath") and breathing_phase == "inhale":
-		_try_score()
-
+		PlayerGlobal.player.breath_interval_anim.stop(true)
+		PlayerGlobal.player.breath_interval_anim.play(&"out")
 # ======================
 # LOGIC
 # ======================
