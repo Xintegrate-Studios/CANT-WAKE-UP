@@ -57,7 +57,13 @@ var skip_accuracy_threshold : float = 0.7  # near-next behavior
 func _on_init_timer_timeout() -> void:
 	start_breathing_cycle()
 
+func start_indicator():
+	PlayerGlobal.player.breath_interval_anim.play(&"exhale")
+	PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
+	
+
 func start_breathing_cycle() -> void:
+	start_indicator()
 	breath_interval_timer.wait_time = SleepManagerGlobal.BREATH_INTERVAL_SEC
 	accuracy_gap_timer.wait_time = SleepManagerGlobal.ACCURACY_GAP_SEC
 	
