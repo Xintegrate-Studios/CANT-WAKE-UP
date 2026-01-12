@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_l0wla")
-shader_parameter/exposure = 1.8150000796927301
+shader_parameter/exposure = 1.81500007969273
 shader_parameter/contrast = 1.05
 shader_parameter/saturation = 0.5690000270275
 shader_parameter/enable_pixelate = true

@@ -304,81 +304,14 @@ blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animatio
 sleep_head = NodePath("sleepCameraHead")
 sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
-[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1151848615]
-layer = 12
-
-[node name="debug" type="Control" parent="HUDLayer" unique_id=59346117]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="blink_phase" type="Label" parent="HUDLayer/debug" unique_id=543409443]
-layout_mode = 0
-offset_left = 522.0
-offset_top = 609.0
-offset_right = 646.0
-offset_bottom = 632.0
-text = "BLINK PHASE: \"\""
-
-[node name="fails" type="Label" parent="HUDLayer/debug" unique_id=620844591]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 314.0
-offset_right = 85.0
-offset_bottom = 337.0
-text = "FAILS: #"
-
-[node name="input" type="Label" parent="HUDLayer/debug" unique_id=2011519649]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 314.0
-offset_right = 277.0
-offset_bottom = 337.0
-text = "INPUT: Y/N"
-
-[node name="breath_interval_time_left" type="Label" parent="HUDLayer/debug" unique_id=1011792800]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 354.0
-offset_right = 205.0
-offset_bottom = 377.0
-text = "BREATH INTERVAL: 0.00"
-
-[node name="accuracy_gap_time_left" type="Label" parent="HUDLayer/debug" unique_id=1913231619]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 378.0
-offset_right = 205.0
-offset_bottom = 401.0
-text = "ACCURACY GAP: 0.00"
-
-[node name="accuracy" type="Label" parent="HUDLayer/debug" unique_id=427177976]
-layout_mode = 0
-offset_left = 965.0
-offset_top = 310.0
-offset_right = 1146.0
-offset_bottom = 333.0
-text = "ACC: 00.00"
-
-[node name="average_accuracy" type="Label" parent="HUDLayer/debug" unique_id=1843297724]
-layout_mode = 0
-offset_left = 965.0
-offset_top = 331.0
-offset_right = 1146.0
-offset_bottom = 354.0
-text = "AVG ACC: 00.00"
-
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
-fails_lbl = NodePath("../HUDLayer/debug/fails")
-input_lbl = NodePath("../HUDLayer/debug/input")
-breath_interval_time_left_lbl = NodePath("../HUDLayer/debug/breath_interval_time_left")
-accuracy_gap_time_left_lbl = NodePath("../HUDLayer/debug/accuracy_gap_time_left")
-accuracy_lbl = NodePath("../HUDLayer/debug/accuracy")
-average_accuracy_lbl = NodePath("../HUDLayer/debug/average_accuracy")
+fails_lbl = NodePath("../DebugLayer/debug/fails")
+input_lbl = NodePath("../DebugLayer/debug/input")
+breath_interval_time_left_lbl = NodePath("../DebugLayer/debug/breath_interval_time_left")
+accuracy_gap_time_left_lbl = NodePath("../DebugLayer/debug/accuracy_gap_time_left")
+accuracy_lbl = NodePath("../DebugLayer/debug/accuracy")
+average_accuracy_lbl = NodePath("../DebugLayer/debug/average_accuracy")
 init_timer = NodePath("init_timer")
 breath_interval_timer = NodePath("breath_interval")
 accuracy_gap_timer = NodePath("accuracy_gap")
@@ -397,7 +330,7 @@ one_shot = true
 
 [node name="BlinkingMechanic" type="Node3D" parent="." unique_id=1676405858 node_paths=PackedStringArray("blink_phase_lbl")]
 script = ExtResource("3_grjog")
-blink_phase_lbl = NodePath("../HUDLayer/debug/blink_phase")
+blink_phase_lbl = NodePath("../DebugLayer/debug/blink_phase")
 
 [node name="BlinkingEffectLayer" type="CanvasLayer" parent="BlinkingMechanic" unique_id=611756333]
 layer = 11
@@ -491,6 +424,14 @@ offset_bottom = 1952.9816
 rotation = -0.4435314
 theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
 
+[node name="Node" type="Node" parent="." unique_id=1595199086]
+
+[node name="sleepCameraHead" type="Node3D" parent="." unique_id=1280949831]
+transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026299044, -0.35807413, 1.0595236, 0.14405009)
+
+[node name="sleepCamera" type="Camera3D" parent="sleepCameraHead" unique_id=380767909]
+fov = 70.0
+
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
 WALK_SPEED = 2.0
@@ -499,11 +440,72 @@ CROUCH_SPEED = 1.0
 BOB_FREQ = 5.0
 BOB_AMP = 0.02
 
-[node name="sleepCameraHead" type="Node3D" parent="." unique_id=1280949831]
-transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026299044, -0.35807413, 1.0595236, 0.14405009)
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1151848615]
+layer = 50
 
-[node name="sleepCamera" type="Camera3D" parent="sleepCameraHead" unique_id=380767909]
-fov = 70.0
+[node name="debug" type="Control" parent="DebugLayer" unique_id=59346117]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="blink_phase" type="Label" parent="DebugLayer/debug" unique_id=543409443]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 609.0
+offset_right = 646.0
+offset_bottom = 632.0
+text = "BLINK PHASE: \"\""
+
+[node name="fails" type="Label" parent="DebugLayer/debug" unique_id=620844591]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 314.0
+offset_right = 85.0
+offset_bottom = 337.0
+text = "FAILS: #"
+
+[node name="input" type="Label" parent="DebugLayer/debug" unique_id=2011519649]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 314.0
+offset_right = 277.0
+offset_bottom = 337.0
+text = "INPUT: Y/N"
+
+[node name="breath_interval_time_left" type="Label" parent="DebugLayer/debug" unique_id=1011792800]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 354.0
+offset_right = 205.0
+offset_bottom = 377.0
+text = "BREATH INTERVAL: 0.00"
+
+[node name="accuracy_gap_time_left" type="Label" parent="DebugLayer/debug" unique_id=1913231619]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 378.0
+offset_right = 205.0
+offset_bottom = 401.0
+text = "ACCURACY GAP: 0.00"
+
+[node name="accuracy" type="Label" parent="DebugLayer/debug" unique_id=427177976]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 310.0
+offset_right = 1146.0
+offset_bottom = 333.0
+text = "ACC: 00.00"
+
+[node name="average_accuracy" type="Label" parent="DebugLayer/debug" unique_id=1843297724]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 331.0
+offset_right = 1146.0
+offset_bottom = 354.0
+text = "AVG ACC: 00.00"
 
 [node name="env" type="Node" parent="." unique_id=3231113]
 
