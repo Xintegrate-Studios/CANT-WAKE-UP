@@ -147,7 +147,16 @@ func _on_breath_interval_timeout() -> void:
 
 func _on_breath_accuracy_gap_timeout() -> void:
 	if accuracy_window_active:
-		# fail but **don’t flip**, let player try again in same phase
+		
+		if breathing_phase == "inhale":
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"inhale")
+		elif breathing_phase == "exhale":
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"exhale")
+		
+		# fail but don’t flip, let player try again in same phase
+		
 		_fail_phase(false)
 
 
