@@ -27,3 +27,8 @@ func _ready() -> void:
 	PlayerGlobal.world = self
 	PlayerGlobal.sleepCamera = $sleepCameraHead/sleepCamera
 	NightmanagerGlobal.setup_tasks_for_night()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("do_key"):
+		ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
+		print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))

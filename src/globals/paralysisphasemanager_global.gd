@@ -5,13 +5,16 @@ const PHASE_COUNT : int = int(ParalysisPhase.REALITYDISTORTION) + 1
 var paralysis_phase : ParalysisPhase = ParalysisPhase.NORMAL
 
 var phase_weights_by_night : Dictionary = {
-	1: [1, 1, 1],
+	1: [1, 2, 2],
 	2: [1, 1, 1],
 	3: [1, 1, 1],
 	4: [1, 1, 1],
 }
 
 var phase_weights : Array = [1, 1, 1]
+
+func set_phase_weights_by_night(night_idx : int):
+	phase_weights = phase_weights_by_night[night_idx]
 
 func set_phase_weights(weights: Array) -> void:
 	if weights.size() != PHASE_COUNT:
@@ -21,7 +24,7 @@ func set_phase_weights(weights: Array) -> void:
 	for w in weights:
 		phase_weights.append(float(w))
 
-func SWAP_PHASE(random : bool = true, new_phase : ParalysisPhase = ParalysisPhase.NORMAL) -> void:
+func SWAP_PHASE(random: bool = true, new_phase: ParalysisPhase = ParalysisPhase.NORMAL) -> String:
 	if random:
 		var weights := phase_weights
 		if weights.size() != PHASE_COUNT:
@@ -33,13 +36,17 @@ func SWAP_PHASE(random : bool = true, new_phase : ParalysisPhase = ParalysisPhas
 			total += float(w)
 		if total <= 0.0:
 			paralysis_phase = ParalysisPhase.NORMAL
-			return
+			return "NORMAL"
 		var pick := randf() * total
 		var cumulative := 0.0
 		for i in range(weights.size()):
 			cumulative += float(weights[i])
 			if pick <= cumulative:
 				paralysis_phase = i as ParalysisPhase
-				return
+				return str(paralysis_phase)
 	else:
 		paralysis_phase = new_phase
+		return str(paralysis_phase)
+	
+	# fallback return to satisfy the compiler
+	return str(paralysis_phase)

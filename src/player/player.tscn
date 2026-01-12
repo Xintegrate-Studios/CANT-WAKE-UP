@@ -243,6 +243,7 @@ shape = SubResource("ConvexPolygonShape3D_ocuv0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=699068989]
+current = true
 
 [node name="RaycastMimic" type="Area3D" parent="Head/Camera3D" unique_id=953426908 groups=["raycast_mimic"]]
 
