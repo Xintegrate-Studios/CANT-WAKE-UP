@@ -35,20 +35,20 @@ var input_pressed: bool:
 @export var breath_interval_timer : Timer
 @export var accuracy_gap_timer : Timer
 
-var breathing_phase := "exhale"          # always start on exhale
+var breathing_phase : String = "exhale"          # always start on exhale
 
 var accuracy_window_active := false
-var window_start_ms := 0
-var window_duration := 0.0
+var window_start_ms : int = 0
+var window_duration : float = 0.0
 
-var accuracy := 0.0
-var total_score := 0.0
-var hits_count := 0
-var cumulative_accuracy := 0.0
-var fails := 0
+var accuracy : float = 0.0
+var total_score : float = 0.0
+var hits_count : int = 0
+var cumulative_accuracy : float = 0.0
+var fails : int = 0
 
-var skip_next_accuracy := false
-var skip_accuracy_threshold := 0.7  # near-next behavior
+var skip_next_accuracy : bool = false
+var skip_accuracy_threshold : float = 0.7  # near-next behavior
 
 # ======================
 # CORE
@@ -57,7 +57,19 @@ var skip_accuracy_threshold := 0.7  # near-next behavior
 func _on_init_timer_timeout() -> void:
 	start_breathing_cycle()
 
+func start_indicator():
+	PlayerGlobal.player.breath_interval_anim.play(&"exhale")
+	PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
+	
+
 func start_breathing_cycle() -> void:
+	SleepManagerGlobal.breathing_mechanic_running = true
+	start_indicator()
+	breath_interval_timer.wait_time = SleepManagerGlobal.BREATH_INTERVAL_SEC
+	accuracy_gap_timer.wait_time = SleepManagerGlobal.ACCURACY_GAP_SEC
+	
+	PlayerGlobal.player.breath_interval_anim.speed_scale = 1.0 / SleepManagerGlobal.BREATH_INTERVAL_SEC
+	PlayerGlobal.player.accuracy_gap_anim.speed_scale = 1.0 / SleepManagerGlobal.ACCURACY_GAP_SEC
 	breath_interval_timer.start()
 
 func _process(_delta: float) -> void:
@@ -75,13 +87,17 @@ func _process(_delta: float) -> void:
 # INPUT
 # ======================
 func _input(_event: InputEvent) -> void:
-	# EXHALE: press to hold
-	if Input.is_action_just_pressed("Breath") and breathing_phase == "exhale":
-		_try_score()
-	# INHALE: release to complete
-	elif Input.is_action_just_released("Breath") and breathing_phase == "inhale":
-		_try_score()
-
+	if SleepManagerGlobal.breathing_mechanic_running: # check if we actually want to breath rn
+		# EXHALE: press to hold
+		if Input.is_action_just_pressed("Breath") and breathing_phase == "exhale":
+			_try_score()
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"inhale")
+		# INHALE: release to complete
+		elif Input.is_action_just_released("Breath") and breathing_phase == "inhale":
+			_try_score()
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"exhale")
 # ======================
 # LOGIC
 # ======================
@@ -101,7 +117,14 @@ func _finish_phase() -> void:
 	breathing_phase = "exhale" if breathing_phase == "inhale" else "inhale"
 	breath_interval_timer.start()
 
+func visual_fail():
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(PlayerGlobal.player.breath_interval_icon, "modulate", Color(1, 1, 1, 1), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
+	tween.tween_property(PlayerGlobal.player.accuracy_gap_icon, "modulate", Color(1, 1, 1, 1), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
+	tween.tween_property(PlayerGlobal.player.fail_icon, "modulate", Color(1.0, 0.0, 0.0, 0.0), 0.3).from(Color(1.0, 0.0, 0.0, 1.0))
+
 func _fail_phase(flip_phase: bool = true) -> void:
+	visual_fail()
 	print("FAIL - " + breathing_phase)
 	fails += 1
 	accuracy_window_active = false
@@ -110,6 +133,11 @@ func _fail_phase(flip_phase: bool = true) -> void:
 	if flip_phase:
 		# flip only if it's a normal fail (not window timeout fail)
 		breathing_phase = "exhale" if breathing_phase == "inhale" else "inhale"
+		
+		if breathing_phase == "inhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_exhale", -1, 0.0, true)
+		elif breathing_phase == "exhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
 	
 	breath_interval_timer.start()
 
@@ -128,11 +156,27 @@ func _on_breath_interval_timeout() -> void:
 
 func _on_breath_accuracy_gap_timeout() -> void:
 	if accuracy_window_active:
-		# fail but **don’t flip**, let player try again in same phase
+		
+		if breathing_phase == "inhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_exhale", -1, 0.0, true)
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"inhale")
+		elif breathing_phase == "exhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
+			PlayerGlobal.player.breath_interval_anim.stop(true)
+			PlayerGlobal.player.breath_interval_anim.play(&"exhale")
+		
+		# fail but don’t flip, let player try again in same phase
+		
 		_fail_phase(false)
 
 
 func _start_accuracy_window() -> void:
+	if breathing_phase == "inhale":
+		PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale")
+	elif breathing_phase == "exhale":
+		PlayerGlobal.player.accuracy_gap_anim.play(&"aft_exhale")
+	
 	accuracy_window_active = true
 	window_start_ms = Time.get_ticks_msec()
 	window_duration = accuracy_gap_timer.wait_time

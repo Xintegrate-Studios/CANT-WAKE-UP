@@ -16,6 +16,12 @@ extends CharacterBody3D
 @export var hud_no_effect_layer : CanvasLayer
 @export_subgroup("sleepuilayer")
 @export var sleepuilayer_blackfade : ColorRect
+@export_subgroup("breathing indicator")
+@export var breath_interval_icon : Control
+@export var accuracy_gap_icon : Control
+@export var breath_interval_anim : AnimationPlayer
+@export var accuracy_gap_anim : AnimationPlayer
+@export var fail_icon : TextureRect
 
 @export_group("body parts")
 @export var head: Node3D

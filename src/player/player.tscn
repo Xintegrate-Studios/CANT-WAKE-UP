@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsljbif1rji7e"]
+[gd_scene load_steps=28 format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
 [ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
+[ext_resource type="Texture2D" uid="uid://d1nvnc2h6yef0" path="res://ast/textures/hud/breath_interval_meter.png" id="3_2smqc"]
 [ext_resource type="Shader" uid="uid://bqnwwm7jkxpd" path="res://res/shad/canvas/radialblur.gdshader" id="3_8ydov"]
 [ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
 [ext_resource type="Texture2D" uid="uid://drsy870nrpayg" path="res://ast/textures/input/mouse_scroll_vertical_outline.png" id="4_244u8"]
@@ -9,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://houce5uea7iv" path="res://res/shad/canvas/buckshoteffect.gdshader" id="4_ylhto"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="5_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://bmjr7r1lh2o1n" path="res://ast/textures/paper_cropped.png" id="7_o822w"]
+[ext_resource type="Texture2D" uid="uid://dbqrcmq0kv2g0" path="res://ast/textures/hud/fail.png" id="7_rl62b"]
 [ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="8_x42xx"]
 [ext_resource type="AudioStream" uid="uid://jtbmjlxo0kgr" path="res://ast/audio/paper.ogg" id="9_l271a"]
 
@@ -47,7 +50,189 @@ shader_parameter/glitch_strength = 0.0
 shader_parameter/glitch_speed = 0.0
 shader_parameter/viewport_size_override = Vector2(0, 0)
 
-[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "head", "camera", "mesh") groups=["PlayerBody"]]
+[sub_resource type="Animation" id="Animation_oyld2"]
+resource_name = "RESET"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 26)]
+}
+
+[sub_resource type="Animation" id="Animation_6bm8s"]
+resource_name = "aft_exhale"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -7), Vector2(0, -33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 26)]
+}
+
+[sub_resource type="Animation" id="Animation_wlj80"]
+resource_name = "main"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -33), Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 26), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bm8s"]
+_data = {
+&"RESET": SubResource("Animation_oyld2"),
+&"aft_exhale": SubResource("Animation_6bm8s"),
+&"aft_inhale": SubResource("Animation_wlj80")
+}
+
+[sub_resource type="Animation" id="Animation_hrerp"]
+resource_name = "RESET"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rl62b"]
+resource_name = "out"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2smqc"]
+resource_name = "inhale"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Mask/Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rl62b"]
+_data = {
+&"RESET": SubResource("Animation_hrerp"),
+&"exhale": SubResource("Animation_rl62b"),
+&"inhale": SubResource("Animation_2smqc")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("DragInteractionPosition", "NoteCloseupLayer", "NoteContent", "paper_audio", "sleeptransitiontimer", "hud_no_effect_layer", "sleepuilayer_blackfade", "breath_interval_icon", "accuracy_gap_icon", "breath_interval_anim", "accuracy_gap_anim", "fail_icon", "head", "camera", "mesh") groups=["PlayerBody"]]
 collision_mask = 10
 script = ExtResource("1_4anbu")
 DragInteractionPosition = NodePath("Head/Camera3D/DragInteractionPosition")
@@ -57,6 +242,11 @@ paper_audio = NodePath("audio/paper")
 sleeptransitiontimer = NodePath("timers/sleeptransition")
 hud_no_effect_layer = NodePath("Head/Camera3D/HUDNoEffectLayer")
 sleepuilayer_blackfade = NodePath("Head/Camera3D/SleepUILayer/MainLayer/BlackFade")
+breath_interval_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon")
+accuracy_gap_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon")
+breath_interval_anim = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/AnimationPlayer")
+accuracy_gap_anim = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/AnimationPlayer")
+fail_icon = NodePath("Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/FailIcon")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 mesh = NodePath("MeshInstance3D")
@@ -112,6 +302,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BuckshotEffect" type="ColorRect" parent="Head/Camera3D/EffectLayer" unique_id=1767192952]
+visible = false
 material = SubResource("ShaderMaterial_cwolq")
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,6 +310,107 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="BreathingIndicatorLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=547825677]
+layer = 15
+
+[node name="BreathingIndicator" type="Control" parent="Head/Camera3D/BreathingIndicatorLayer" unique_id=901187983]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AccuracyGapIcon" type="Control" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator" unique_id=888935670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon" unique_id=578906682]
+libraries = {
+&"": SubResource("AnimationLibrary_6bm8s")
+}
+
+[node name="Container" type="Control" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon" unique_id=345613486]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 590.0
+offset_right = 78.0
+offset_bottom = 630.0
+mouse_filter = 2
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/Container" unique_id=252486705]
+clip_children = 1
+visibility_layer = 2
+layout_mode = 0
+offset_top = 26.0
+offset_right = 40.0
+offset_bottom = 66.000015
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/AccuracyGapIcon/Container/Mask" unique_id=1469988746]
+visibility_layer = 2
+layout_mode = 0
+offset_top = -33.0
+offset_right = 40.0
+offset_bottom = 7.0
+texture = ExtResource("2_cwolq")
+expand_mode = 1
+
+[node name="BreathIntervalIcon" type="Control" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator" unique_id=134239768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon" unique_id=1376577058]
+libraries = {
+&"": SubResource("AnimationLibrary_rl62b")
+}
+
+[node name="Container" type="Control" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon" unique_id=238970373]
+anchors_preset = 0
+offset_left = 38.0
+offset_top = 623.0
+offset_right = 78.0
+offset_bottom = 663.0
+mouse_filter = 2
+
+[node name="Mask" type="ColorRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/Container" unique_id=1381788878]
+clip_children = 1
+visibility_layer = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator/BreathIntervalIcon/Container/Mask" unique_id=1185152088]
+visibility_layer = 4
+layout_mode = 0
+offset_top = -40.0
+offset_right = 40.0
+texture = ExtResource("3_2smqc")
+expand_mode = 1
+
+[node name="FailIcon" type="TextureRect" parent="Head/Camera3D/BreathingIndicatorLayer/BreathingIndicator" unique_id=1013680040]
+modulate = Color(1, 0, 0, 0)
+layout_mode = 0
+offset_left = 28.000002
+offset_top = 573.00006
+offset_right = 68.0
+offset_bottom = 613.00006
+scale = Vector2(1.5016135, 1.5016135)
+texture = ExtResource("7_rl62b")
+expand_mode = 1
 
 [node name="HUDNoEffectLayer" type="CanvasLayer" parent="Head/Camera3D" unique_id=1730195361]
 layer = 15
