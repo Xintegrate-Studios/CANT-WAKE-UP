@@ -164,5 +164,3 @@ func _on_sleeptransition_timeout() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 0), 1.0).from(Color(1, 1, 1, 1))
-	
-	
