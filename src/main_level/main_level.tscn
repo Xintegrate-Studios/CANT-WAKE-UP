@@ -1,7 +1,8 @@
-[gd_scene load_steps=70 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=71 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
+[ext_resource type="Script" uid="uid://cqfjp78xsgkhf" path="res://src/actors/paralysis_phase_actor.gd" id="2_b4j44"]
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
@@ -304,6 +305,9 @@ blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animatio
 sleep_head = NodePath("sleepCameraHead")
 sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
+[node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585]
+script = ExtResource("2_b4j44")
+
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
 fails_lbl = NodePath("../DebugLayer/debug/fails")
@@ -423,8 +427,6 @@ offset_right = 1623.0
 offset_bottom = 1952.9816
 rotation = -0.4435314
 theme_override_styles/panel = SubResource("StyleBoxFlat_nfile")
-
-[node name="Node" type="Node" parent="." unique_id=1595199086]
 
 [node name="sleepCameraHead" type="Node3D" parent="." unique_id=1280949831]
 transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026299044, -0.35807413, 1.0595236, 0.14405009)
