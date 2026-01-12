@@ -124,6 +124,11 @@ func _fail_phase(flip_phase: bool = true) -> void:
 	if flip_phase:
 		# flip only if it's a normal fail (not window timeout fail)
 		breathing_phase = "exhale" if breathing_phase == "inhale" else "inhale"
+		
+		if breathing_phase == "inhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_exhale", -1, 0.0, true)
+		elif breathing_phase == "exhale":
+			PlayerGlobal.player.accuracy_gap_anim.play(&"aft_inhale", -1, 0.0, true)
 	
 	breath_interval_timer.start()
 
