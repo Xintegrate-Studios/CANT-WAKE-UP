@@ -157,6 +157,7 @@ func sleep():
 
 func _on_sleeptransition_timeout() -> void:
 	PlayerGlobal.sleepCamera.make_current()
+	PlayerGlobal.world.paralysis_phase_actor.START_PHASES()
 	visibilitysetupforsleep()
 	var tween = get_tree().create_tween()
 	tween.tween_interval(1.0)

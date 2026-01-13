@@ -2,6 +2,7 @@ extends Node3D
 
 @export var bed : Node3D
 
+@export var paralysis_phase_actor : Node3D
 @export var breathing_mechanic : Node3D
 @export var blinking_mechanic : Node3D
 @export var blink_animations : AnimationPlayer
@@ -27,3 +28,9 @@ func _ready() -> void:
 	PlayerGlobal.world = self
 	PlayerGlobal.sleepCamera = $sleepCameraHead/sleepCamera
 	NightmanagerGlobal.setup_tasks_for_night()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("do_key"):
+		print(str(ParalysisphasemanagerGlobal.get_random_phase_length(1)))
+		#ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
+		#print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))
