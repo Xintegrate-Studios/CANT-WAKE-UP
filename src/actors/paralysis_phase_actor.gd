@@ -90,7 +90,10 @@ func _on_phase_switch_countdown_timeout() -> void:
 	# If we've hit or exceeded the hard max, force wake
 	if hard_max != -1 and completed_phases_count >= hard_max:
 		print("hard max phases reached -> forcing wake")
-		emit_signal("wake_up")
+		if night_idx == 1:
+			emit_signal("enter_false_reality")
+		else:
+			emit_signal("wake_up")
 		return
 
 	# If we've reached or exceeded the soft max, roll to see if the night ends
@@ -108,13 +111,19 @@ func _on_phase_switch_countdown_timeout() -> void:
 				return
 			else:
 				print("waking up normally")
-				emit_signal("wake_up")
+				if night_idx == 1:
+					emit_signal("enter_false_reality")
+				else:
+					emit_signal("wake_up")
 				return
 		# if the roll failed, continue the night unless we've hit the hard max
 		else:
 			if hard_max != -1 and completed_phases_count >= hard_max:
 				print("hard max reached after failed roll -> forcing wake")
-				emit_signal("wake_up")
+				if night_idx == 1:
+					emit_signal("enter_false_reality")
+				else:
+					emit_signal("wake_up")
 				return
 			# otherwise continue
 			ParalysisphasemanagerGlobal.SWAP_PHASE(true)
