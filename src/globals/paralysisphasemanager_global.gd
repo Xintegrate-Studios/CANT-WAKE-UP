@@ -6,7 +6,7 @@ var paralysis_phase : ParalysisPhase = ParalysisPhase.NORMAL
 
 # [min, max] sec
 var phase_length_bounds_by_night : Dictionary = {
-	1: [35.0, 55.0],
+	1: [10.0, 20.0],
 	# TODO: ADD MORE
 }
 
@@ -30,6 +30,13 @@ func set_phase_weights(weights: Array) -> void:
 	phase_weights = []
 	for w in weights:
 		phase_weights.append(float(w))
+
+func get_random_phase_length(night_idx: int) -> float:
+	if night_idx not in phase_length_bounds_by_night:
+		push_error("get_random_phase_length: night %d not found in phase_length_bounds_by_night" % night_idx)
+		return 0.0
+	var bounds = phase_length_bounds_by_night[night_idx]
+	return randf_range(bounds[0], bounds[1])
 
 func SWAP_PHASE(random: bool = true, new_phase: ParalysisPhase = ParalysisPhase.NORMAL) -> String:
 	if random:

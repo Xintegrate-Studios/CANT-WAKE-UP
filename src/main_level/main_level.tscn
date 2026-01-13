@@ -306,8 +306,10 @@ blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animatio
 sleep_head = NodePath("sleepCameraHead")
 sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
-[node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585]
+[node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585 node_paths=PackedStringArray("phase_switch_countdown", "phase_switch_countdown_lbl")]
 script = ExtResource("2_b4j44")
+phase_switch_countdown = NodePath("PhaseSwitchCountdown")
+phase_switch_countdown_lbl = NodePath("../DebugLayer/debug/phaseswitchcountdown")
 
 [node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhaseActor" unique_id=353991023]
 one_shot = true
@@ -450,7 +452,6 @@ BOB_AMP = 0.02
 layer = 50
 
 [node name="debug" type="Control" parent="DebugLayer" unique_id=59346117]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -464,6 +465,14 @@ offset_top = 609.0
 offset_right = 646.0
 offset_bottom = 632.0
 text = "BLINK PHASE: \"\""
+
+[node name="phaseswitchcountdown" type="Label" parent="DebugLayer/debug" unique_id=1781044141]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 609.0
+offset_right = 342.0
+offset_bottom = 632.0
+text = "PHASE SWITCH: #"
 
 [node name="fails" type="Label" parent="DebugLayer/debug" unique_id=620844591]
 layout_mode = 0

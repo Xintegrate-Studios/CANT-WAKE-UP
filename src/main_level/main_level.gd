@@ -31,5 +31,6 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("do_key"):
-		ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
-		print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))
+		print(str(ParalysisphasemanagerGlobal.get_random_phase_length(1)))
+		#ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
+		#print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))
