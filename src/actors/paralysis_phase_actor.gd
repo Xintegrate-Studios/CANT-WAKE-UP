@@ -8,3 +8,6 @@ func START_PHASES() -> void:
 	else:
 		# else do random
 		pass
+
+func _on_phase_switch_countdown_timeout() -> void:
+	pass # Replace with function body.

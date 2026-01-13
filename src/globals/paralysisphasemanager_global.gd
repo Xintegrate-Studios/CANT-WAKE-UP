@@ -6,7 +6,7 @@ var paralysis_phase : ParalysisPhase = ParalysisPhase.NORMAL
 
 # [min, max] sec
 var phase_length_bounds_by_night : Dictionary = {
-	1: [35, 55],
+	1: [35.0, 55.0],
 	# TODO: ADD MORE
 }
 
