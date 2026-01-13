@@ -10,4 +10,8 @@ func START_PHASES() -> void:
 		pass
 
 func _on_phase_switch_countdown_timeout() -> void:
-	pass # Replace with function body.
+	if NightmanagerGlobal.NIGHT_IDX == 1:
+		if ParalysisphasemanagerGlobal.paralysis_phase == ParalysisphasemanagerGlobal.ParalysisPhase.ENCOUNTER:
+			ParalysisphasemanagerGlobal.SWAP_PHASE()
+		else:
+			pass
