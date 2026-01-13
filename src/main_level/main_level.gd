@@ -19,7 +19,6 @@ func _handle_mouse_look(mouse_relative: Vector2) -> void:
 	sleep_camera.rotate_x(-mouse_relative.y * 0.00005)
 	sleep_camera.rotation.x = clamp(sleep_camera.rotation.x, deg_to_rad(-40), deg_to_rad(40))
 	sleep_head.rotation.y = clamp(sleep_head.rotation.y, deg_to_rad(-130), deg_to_rad(0))
-	
 
 func set_bed_can_interact(value : bool = true):
 	bed.can_interact = value

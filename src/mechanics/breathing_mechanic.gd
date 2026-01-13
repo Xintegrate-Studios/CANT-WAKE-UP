@@ -124,7 +124,7 @@ func visual_fail():
 
 func _fail_phase(flip_phase: bool = true) -> void:
 	visual_fail()
-	print("FAIL - " + breathing_phase)
+	#print("FAIL - " + breathing_phase)
 	fails += 1
 	accuracy_window_active = false
 	accuracy_gap_timer.stop()
@@ -209,4 +209,4 @@ func _accept_action(acc: float) -> void:
 	total_score += acc
 	hits_count += 1
 	cumulative_accuracy = round((total_score / hits_count) * 100.0) / 100.0
-	print("✔", breathing_phase, "accuracy:", accuracy, "AVG:", cumulative_accuracy)
+	#print("✔", breathing_phase, "accuracy:", accuracy, "AVG:", cumulative_accuracy)
