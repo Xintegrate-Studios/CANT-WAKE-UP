@@ -4,6 +4,18 @@ enum ParalysisPhase { NORMAL, ENCOUNTER, REALITYDISTORTION }
 const PHASE_COUNT : int = int(ParalysisPhase.REALITYDISTORTION) + 1
 var paralysis_phase : ParalysisPhase = ParalysisPhase.NORMAL
 
+var min_phases_by_night : Dictionary = {
+	1: 3
+}
+
+var soft_max_phases_by_night : Dictionary = {
+	1: 4
+}
+
+var hard_max_phases_by_night : Dictionary = {
+	1: 3
+}
+
 # [min, max] sec
 var phase_length_bounds_by_night : Dictionary = {
 	1: [10.0, 20.0],
