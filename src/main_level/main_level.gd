@@ -34,3 +34,13 @@ func _input(_event: InputEvent) -> void:
 		print(str(ParalysisphasemanagerGlobal.get_random_phase_length(1)))
 		#ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
 		#print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))
+
+
+
+
+# from phase actor
+func _on_enter_false_reality() -> void:
+	print("FALSE REALITY !!!! :0")
+
+func _on_wake_up() -> void:
+	print("RIOT reference??")
