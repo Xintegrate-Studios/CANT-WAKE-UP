@@ -30,6 +30,31 @@ const FIRST_NIGHT_TASKS : Array = [
 	"BRUSH_TEETH",
 ]
 
+
+const TASKS_BY_NIGHT : Dictionary = {
+	1: [
+	"CLOTHES_AWAY",
+	"UNPACK_BOX",
+	"PUT_AWAY_TOYS",
+	"MAKE_DINNER",
+	"WASH_DISHES",
+	"BRUSH_TEETH",
+],
+	
+	2: [
+	"CLOTHES_AWAY",
+	"UNPACK_BOX",
+	"PUT_AWAY_TOYS",
+	"MAKE_DINNER",
+	"WASH_DISHES",
+	"BRUSH_TEETH",
+],
+	
+	# 3, etc.
+}
+
+
+
 var TASKS_TO_DO : Array = []
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
 var TASK_NOT_DONE_NUM : int = 0
