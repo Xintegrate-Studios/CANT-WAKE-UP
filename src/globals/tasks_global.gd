@@ -21,16 +21,6 @@ const TASKS = {
 	"CUT_THROAT": "Cut your throat cunt",
 }
 
-const FIRST_NIGHT_TASKS : Array = [
-	"CLOTHES_AWAY",
-	"UNPACK_BOX",
-	"PUT_AWAY_TOYS",
-	"MAKE_DINNER",
-	"WASH_DISHES",
-	"BRUSH_TEETH",
-]
-
-
 const TASKS_BY_NIGHT : Dictionary = {
 	1: [
 	"CLOTHES_AWAY",
@@ -88,4 +78,4 @@ func get_tasks_not_done_num() -> int:
 
 func _ready() -> void:
 	if TASKS_TO_DO.is_empty():
-		set_tasks_for_night(FIRST_NIGHT_TASKS)
+		set_tasks_for_night(TASKS_BY_NIGHT[1])
