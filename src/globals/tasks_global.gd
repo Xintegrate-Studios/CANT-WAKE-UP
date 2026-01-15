@@ -71,10 +71,18 @@ func set_tasks_for_night(tasks: Array) -> void:
 	TASK_NOT_DONE_NUM = TASKS_TO_DO.size()
 
 
+# Initialize nightly tasks by night index (uses TASKS_BY_NIGHT)
+func set_tasks_for_night_by_index(night: int) -> void:
+	var tasks = TASKS_BY_NIGHT.get(night, [])
+	if typeof(tasks) != TYPE_ARRAY:
+		tasks = []
+	set_tasks_for_night(tasks)
+
+
 func get_tasks_not_done_num() -> int:
 	return TASK_NOT_DONE_NUM
 
 
 func _ready() -> void:
 	if TASKS_TO_DO.is_empty():
-		set_tasks_for_night(TASKS_BY_NIGHT[1])
+		set_tasks_for_night_by_index(1)
