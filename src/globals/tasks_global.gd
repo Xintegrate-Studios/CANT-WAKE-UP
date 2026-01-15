@@ -44,7 +44,6 @@ const TASKS_BY_NIGHT : Dictionary = {
 }
 
 
-
 var TASKS_TO_DO : Array = []
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
 var TASK_NOT_DONE_NUM : int = 0
