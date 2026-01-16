@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dg230ju83uooj" path="res://src/draggable bodies/motorbill_body.tscn" id="12_n0lbn"]
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/props/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
-[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/furniture/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
+[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/props/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
@@ -297,7 +297,7 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World2" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World4" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
 bed = NodePath("furniture/Bed")
 paralysis_phase_actor = NodePath("ParalysisPhasePawn")
@@ -1098,22 +1098,22 @@ texture = SubResource("ViewportTexture_yj2oh")
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.8064239, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.8064239, 3.2658575, 0.41170764, 0.2253809)
 
-[node name="kai" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
+[node name="demon" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
 transform = Transform3D(0.29197562, 0, -0.4542579, 0, 0.5400001, 0, 0.4542579, 0, 0.29197562, 2.172407, 0.307935, -1.5659002)
 visible = false
 
-[node name="smile" type="Sprite3D" parent="kai" unique_id=408178547]
+[node name="smile" type="Sprite3D" parent="demon" unique_id=408178547]
 transform = Transform3D(0.5069571, 0.0018605137, 0.0063243383, 0, 0.48638943, -0.1430877, -0.006592326, 0.14307554, 0.4863485, -0.01599356, 3.622797, 0.22397387)
 visible = false
 cast_shadow = 0
 texture_filter = 0
 texture = ExtResource("17_nfile")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="kai" unique_id=646709750]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="demon" unique_id=646709750]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.112929486, 3.799613, 0.22450894)
 mesh = SubResource("SphereMesh_ybo0d")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="kai" unique_id=1490808724]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="demon" unique_id=1490808724]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.057534195, 3.799613, 0.22450894)
 mesh = SubResource("SphereMesh_ybo0d")
 

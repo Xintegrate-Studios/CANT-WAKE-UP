@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://c413rw2q6aiqs"]
 
 [ext_resource type="Texture2D" uid="uid://5d8pcoocqfik" path="res://ast/models/props/cardboard box/cardboard_box_cardboard_box_texture.png" id="1_8d4cb"]
-[ext_resource type="Script" uid="uid://jusxctorg7jg" path="res://ast/actors/furniture/cardboard box/cardboard_box.gd" id="1_h752m"]
+[ext_resource type="Script" uid="uid://jusxctorg7jg" path="res://ast/actors/props/cardboard box/cardboard_box.gd" id="1_h752m"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_ho7cs"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_1jtvv"]
 
