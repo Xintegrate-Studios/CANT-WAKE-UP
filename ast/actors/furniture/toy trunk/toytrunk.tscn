@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://5qcsgu0c3apc"]
+[gd_scene load_steps=3 format=3 uid="uid://5qcsgu0c3apc"]
 
 [ext_resource type="PackedScene" uid="uid://c07hhhsnqmg76" path="res://ast/models/furniture/toy trunk/toytrunk.blend" id="1_sie2l"]
 
-[node name="toytrunk" unique_id=761706209 instance=ExtResource("1_sie2l")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sie2l"]
+cull_mode = 2
+
+[node name="toytrunk" unique_id=1323948840 instance=ExtResource("1_sie2l")]
+
+[node name="main" parent="." index="0" unique_id=753445818]
+material_override = SubResource("StandardMaterial3D_sie2l")
+
+[node name="main_001" parent="." index="1" unique_id=465555803]
+material_override = SubResource("StandardMaterial3D_sie2l")
