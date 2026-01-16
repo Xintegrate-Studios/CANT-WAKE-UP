@@ -22,6 +22,7 @@ script = ExtResource("1_rcbfl")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
+ID = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1769040102]
 transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0, 0)

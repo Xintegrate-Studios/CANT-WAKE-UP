@@ -24,6 +24,7 @@ script = ExtResource("1_omh17")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
+ID = 3
 
 [node name="dino_plush" parent="." unique_id=1789552624 instance=ExtResource("2_wsyiq")]
 transform = Transform3D(-1.4050941e-08, 0, 0.32144806, 0, 0.32144806, 0, -0.32144806, 0, -1.4050941e-08, 0, 0, 0.05610703)
