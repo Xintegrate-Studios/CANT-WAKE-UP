@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
-[ext_resource type="Script" uid="uid://cqfjp78xsgkhf" path="res://src/actors/paralysis_phase_actor.gd" id="2_b4j44"]
+[ext_resource type="Script" uid="uid://cqfjp78xsgkhf" path="res://src/pawns/paralysis_phase_pawn.gd" id="2_b4j44"]
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
@@ -297,22 +297,22 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World2" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
 bed = NodePath("furniture/Bed")
-paralysis_phase_actor = NodePath("ParalysisPhaseActor")
+paralysis_phase_actor = NodePath("ParalysisPhasePawn")
 breathing_mechanic = NodePath("BreathingMechanic")
 blinking_mechanic = NodePath("BlinkingMechanic")
 blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
 sleep_head = NodePath("sleepCameraHead")
 sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
-[node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585 node_paths=PackedStringArray("phase_switch_countdown", "phase_switch_countdown_lbl")]
+[node name="ParalysisPhasePawn" type="Node3D" parent="." unique_id=347702585 node_paths=PackedStringArray("phase_switch_countdown", "phase_switch_countdown_lbl")]
 script = ExtResource("2_b4j44")
 phase_switch_countdown = NodePath("PhaseSwitchCountdown")
 phase_switch_countdown_lbl = NodePath("../DebugLayer/debug/phaseswitchcountdown")
 
-[node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhaseActor" unique_id=353991023]
+[node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhasePawn" unique_id=353991023]
 one_shot = true
 
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
@@ -1126,9 +1126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.6530397, 0.14836
 [node name="DraggableBody[MOTORBILL]" parent="." unique_id=446305919 instance=ExtResource("12_n0lbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3982487, 0.89119023, -0.38577065)
 
-[connection signal="enter_false_reality" from="ParalysisPhaseActor" to="." method="_on_enter_false_reality"]
-[connection signal="wake_up" from="ParalysisPhaseActor" to="." method="_on_wake_up"]
-[connection signal="timeout" from="ParalysisPhaseActor/PhaseSwitchCountdown" to="ParalysisPhaseActor" method="_on_phase_switch_countdown_timeout"]
+[connection signal="enter_false_reality" from="ParalysisPhasePawn" to="." method="_on_enter_false_reality"]
+[connection signal="wake_up" from="ParalysisPhasePawn" to="." method="_on_wake_up"]
+[connection signal="timeout" from="ParalysisPhasePawn/PhaseSwitchCountdown" to="ParalysisPhasePawn" method="_on_phase_switch_countdown_timeout"]
 [connection signal="timeout" from="BreathingMechanic/init_timer" to="BreathingMechanic" method="_on_init_timer_timeout"]
 [connection signal="timeout" from="BreathingMechanic/breath_interval" to="BreathingMechanic" method="_on_breath_interval_timeout"]
 [connection signal="timeout" from="BreathingMechanic/accuracy_gap" to="BreathingMechanic" method="_on_breath_accuracy_gap_timeout"]
