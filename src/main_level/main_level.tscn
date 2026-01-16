@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=71 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
-[ext_resource type="PackedScene" uid="uid://bpyw41gcn433c" path="res://ast/models/draggables/motorbill/motorbill.blend" id="20_n0lbn"]
 
 [sub_resource type="Animation" id="Animation_nfile"]
 length = 0.001
@@ -1122,9 +1121,6 @@ transform = Transform3D(-0.8309844, 0, 0.5562957, 0, 1, 0, -0.5562957, 0, -0.830
 
 [node name="DraggableBody[DINO]" parent="." unique_id=446305919 instance=ExtResource("16_nfile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.6530397, 0.14836922)
-
-[node name="motorbill" parent="." unique_id=1350544709 instance=ExtResource("20_n0lbn")]
-transform = Transform3D(-0.020467775, 0, 0.0232824, 0, 0.031, 0, -0.0232824, 0, -0.020467775, 1.0627673, 0.809417, -0.1946367)
 
 [connection signal="enter_false_reality" from="ParalysisPhaseActor" to="." method="_on_enter_false_reality"]
 [connection signal="wake_up" from="ParalysisPhaseActor" to="." method="_on_wake_up"]
