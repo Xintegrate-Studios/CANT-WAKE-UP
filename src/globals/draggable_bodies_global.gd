@@ -3,7 +3,9 @@ extends Node
 enum BODY_IDS {
 	DEFAULT,
 	CLOTHES_PILE,
-	PIZZA
+	PIZZA,
+	DINO_PLUSH,
+	MOTORBILL,
 }
 
 var currently_hovering_over : bool = false

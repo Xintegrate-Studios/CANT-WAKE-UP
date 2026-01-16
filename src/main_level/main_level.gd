@@ -34,9 +34,6 @@ func _input(_event: InputEvent) -> void:
 		#ParalysisphasemanagerGlobal.set_phase_weights_by_night(1)
 		#print(str(ParalysisphasemanagerGlobal.SWAP_PHASE()))
 
-
-
-
 # from phase actor
 func _on_enter_false_reality() -> void:
 	print("FALSE REALITY !!!! :0")
