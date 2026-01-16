@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
-[ext_resource type="Script" uid="uid://cqfjp78xsgkhf" path="res://src/actors/paralysis_phase_actor.gd" id="2_b4j44"]
+[ext_resource type="Script" uid="uid://cqfjp78xsgkhf" path="res://src/pawns/paralysis_phase_pawn.gd" id="2_b4j44"]
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dg230ju83uooj" path="res://src/draggable bodies/motorbill_body.tscn" id="12_n0lbn"]
 [ext_resource type="PackedScene" uid="uid://c07y0b4830kan" path="res://ast/actors/props/table note/table_note.tscn" id="12_yj2oh"]
 [ext_resource type="PackedScene" uid="uid://b61mrrpnv61gc" path="res://src/draggable bodies/clothes_pile_body.tscn" id="13_yj2oh"]
-[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/furniture/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
+[ext_resource type="PackedScene" uid="uid://c413rw2q6aiqs" path="res://ast/actors/props/cardboard box/cardboard_box.tscn" id="14_ysgfl"]
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
@@ -297,22 +297,22 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World4" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
 bed = NodePath("furniture/Bed")
-paralysis_phase_actor = NodePath("ParalysisPhaseActor")
+paralysis_phase_actor = NodePath("ParalysisPhasePawn")
 breathing_mechanic = NodePath("BreathingMechanic")
 blinking_mechanic = NodePath("BlinkingMechanic")
 blink_animations = NodePath("BlinkingMechanic/BlinkingEffectLayer/blink_animations")
 sleep_head = NodePath("sleepCameraHead")
 sleep_camera = NodePath("sleepCameraHead/sleepCamera")
 
-[node name="ParalysisPhaseActor" type="Node3D" parent="." unique_id=347702585 node_paths=PackedStringArray("phase_switch_countdown", "phase_switch_countdown_lbl")]
+[node name="ParalysisPhasePawn" type="Node3D" parent="." unique_id=347702585 node_paths=PackedStringArray("phase_switch_countdown", "phase_switch_countdown_lbl")]
 script = ExtResource("2_b4j44")
 phase_switch_countdown = NodePath("PhaseSwitchCountdown")
 phase_switch_countdown_lbl = NodePath("../DebugLayer/debug/phaseswitchcountdown")
 
-[node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhaseActor" unique_id=353991023]
+[node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhasePawn" unique_id=353991023]
 one_shot = true
 
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
@@ -442,7 +442,7 @@ transform = Transform3D(0.026299044, 0, -0.9996541, 0, 1, 0, 0.9996541, 0, 0.026
 fov = 70.0
 
 [node name="Player" parent="." unique_id=1205468512 instance=ExtResource("5_n4qwq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91013, 0, -1.57076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5983248, 0, -2.3053136)
 WALK_SPEED = 2.0
 SPRINT_SPEED = 4.0
 CROUCH_SPEED = 1.0
@@ -1098,22 +1098,22 @@ texture = SubResource("ViewportTexture_yj2oh")
 [node name="cardboard_box" parent="." unique_id=992837989 instance=ExtResource("14_ysgfl")]
 transform = Transform3D(0.8064239, 0, -0.59133786, 0, 1, 0, 0.59133786, 0, 0.8064239, 3.2658575, 0.41170764, 0.2253809)
 
-[node name="kai" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
+[node name="demon" parent="." unique_id=1949017651 instance=ExtResource("16_4s85u")]
 transform = Transform3D(0.29197562, 0, -0.4542579, 0, 0.5400001, 0, 0.4542579, 0, 0.29197562, 2.172407, 0.307935, -1.5659002)
 visible = false
 
-[node name="smile" type="Sprite3D" parent="kai" unique_id=408178547]
+[node name="smile" type="Sprite3D" parent="demon" unique_id=408178547]
 transform = Transform3D(0.5069571, 0.0018605137, 0.0063243383, 0, 0.48638943, -0.1430877, -0.006592326, 0.14307554, 0.4863485, -0.01599356, 3.622797, 0.22397387)
 visible = false
 cast_shadow = 0
 texture_filter = 0
 texture = ExtResource("17_nfile")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="kai" unique_id=646709750]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="demon" unique_id=646709750]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.112929486, 3.799613, 0.22450894)
 mesh = SubResource("SphereMesh_ybo0d")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="kai" unique_id=1490808724]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="demon" unique_id=1490808724]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.057534195, 3.799613, 0.22450894)
 mesh = SubResource("SphereMesh_ybo0d")
 
@@ -1126,9 +1126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3810542, 0.6530397, 0.14836
 [node name="DraggableBody[MOTORBILL]" parent="." unique_id=446305919 instance=ExtResource("12_n0lbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3982487, 0.89119023, -0.38577065)
 
-[connection signal="enter_false_reality" from="ParalysisPhaseActor" to="." method="_on_enter_false_reality"]
-[connection signal="wake_up" from="ParalysisPhaseActor" to="." method="_on_wake_up"]
-[connection signal="timeout" from="ParalysisPhaseActor/PhaseSwitchCountdown" to="ParalysisPhaseActor" method="_on_phase_switch_countdown_timeout"]
+[connection signal="enter_false_reality" from="ParalysisPhasePawn" to="." method="_on_enter_false_reality"]
+[connection signal="wake_up" from="ParalysisPhasePawn" to="." method="_on_wake_up"]
+[connection signal="timeout" from="ParalysisPhasePawn/PhaseSwitchCountdown" to="ParalysisPhasePawn" method="_on_phase_switch_countdown_timeout"]
 [connection signal="timeout" from="BreathingMechanic/init_timer" to="BreathingMechanic" method="_on_init_timer_timeout"]
 [connection signal="timeout" from="BreathingMechanic/breath_interval" to="BreathingMechanic" method="_on_breath_interval_timeout"]
 [connection signal="timeout" from="BreathingMechanic/accuracy_gap" to="BreathingMechanic" method="_on_breath_accuracy_gap_timeout"]
