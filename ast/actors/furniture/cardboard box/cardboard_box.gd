@@ -23,3 +23,11 @@ func _ready() -> void:
 
 func _on_interactable_component_action_triggered() -> void:
 	open = !open
+
+
+func _on_in_box_area_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
+
+
+func _on_in_box_area_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.

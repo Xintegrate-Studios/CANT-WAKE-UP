@@ -118,6 +118,8 @@ closed_mesh = NodePath("Closed")
 open_collision = NodePath("OpenCollision")
 closed_collision = NodePath("ClosedCollision")
 
+[node name="InBoxArea" type="Area3D" parent="." unique_id=631715529]
+
 [node name="DraggableCollision" type="StaticBody3D" parent="." unique_id=2127468671]
 transform = Transform3D(0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0, 0.40529156, 0, 0, 0)
 collision_layer = 16
@@ -235,6 +237,8 @@ shape = SubResource("BoxShape3D_nyf0v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008209288, 0.023323148, 0.0032958686)
 shape = SubResource("BoxShape3D_lutt7")
 
+[connection signal="body_entered" from="InBoxArea" to="." method="_on_in_box_area_body_entered"]
+[connection signal="body_exited" from="InBoxArea" to="." method="_on_in_box_area_body_exited"]
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_interactable_component_action_triggered"]
 [connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
