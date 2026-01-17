@@ -1,8 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://5qcsgu0c3apc"]
+[gd_scene load_steps=21 format=4 uid="uid://5qcsgu0c3apc"]
 
 [ext_resource type="Script" uid="uid://bcclrpe3t2dvp" path="res://ast/actors/furniture/toy trunk/toytrunk.gd" id="1_o0dun"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_7uvq6"]
 [ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="3_cyn7q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdcfh"]
+size = Vector3(1, 0.64556885, 1.8602295)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sie2l"]
 cull_mode = 2
@@ -104,6 +107,11 @@ lid = NodePath("mesh/lid")
 
 [node name="InToyTrunkArea" type="Area3D" parent="." unique_id=655159565]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InToyTrunkArea" unique_id=1636869025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016021729, -0.0010375977)
+shape = SubResource("BoxShape3D_gdcfh")
+debug_color = Color(1, 0, 0.016666412, 1)
+
 [node name="mesh" type="Node3D" parent="." unique_id=1997679822]
 
 [node name="body" type="MeshInstance3D" parent="mesh" unique_id=753445818]
@@ -160,6 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040282756, 0, 0.001182437
 shape = SubResource("BoxShape3D_lutt7")
 
 [node name="OpenCollision" type="StaticBody3D" parent="." unique_id=639971254]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OpenCollision" unique_id=1102558040]
@@ -167,6 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16052246, 1.5197296, 0.0187
 shape = SubResource("BoxShape3D_o0dun")
 
 [node name="ClosedCollision" type="StaticBody3D" parent="." unique_id=1578126378]
+visible = false
 collision_layer = 2
 collision_mask = 5
 
@@ -191,6 +201,7 @@ shape = SubResource("BoxShape3D_cyn7q")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [node name="DraggableCollision" type="StaticBody3D" parent="." unique_id=564477229]
+visible = false
 collision_layer = 2
 collision_mask = 4
 
@@ -215,6 +226,7 @@ shape = SubResource("BoxShape3D_0lf7v")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [node name="OpenDraggableCollision" type="StaticBody3D" parent="." unique_id=1323196743]
+visible = false
 collision_layer = 2
 collision_mask = 4
 
