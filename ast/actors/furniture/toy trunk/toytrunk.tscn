@@ -74,17 +74,18 @@ shadow_mesh = SubResource("ArrayMesh_lox1l")
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"Interact"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0lf7v"]
-viewport_path = NodePath("Contents/UI/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_o0dun"]
+viewport_path = NodePath("InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
 size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
-size = Vector3(0.460693, 0.741821, 0.463135)
+size = Vector3(0.88916004, 0.741821, 1.9677277)
 
-[node name="toytrunk" type="Node3D" unique_id=1323948840]
+[node name="toytrunk" type="Node3D" unique_id=1323948840 node_paths=PackedStringArray("lid")]
 script = ExtResource("1_o0dun")
+lid = NodePath("mesh/lid")
 
 [node name="mesh" type="Node3D" parent="." unique_id=1997679822]
 
@@ -94,7 +95,7 @@ material_override = SubResource("StandardMaterial3D_sie2l")
 mesh = SubResource("ArrayMesh_f0puo")
 
 [node name="lid" type="MeshInstance3D" parent="mesh" unique_id=465555803]
-transform = Transform3D(0.25477064, -0.3039242, 0, 0.35106546, 0.22055991, 0, 0, 0, 0.9829637, -0.43376598, 0.3755217, 0)
+transform = Transform3D(0.43376842, 0, 0, 0, 0.37552175, 0, 0, 0, 0.9829637, -0.43376598, 0.3755217, 0)
 material_override = SubResource("StandardMaterial3D_sie2l")
 mesh = SubResource("ArrayMesh_5ncfk")
 
@@ -108,11 +109,11 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1563139837]
 
 [node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=888452344]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.13580456, 0, 0, 0, 0.13580456, 0, 0, 0, 0.13580456, 0.30221653, 0.2512462, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
-texture = SubResource("ViewportTexture_0lf7v")
+texture = SubResource("ViewportTexture_o0dun")
 
 [node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=502951187]
 transparent_bg = true
@@ -138,6 +139,7 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1139485220]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=15365101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040282756, 0, 0.001182437)
 shape = SubResource("BoxShape3D_lutt7")
 
 [connection signal="action_triggered" from="InteractableComponent" to="." method="_on_trunk_toggled"]
