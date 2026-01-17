@@ -1,14 +1,147 @@
-[gd_scene load_steps=3 format=3 uid="uid://5qcsgu0c3apc"]
+[gd_scene load_steps=15 format=4 uid="uid://5qcsgu0c3apc"]
 
-[ext_resource type="PackedScene" uid="uid://c07hhhsnqmg76" path="res://ast/models/furniture/toy trunk/toytrunk.blend" id="1_sie2l"]
+[ext_resource type="Script" uid="uid://bcclrpe3t2dvp" path="res://ast/actors/furniture/toy trunk/toytrunk.gd" id="1_o0dun"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_7uvq6"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="3_cyn7q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sie2l"]
 cull_mode = 2
 
-[node name="toytrunk" unique_id=1323948840 instance=ExtResource("1_sie2l")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssp8q"]
 
-[node name="main" parent="." index="0" unique_id=753445818]
-material_override = SubResource("StandardMaterial3D_sie2l")
+[sub_resource type="ArrayMesh" id="ArrayMesh_487fw"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABQAAAAIAAwAAAAUABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
 
-[node name="main_001" parent="." index="1" unique_id=465555803]
+[sub_resource type="ArrayMesh" id="ArrayMesh_f0puo"]
+resource_name = "toytrunk_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_ssp8q"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v1TVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/qiqqKqoqqiqqKqoqqiqqKv////////////////////8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_487fw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkw3h"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lox1l"]
+_surfaces = [{
+"aabb": AABB(-5.6624413e-06, 5.9604645e-08, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5ncfk"]
+resource_name = "toytrunk_Cube_002"
+_surfaces = [{
+"aabb": AABB(-5.6624413e-06, 5.9604645e-08, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//Pw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_fkw3h"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA//8AAAAA/////wAAAAAAAP////8AAP//////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lox1l")
+
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0lf7v"]
+viewport_path = NodePath("Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(0.460693, 0.741821, 0.463135)
+
+[node name="toytrunk" type="Node3D" unique_id=1323948840]
+script = ExtResource("1_o0dun")
+
+[node name="mesh" type="Node3D" parent="." unique_id=1997679822]
+
+[node name="body" type="MeshInstance3D" parent="mesh" unique_id=753445818]
+transform = Transform3D(0.4337684, 0, 0, 0, 0.37552175, 0, 0, 0, 0.9829637, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_sie2l")
+mesh = SubResource("ArrayMesh_f0puo")
+
+[node name="lid" type="MeshInstance3D" parent="mesh" unique_id=465555803]
+transform = Transform3D(0.25477064, -0.3039242, 0, 0.35106546, 0.22055991, 0, 0, 0, 0.9829637, -0.43376598, 0.3755217, 0)
+material_override = SubResource("StandardMaterial3D_sie2l")
+mesh = SubResource("ArrayMesh_5ncfk")
+
+[node name="InteractableComponent" type="Node3D" parent="." unique_id=870598125 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+script = ExtResource("2_7uvq6")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1563139837]
+
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=888452344]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_0lf7v")
+
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=502951187]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" unique_id=1032592242]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme = ExtResource("3_cyn7q")
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1812162561]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" unique_id=1642698249]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1139485220]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=15365101]
+shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="action_triggered" from="InteractableComponent" to="." method="_on_trunk_toggled"]
+[connection signal="body_entered" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="InteractableComponent/Contents/PlayerAreaBox" to="InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="InteractableComponent/Contents/MimicRaycastBox" to="InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
