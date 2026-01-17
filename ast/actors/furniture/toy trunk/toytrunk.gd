@@ -27,15 +27,6 @@ var open : bool = false:
 			#open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 			#closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
 
-var clothes_inside : bool = false:
-	set(value):
-		clothes_inside = value
-		# TASKS
-		if value:
-			TasksGlobal.complete_task("CLOTHES_AWAY")
-		else:
-			TasksGlobal.uncomplete_task("CLOTHES_AWAY")
-
 @export var lid : MeshInstance3D
 @export var open_collision : StaticBody3D
 @export var open_draggable_collision : StaticBody3D
