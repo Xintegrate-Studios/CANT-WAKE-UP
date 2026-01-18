@@ -20,11 +20,14 @@ var open : bool = false:
 		
 		if open:
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
+			closed_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
 			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
+			closed_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
 
 @export var lid : MeshInstance3D
 @export var open_draggable_collision : StaticBody3D
+@export var closed_draggable_collision : StaticBody3D
 
 func _ready() -> void:
 	open = false
