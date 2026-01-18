@@ -49,6 +49,7 @@ func _on_wardrobe_toggled() -> void:
 
 func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"DraggableBody"):
+		print("yes")
 		draggables_inside.append(body)
 		if body.ID == DraggableBodiesGlobal.BODY_IDS.CLOTHES_PILE:
 			print("--clothes inside wardrobe")

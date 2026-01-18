@@ -5,9 +5,6 @@ var open : bool = false:
 	set(value):
 		open = value
 		
-		if !open:
-			DraggableBodiesGlobal.let_go_of_all_bodies()
-		
 		if open:
 			lid.rotation_degrees.z = 63.0
 		else:
