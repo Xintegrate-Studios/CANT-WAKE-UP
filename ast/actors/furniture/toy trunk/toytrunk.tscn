@@ -87,13 +87,13 @@ size = Vector3(7, 5, 7)
 size = Vector3(0.88916004, 0.741821, 1.9677277)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o0dun"]
-size = Vector3(0.6789551, 3.0522156, 1.5883179)
+size = Vector3(0.86520386, 0.75359726, 1.9616547)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uvq6"]
-size = Vector3(0.04537964, 3.03125, 1.6032715)
+size = Vector3(0.04537964, 0.7366333, 1.9453735)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cyn7q"]
-size = Vector3(0.04537964, 3.03125, 0.6935425)
+size = Vector3(0.04537964, 0.7093506, 0.6935425)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0lf7v"]
 size = Vector3(0.5389404, 0.6620178, 1.5691528)
@@ -172,31 +172,30 @@ visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OpenCollision" unique_id=1102558040]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16052246, 1.5197296, 0.01876831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00016784668, 0.001996994, -0.002357483)
 shape = SubResource("BoxShape3D_o0dun")
 
 [node name="ClosedCollision" type="StaticBody3D" parent="." unique_id=1578126378]
-visible = false
 collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ClosedCollision" unique_id=994829121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32199407, 1.5410895, 0.0072021484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32199407, -0.0030248016, 0.0072021484)
 shape = SubResource("BoxShape3D_7uvq6")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="ClosedCollision" unique_id=2066727456]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27421206, 1.5410895, 0.0072021484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27421206, 0.0027899742, -0.0035095215)
 shape = SubResource("BoxShape3D_7uvq6")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="ClosedCollision" unique_id=971297866]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.1057277, 1.5410895, -0.7569832)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.10572771, 0.0037915707, -0.951878)
 shape = SubResource("BoxShape3D_cyn7q")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="ClosedCollision" unique_id=202981231]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.003793031, 1.5410895, 0.76927507)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0037930228, -0.0062143207, 0.9531976)
 shape = SubResource("BoxShape3D_cyn7q")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
