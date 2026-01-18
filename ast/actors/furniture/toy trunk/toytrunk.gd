@@ -38,11 +38,11 @@ func _ready() -> void:
 func _on_trunk_toggled() -> void:
 	open = !open
 
-func _on_in_wardrobe_area_body_entered(body: Node3D) -> void:
+func _on_in_toytrunk_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"DraggableBody"):
 		draggables_inside.append(body)
 
-func _on_in_wardrobe_area_body_exited(body: Node3D) -> void:
+func _on_in_toytrunk_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"DraggableBody"):
 		draggables_inside.erase(body)
 
