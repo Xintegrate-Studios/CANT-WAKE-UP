@@ -18,19 +18,13 @@ var open : bool = false:
 			draggable.let_go()
 			draggable.hovering_over = false
 		
-		#if open:
-			#open_collision.process_mode = Node.PROCESS_MODE_INHERIT
-			#open_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
-			#closed_collision.process_mode = Node.PROCESS_MODE_DISABLED
-		#else:
-			#open_collision.process_mode = Node.PROCESS_MODE_DISABLED
-			#open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
-			#closed_collision.process_mode = Node.PROCESS_MODE_INHERIT
+		if open:
+			open_draggable_collision.process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			open_draggable_collision.process_mode = Node.PROCESS_MODE_DISABLED
 
 @export var lid : MeshInstance3D
-@export var open_collision : StaticBody3D
 @export var open_draggable_collision : StaticBody3D
-@export var closed_collision : StaticBody3D
 
 func _ready() -> void:
 	open = false

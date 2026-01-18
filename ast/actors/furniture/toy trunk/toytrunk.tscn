@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://5qcsgu0c3apc"]
+[gd_scene load_steps=20 format=4 uid="uid://5qcsgu0c3apc"]
 
 [ext_resource type="Script" uid="uid://bcclrpe3t2dvp" path="res://ast/actors/furniture/toy trunk/toytrunk.gd" id="1_o0dun"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="2_7uvq6"]
@@ -95,18 +95,13 @@ size = Vector3(0.04537964, 0.7366333, 1.9453735)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cyn7q"]
 size = Vector3(0.04537964, 0.7093506, 0.6935425)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0lf7v"]
-size = Vector3(0.5389404, 0.6620178, 1.5691528)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xi8n1"]
 size = Vector3(0.04537964, 0.90753174, 1.9699364)
 
-[node name="toytrunk" type="Node3D" unique_id=1323948840 node_paths=PackedStringArray("lid", "open_collision", "open_draggable_collision", "closed_collision")]
+[node name="toytrunk" type="Node3D" unique_id=1323948840 node_paths=PackedStringArray("lid", "open_draggable_collision")]
 script = ExtResource("1_o0dun")
 lid = NodePath("mesh/lid")
-open_collision = NodePath("OpenCollision")
 open_draggable_collision = NodePath("OpenDraggableCollision")
-closed_collision = NodePath("ClosedCollision")
 
 [node name="InToyTrunkArea" type="Area3D" parent="." unique_id=655159565]
 
@@ -170,17 +165,16 @@ shape = SubResource("BoxShape3D_nyf0v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040282756, 0, 0.001182437)
 shape = SubResource("BoxShape3D_lutt7")
 
-[node name="OpenCollision" type="StaticBody3D" parent="." unique_id=639971254]
+[node name="PlayerCollision" type="StaticBody3D" parent="." unique_id=639971254]
 collision_layer = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenCollision" unique_id=1102558040]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCollision" unique_id=1102558040]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00016784668, 0.001996994, -0.002357483)
 shape = SubResource("BoxShape3D_o0dun")
 
 [node name="ClosedCollision" type="StaticBody3D" parent="." unique_id=1578126378]
-visible = false
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ClosedCollision" unique_id=994829121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32199407, -0.0030248016, 0.0072021484)
@@ -202,38 +196,14 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.00
 shape = SubResource("BoxShape3D_cyn7q")
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
-[node name="DraggableCollision" type="StaticBody3D" parent="." unique_id=564477229]
-visible = false
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DraggableCollision" unique_id=668815473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32199407, 1.5410895, 0.0072021484)
-shape = SubResource("BoxShape3D_7uvq6")
-debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="DraggableCollision" unique_id=1017522699]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.003793031, 1.5410895, -0.7693193)
-shape = SubResource("BoxShape3D_cyn7q")
-debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="DraggableCollision" unique_id=1387760470]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.003793031, 1.5410895, 0.7896519)
-shape = SubResource("BoxShape3D_cyn7q")
-debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="DraggableCollision" unique_id=1517110606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05657959, 0.32115173, 0.010467529)
-shape = SubResource("BoxShape3D_0lf7v")
-debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
-
 [node name="OpenDraggableCollision" type="StaticBody3D" parent="." unique_id=1323196743]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OpenDraggableCollision" unique_id=956243235]
 transform = Transform3D(0.8906151, 0.454261, 0.021256387, -0.45436373, 0.8908162, 2.3283064e-10, -0.018935533, -0.00965813, 0.99977404, -0.19551045, 0.7884765, 0.0019098616)
 shape = SubResource("BoxShape3D_xi8n1")
+disabled = true
 debug_color = Color(0.98, 0.65333337, 0, 0.27058825)
 
 [connection signal="body_entered" from="InToyTrunkArea" to="." method="_on_in_toytrunk_area_body_entered"]
