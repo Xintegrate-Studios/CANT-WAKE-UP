@@ -61,57 +61,56 @@ size = Vector3(2, 5, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.460693, 0.744049, 0.463135)
 
-[node name="Lamp" type="Node3D" node_paths=PackedStringArray("light_source", "light_mesh")]
+[node name="lamp" type="Node3D" unique_id=691068141 node_paths=PackedStringArray("light_source", "light_mesh")]
 script = ExtResource("1_xw1xc")
 light_source = NodePath("LightSource")
 light_mesh = NodePath("LightMesh")
 
-[node name="LampLow" type="MeshInstance3D" parent="."]
+[node name="LampLow" type="MeshInstance3D" parent="." unique_id=700271399]
 mesh = SubResource("ArrayMesh_w11af")
-skeleton = NodePath("")
 
-[node name="LightSource" type="OmniLight3D" parent="."]
+[node name="LightSource" type="OmniLight3D" parent="." unique_id=421048163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.336109, 0)
 light_color = Color(0.930968, 0.962566, 0.881646, 1)
 light_volumetric_fog_energy = 0.0
 omni_range = 0.80963
 omni_attenuation = 2.165
 
-[node name="LightMesh" type="MeshInstance3D" parent="."]
+[node name="LightMesh" type="MeshInstance3D" parent="." unique_id=1765537414]
 transform = Transform3D(0.071, 0, 0, 0, 0.141, 0, 0, 0, 0.075, 0, 0.367204, 0)
 material_override = SubResource("StandardMaterial3D_gj55h")
 mesh = SubResource("SphereMesh_krb8p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1681956551]
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1291067171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000366211, 0.0866089, -0.00256348)
 shape = SubResource("BoxShape3D_xw1xc")
 
-[node name="InteractableComponent" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+[node name="InteractableComponent" type="Node3D" parent="." unique_id=1941579536 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("2_4vmpf")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
 ActionToPress = SubResource("InputEventAction_75gw0")
 
-[node name="Contents" type="Node3D" parent="InteractableComponent"]
+[node name="Contents" type="Node3D" parent="InteractableComponent" unique_id=1047067336]
 
-[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents"]
+[node name="UI" type="Sprite3D" parent="InteractableComponent/Contents" unique_id=1147697666]
 transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.197493, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
 texture = SubResource("ViewportTexture_4vmpf")
 
-[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="InteractableComponent/Contents/UI" unique_id=1640600658]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(1150, 1150)
 
-[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport"]
+[node name="Key" type="Label" parent="InteractableComponent/Contents/UI/SubViewport" unique_id=154899566]
 offset_left = 500.0
 offset_top = 500.0
 offset_right = 629.0
@@ -122,14 +121,14 @@ text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="PlayerAreaBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1193881869]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/PlayerAreaBox" unique_id=1456400836]
 shape = SubResource("BoxShape3D_nyf0v")
 
-[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents"]
+[node name="MimicRaycastBox" type="Area3D" parent="InteractableComponent/Contents" unique_id=1586503212]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableComponent/Contents/MimicRaycastBox" unique_id=971225020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0800323, 0)
 shape = SubResource("BoxShape3D_lutt7")
 

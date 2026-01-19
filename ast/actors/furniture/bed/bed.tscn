@@ -69,7 +69,7 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(1.754303, 0.7268219, 1.1124878)
 
-[node name="Bed" type="Node3D" unique_id=1197182705]
+[node name="bed" type="Node3D" unique_id=1197182705]
 script = ExtResource("1_lskcs")
 
 [node name="BedLow" type="MeshInstance3D" parent="." unique_id=220216115]

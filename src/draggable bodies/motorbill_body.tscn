@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dulxqde0yr368"]
+[gd_scene load_steps=9 format=3 uid="uid://dg230ju83uooj"]
 
-[ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_omh17"]
-[ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="2_vht3g"]
-[ext_resource type="PackedScene" uid="uid://owrvaj6audpb" path="res://ast/models/draggables/dino plush/dino_plush.blend" id="2_wsyiq"]
-[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="3_k3mxk"]
+[ext_resource type="Script" uid="uid://c32dcfjb0hfwb" path="res://src/draggable_body/draggable_body.gd" id="1_rcbfl"]
+[ext_resource type="Script" uid="uid://5ouaqoqmhfiu" path="res://src/drag_interaction/drag_interaction.gd" id="2_vbx68"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://ast/textures/input/mouse_left_outline.png" id="3_grar5"]
+[ext_resource type="PackedScene" uid="uid://bpyw41gcn433c" path="res://ast/models/draggables/motorbill/motorbill.blend" id="4_vbx68"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uyx4"]
-size = Vector3(1, 1.0119324, 0.4076538)
+size = Vector3(1.0737305, 0.7939453, 0.71875)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h6t77"]
 viewport_path = NodePath("DragInteraction/UI/SubViewport")
@@ -16,26 +16,26 @@ viewport_path = NodePath("DragInteraction/UI/SubViewport")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jw7y1"]
 size = Vector3(4, 4, 4)
 
-[node name="DraggableBody[DINO]" type="CharacterBody3D" unique_id=446305919 node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea") groups=["DraggableBody"]]
+[node name="DraggableBody[MOTORBILL]" type="CharacterBody3D" unique_id=446305919 node_paths=PackedStringArray("DragInteraction", "MouseTexture", "PlayerOutOfBoundsArea") groups=["DraggableBody"]]
 collision_layer = 4
 collision_mask = 22
 collision_priority = 5.0
-script = ExtResource("1_omh17")
+script = ExtResource("1_rcbfl")
 DragInteraction = NodePath("DragInteraction")
 MouseTexture = NodePath("DragInteraction/UI/SubViewport/MouseTexture")
 PlayerOutOfBoundsArea = NodePath("PlayerOutOfBoundsArea")
-ID = 3
+ID = 4
 
-[node name="dino_plush" parent="." unique_id=1789552624 instance=ExtResource("2_wsyiq")]
-transform = Transform3D(-1.4050941e-08, 0, 0.32144806, 0, 0.32144806, 0, -0.32144806, 0, -1.4050941e-08, 0, 0, 0.05610703)
+[node name="motorbill" parent="." unique_id=1350544709 instance=ExtResource("4_vbx68")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1769040102]
-transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0, 0.02833166, 0.00041181222)
+transform = Transform3D(0.364711, 0, 0, 0, 0.364711, 0, 0, 0, 0.364711, 0.013445156, 0.078177795, 0.00035616383)
 shape = SubResource("BoxShape3D_2uyx4")
 
 [node name="DragInteraction" type="Node3D" parent="." unique_id=815968270 node_paths=PackedStringArray("body_to_drag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00167271, 0.0885893, 0.0119386)
-script = ExtResource("2_vht3g")
+script = ExtResource("2_vbx68")
 body_to_drag = NodePath("..")
 drag_force = 70.0
 
@@ -54,13 +54,12 @@ offset_left = 192.13
 offset_top = 188.395
 offset_right = 320.13
 offset_bottom = 316.395
-texture = ExtResource("3_k3mxk")
+texture = ExtResource("3_grar5")
 
 [node name="PlayerMimicRaycastArea" type="Area3D" parent="." unique_id=754651252]
 collision_priority = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastArea" unique_id=471202567]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0584564, 0.0288868, 0)
 shape = SubResource("BoxShape3D_h6t77")
 
 [node name="PlayerOutOfBoundsArea" type="Area3D" parent="." unique_id=1782575504]
