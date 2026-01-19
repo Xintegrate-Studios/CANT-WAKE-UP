@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=73 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cnetc0cuku4vu" path="res://ast/models/characters/demon/demon.blend" id="16_4s85u"]
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
+[ext_resource type="PackedScene" uid="uid://5qcsgu0c3apc" path="res://ast/actors/furniture/toy trunk/toytrunk.tscn" id="21_ybo0d"]
 
 [sub_resource type="Animation" id="Animation_nfile"]
 length = 0.001
@@ -279,10 +280,10 @@ size = Vector3(1.0791, 0.221069, 1.07034)
 size = Vector3(0.0593255, 0.0529175, 1.07034)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5agnw"]
-viewport_path = NodePath("furniture/Lamp/InteractableComponent/Contents/UI/SubViewport")
+viewport_path = NodePath("furniture/lamp/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hnkfv"]
-viewport_path = NodePath("furniture/Bed/InteractableComponent/Contents/UI/SubViewport")
+viewport_path = NodePath("furniture/bed/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ysgfl"]
 viewport_path = NodePath("TableNote/NoteContent/UI/SubViewport")
@@ -297,9 +298,9 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World4" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
-bed = NodePath("furniture/Bed")
+bed = NodePath("furniture/bed")
 paralysis_phase_actor = NodePath("ParalysisPhasePawn")
 breathing_mechanic = NodePath("BreathingMechanic")
 blinking_mechanic = NodePath("BlinkingMechanic")
@@ -1024,58 +1025,58 @@ shape = SubResource("BoxShape3D_xonfo")
 
 [node name="furniture" type="Node" parent="." unique_id=1369029575]
 
-[node name="Table" parent="furniture" unique_id=1277542418 instance=ExtResource("6_5agnw")]
+[node name="table" parent="furniture" unique_id=1277542418 instance=ExtResource("6_5agnw")]
 transform = Transform3D(-4.37114e-08, 0, 0.465485, 0, 1, 0, -1, 0, -2.0347e-08, -0.723024, 0, -1.38403)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="furniture/Table" unique_id=198331543]
+[node name="StaticBody3D" type="StaticBody3D" parent="furniture/table" unique_id=198331543]
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=1229431567]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=1229431567]
 transform = Transform3D(1, 0, 1.56325e-13, 0, 1, 0, -1.56325e-13, 0, 1, 0.497546, 0.428459, 0.490173)
 shape = SubResource("BoxShape3D_sfj7s")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=1885416541]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=1885416541]
 transform = Transform3D(1, 0, 1.56325e-13, 0, 1, 0, -1.56325e-13, 0, 1, -0.502454, 0.428459, 0.490173)
 shape = SubResource("BoxShape3D_sfj7s")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=876748603]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=876748603]
 transform = Transform3D(1, 0, 1.63431e-13, 0, 1, 0, -1.63431e-13, 0, 1, 0.497546, 0.428459, -0.488523)
 shape = SubResource("BoxShape3D_sfj7s")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=482978025]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=482978025]
 transform = Transform3D(1, 0, 1.63431e-13, 0, 1, 0, -1.63431e-13, 0, 1, -0.502454, 0.428459, -0.488523)
 shape = SubResource("BoxShape3D_sfj7s")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=3008450]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=3008450]
 transform = Transform3D(1, 0, 1.63431e-13, 0, 1, 0, -1.63431e-13, 0, 1, -0.502454, 0.428459, -0.488523)
 shape = SubResource("BoxShape3D_sfj7s")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=1601405415]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=1601405415]
 transform = Transform3D(1, 0, 3.62385e-13, 0, 1, 0, -3.62385e-13, 0, 1, -0.000495315, 0.750052, 0.0346344)
 shape = SubResource("BoxShape3D_yj2oh")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=1961620849]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=1961620849]
 transform = Transform3D(1, 0, 3.69498e-13, 0, 1, 0, -3.69498e-13, 0, 1, 0.569093, 0.834124, 0.0346351)
 shape = SubResource("BoxShape3D_ysgfl")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="furniture/Table/StaticBody3D" unique_id=276795332]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="furniture/table/StaticBody3D" unique_id=276795332]
 transform = Transform3D(1, 0, 3.62392e-13, 0, 1, 0, -3.62392e-13, 0, 1, -0.568231, 0.834124, 0.0346351)
 shape = SubResource("BoxShape3D_ysgfl")
 
-[node name="Lamp" parent="furniture" unique_id=741594099 instance=ExtResource("7_5agnw")]
+[node name="lamp" parent="furniture" unique_id=741594099 instance=ExtResource("7_5agnw")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.649875, 1.13685, -1.09814)
 
-[node name="LightSource" parent="furniture/Lamp" index="1"]
+[node name="LightSource" parent="furniture/lamp" index="1" unique_id=421048163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0274084, 0.336109, 0)
 
-[node name="UI" parent="furniture/Lamp/InteractableComponent/Contents" index="0"]
+[node name="UI" parent="furniture/lamp/InteractableComponent/Contents" parent_id_path=PackedInt32Array(741594099, 1047067336) index="0" unique_id=1147697666]
 texture = SubResource("ViewportTexture_5agnw")
 
-[node name="Bed" parent="furniture" unique_id=1910319278 instance=ExtResource("7_3rixg")]
+[node name="bed" parent="furniture" unique_id=1910319278 instance=ExtResource("7_3rixg")]
 transform = Transform3D(1.575, 0, 0, 0, 1.575, 0, 0, 0, 1.575, 0.574801, 0.281445, 0.267306)
 
-[node name="UI" parent="furniture/Bed/InteractableComponent/Contents" parent_id_path=PackedInt32Array(1910319278, 965252852) index="0" unique_id=1941231670]
+[node name="UI" parent="furniture/bed/InteractableComponent/Contents" parent_id_path=PackedInt32Array(1910319278, 965252852) index="0" unique_id=1941231670]
 texture = SubResource("ViewportTexture_hnkfv")
 
 [node name="DiningTable" parent="furniture" unique_id=891228759 instance=ExtResource("12_hnkfv")]
@@ -1083,6 +1084,9 @@ transform = Transform3D(1.1755241, 0, 0, 0, 1.1755241, 0, 0, 0, 1.1755241, -0.06
 
 [node name="wardrobe" parent="furniture" unique_id=1998482516 instance=ExtResource("6_mbfot")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.13092256, 0.01006183, -4.1278224)
+
+[node name="toytrunk" parent="furniture" unique_id=761706209 instance=ExtResource("21_ybo0d")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.91, 0.377, -0.842)
 
 [node name="misc" type="Node" parent="." unique_id=493519175]
 
@@ -1139,6 +1143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3982487, 0.89119023, -0.385
 [editable path="main/doors/door2"]
 [editable path="main/doors/door3"]
 [editable path="main/doors/door4"]
-[editable path="furniture/Lamp"]
-[editable path="furniture/Bed"]
+[editable path="furniture/lamp"]
+[editable path="furniture/bed"]
 [editable path="TableNote"]
