@@ -38,6 +38,12 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://src/globals/": "red"
+}
+
 [global_group]
 
 PlayerBody="The body of the player."
