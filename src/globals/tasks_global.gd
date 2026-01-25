@@ -1,6 +1,12 @@
 extends Node
 
-const TASKS = {
+const TOYS_TO_PUT_AWAY : Array[DraggableBodiesGlobal.BODY_IDS] = [
+	DraggableBodiesGlobal.BODY_IDS.MOTORBILL,
+	
+	# add more later
+]
+
+const TASKS : Dictionary = {
 	
 	# normal ahh tasks
 	"GO_TO_BED": "Go to bed",
@@ -26,9 +32,9 @@ const TASKS_BY_NIGHT : Dictionary = {
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
 	"PUT_AWAY_TOYS",
+	"BRUSH_TEETH",
 	"MAKE_DINNER",
 	"WASH_DISHES",
-	"BRUSH_TEETH",
 ],
 	
 	2: [
