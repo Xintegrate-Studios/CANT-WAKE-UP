@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=77 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -23,12 +23,40 @@
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
 [ext_resource type="PackedScene" uid="uid://5qcsgu0c3apc" path="res://ast/actors/furniture/toy trunk/toytrunk.tscn" id="21_ybo0d"]
 
+[sub_resource type="Animation" id="Animation_sma3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectLayer/Distortion:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_xonfo"]
 resource_name = "main"
 step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectLayer/Distortion:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 20.00000095]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sma3f"]
 _data = {
+&"RESET": SubResource("Animation_sma3f"),
 &"main": SubResource("Animation_xonfo")
 }
 
