@@ -32,9 +32,9 @@ const TASKS_BY_NIGHT : Dictionary = {
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
 	"PUT_AWAY_TOYS",
+	"BRUSH_TEETH",
 	"MAKE_DINNER",
 	"WASH_DISHES",
-	"BRUSH_TEETH",
 ],
 	
 	2: [
