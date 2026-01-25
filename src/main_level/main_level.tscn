@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://i1bumbuxjipv"]
+[gd_scene load_steps=76 format=3 uid="uid://i1bumbuxjipv"]
 
 [ext_resource type="Script" uid="uid://mafop2kj8j8x" path="res://src/main_level/main_level.gd" id="1_3rixg"]
 [ext_resource type="Texture2D" uid="uid://tu5pwkux7sah" path="res://ast/textures/carpet.jpg" id="1_scctx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
+[ext_resource type="Material" uid="uid://c2r1yycivh8p" path="res://src/main_level/distortion.tres" id="3_xonfo"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/furniture/wardrobe/wardrobe.tscn" id="6_mbfot"]
@@ -21,6 +22,15 @@
 [ext_resource type="PackedScene" uid="uid://dulxqde0yr368" path="res://src/draggable bodies/dino_body.tscn" id="16_nfile"]
 [ext_resource type="Texture2D" uid="uid://cp6agvsurw8c2" path="res://tests/image-removebg-preview (3).png" id="17_nfile"]
 [ext_resource type="PackedScene" uid="uid://5qcsgu0c3apc" path="res://ast/actors/furniture/toy trunk/toytrunk.tscn" id="21_ybo0d"]
+
+[sub_resource type="Animation" id="Animation_xonfo"]
+resource_name = "main"
+step = 0.0333333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sma3f"]
+_data = {
+&"main": SubResource("Animation_xonfo")
+}
 
 [sub_resource type="Animation" id="Animation_nfile"]
 length = 0.001
@@ -317,6 +327,23 @@ phase_switch_countdown_lbl = NodePath("../DebugLayer/debug/phaseswitchcountdown"
 one_shot = true
 
 [node name="RealityDistortionPawn" type="Node3D" parent="ParalysisPhasePawn" unique_id=1655568349]
+
+[node name="DistortionAnimation" type="AnimationPlayer" parent="ParalysisPhasePawn/RealityDistortionPawn" unique_id=441366624]
+libraries = {
+&"": SubResource("AnimationLibrary_sma3f")
+}
+
+[node name="EffectLayer" type="CanvasLayer" parent="ParalysisPhasePawn/RealityDistortionPawn" unique_id=483242796]
+layer = 11
+
+[node name="Distortion" type="ColorRect" parent="ParalysisPhasePawn/RealityDistortionPawn/EffectLayer" unique_id=786739825]
+material = ExtResource("3_xonfo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
