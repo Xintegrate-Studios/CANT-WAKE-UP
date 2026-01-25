@@ -1,6 +1,12 @@
 extends Node
 
-const TASKS = {
+const TOYS_TO_PUT_AWAY : Array[DraggableBodiesGlobal.BODY_IDS] = [
+	DraggableBodiesGlobal.BODY_IDS.MOTORBILL,
+	
+	# add more later
+]
+
+const TASKS : Dictionary = {
 	
 	# normal ahh tasks
 	"GO_TO_BED": "Go to bed",
@@ -21,19 +27,31 @@ const TASKS = {
 	"CUT_THROAT": "Cut your throat cunt",
 }
 
-const FIRST_NIGHT_TASKS : Array = [
+const TASKS_BY_NIGHT : Dictionary = {
+	1: [
+	"CLOTHES_AWAY",
+	"UNPACK_BOX",
+	"PUT_AWAY_TOYS",
+	"BRUSH_TEETH",
+	"MAKE_DINNER",
+	"WASH_DISHES",
+],
+	
+	2: [
 	"CLOTHES_AWAY",
 	"UNPACK_BOX",
 	"PUT_AWAY_TOYS",
 	"MAKE_DINNER",
 	"WASH_DISHES",
 	"BRUSH_TEETH",
-]
+],
+	
+	# 3, etc.
+}
 
 var TASKS_TO_DO : Array = []
 var TASKS_DONE_FOR_THE_NIGHT : Array = []
 var TASK_NOT_DONE_NUM : int = 0
-
 
 # utility functon to set a task as done/completed
 func complete_task(task_name : String) -> void:
@@ -57,10 +75,18 @@ func set_tasks_for_night(tasks: Array) -> void:
 	TASK_NOT_DONE_NUM = TASKS_TO_DO.size()
 
 
+# Initialize nightly tasks by night index (uses TASKS_BY_NIGHT)
+func set_tasks_for_night_by_index(night: int) -> void:
+	var tasks = TASKS_BY_NIGHT.get(night, [])
+	if typeof(tasks) != TYPE_ARRAY:
+		tasks = []
+	set_tasks_for_night(tasks)
+
+
 func get_tasks_not_done_num() -> int:
 	return TASK_NOT_DONE_NUM
 
 
 func _ready() -> void:
 	if TASKS_TO_DO.is_empty():
-		set_tasks_for_night(FIRST_NIGHT_TASKS)
+		set_tasks_for_night_by_index(1)
