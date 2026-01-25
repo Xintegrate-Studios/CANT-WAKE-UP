@@ -316,6 +316,8 @@ phase_switch_countdown_lbl = NodePath("../DebugLayer/debug/phaseswitchcountdown"
 [node name="PhaseSwitchCountdown" type="Timer" parent="ParalysisPhasePawn" unique_id=353991023]
 one_shot = true
 
+[node name="RealityDistortionPawn" type="Node3D" parent="ParalysisPhasePawn" unique_id=1655568349]
+
 [node name="BreathingMechanic" type="Node3D" parent="." unique_id=1079352358 node_paths=PackedStringArray("fails_lbl", "input_lbl", "breath_interval_time_left_lbl", "accuracy_gap_time_left_lbl", "accuracy_lbl", "average_accuracy_lbl", "init_timer", "breath_interval_timer", "accuracy_gap_timer")]
 script = ExtResource("2_nfile")
 fails_lbl = NodePath("../DebugLayer/debug/fails")
