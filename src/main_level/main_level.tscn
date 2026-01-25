@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ievyvlu1hso4" path="res://src/mechanics/breathing_mechanic.gd" id="2_nfile"]
 [ext_resource type="Texture2D" uid="uid://vksc2kydq5wf" path="res://ast/textures/roof.png" id="2_tw2e2"]
 [ext_resource type="Script" uid="uid://e407ms3hb3ko" path="res://src/mechanics/blinking_mechanic.gd" id="3_grjog"]
-[ext_resource type="Material" uid="uid://c2r1yycivh8p" path="res://src/main_level/distortion.tres" id="3_xonfo"]
+[ext_resource type="Material" uid="uid://c2r1yycivh8p" path="res://res/shader mat/distortion.tres" id="3_xonfo"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="5_n4qwq"]
 [ext_resource type="PackedScene" uid="uid://btgwnup08ywoy" path="res://ast/models/furniture/table/table.blend" id="6_5agnw"]
 [ext_resource type="PackedScene" uid="uid://cb4ibh01rqcpt" path="res://ast/actors/furniture/wardrobe/wardrobe.tscn" id="6_mbfot"]
@@ -308,7 +308,7 @@ emission = Color(1, 1, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_ybo0d"]
 material = SubResource("StandardMaterial3D_n0lbn")
 
-[node name="World" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
+[node name="World2" type="Node3D" unique_id=869210547 node_paths=PackedStringArray("bed", "paralysis_phase_actor", "breathing_mechanic", "blinking_mechanic", "blink_animations", "sleep_head", "sleep_camera")]
 script = ExtResource("1_3rixg")
 bed = NodePath("furniture/bed")
 paralysis_phase_actor = NodePath("ParalysisPhasePawn")
